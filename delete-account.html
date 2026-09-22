@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>인벨 계정 삭제 요청</title>
+<meta name="description" content="인벨(InBell) 계정 삭제 요청 방법과 삭제되는 정보">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1d1d76;
+    --navy-deep: #14144f;
+    --ink: #1c2230;
+    --ink-soft: #5a6275;
+    --white: #ffffff;
+    --gray: #f3f4f7;
+    --line: #e2e5ec;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Noto Sans KR", system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--white);
+    line-height: 1.75;
+    word-break: keep-all;
+    -webkit-font-smoothing: antialiased;
+  }
+  .top {
+    border-bottom: 1px solid var(--line);
+    padding: 14px 16px;
+  }
+  .top .inner, main, footer .inner { max-width: 760px; margin: 0 auto; }
+  .top .inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .logo { display: flex; align-items: center; gap: 8px; color: var(--navy); font-weight: 800; font-size: 18px; text-decoration: none; }
+  .logo svg { width: 28px; height: 28px; }
+  .home { color: var(--ink-soft); font-size: 14px; text-decoration: none; }
+  .home:hover { color: var(--navy); text-decoration: underline; }
+  main { padding: 40px 16px 72px; }
+  h1 { color: var(--navy); font-size: clamp(26px, 6vw, 34px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.3; }
+  .meta { color: var(--ink-soft); font-size: 14px; margin-top: 8px; }
+  .intro { margin-top: 24px; }
+  h2 { color: var(--navy); font-size: 20px; font-weight: 700; margin: 44px 0 12px; line-height: 1.4; }
+  h3 { color: var(--navy); font-size: 16px; font-weight: 700; margin: 24px 0 8px; }
+  p, li { font-size: 16px; }
+  p + p { margin-top: 10px; }
+  ul { padding-left: 20px; margin-top: 8px; }
+  li + li { margin-top: 4px; }
+  .quote { background: var(--gray); border-radius: 12px; padding: 16px 18px; }
+  .table-wrap { overflow-x: auto; margin-top: 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 480px; }
+  th, td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+  th { background: var(--gray); font-weight: 700; white-space: nowrap; }
+  a { color: var(--navy); }
+  footer { background: var(--navy-deep); color: rgba(255,255,255,0.7); text-align: center; font-size: 14px; padding: 36px 16px; }
+  footer .brand { color: var(--white); font-weight: 700; margin-bottom: 8px; }
+  footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+  footer a:hover { color: var(--white); text-decoration: underline; }
+  footer .sep { margin: 0 8px; opacity: 0.5; }
+  footer .mail { margin-top: 6px; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="inner">
+    <a class="logo" href="index.html">
+      <!-- 앱 아이콘(docs/brand/inbell_4_on_white.svg)과 같은 종 모양 -->
+      <svg viewBox="100 150 824 824" aria-hidden="true">
+        <defs><mask id="cut" maskUnits="userSpaceOnUse" x="0" y="0" width="1024" height="1200"><rect x="0" y="0" width="1024" height="1200" fill="#fff"/><polygon points="0,287 1024,1021 1024,1032 0,298" fill="#000"/></mask></defs>
+        <g mask="url(#cut)" fill="#1d1d76"><path d="M352 330 C340 480 306 620 196 742 L828 742 C718 620 684 480 672 330 A172 172 0 0 0 352 330 Z"/><path d="M150 742 H874 a24 24 0 0 1 24 24 v42 a24 24 0 0 1 -24 24 H150 a24 24 0 0 1 -24 -24 v-42 a24 24 0 0 1 24 -24 Z"/><circle cx="512" cy="876" r="88"/></g>
+      </svg>
+      인벨
+    </a>
+    <a class="home" href="index.html">← 인벨 홈으로</a>
+  </div>
+</header>
+
+<main>
+  <h1>인벨 계정 삭제 요청</h1>
+  <p class="meta">로그인 없이 누구나 볼 수 있는 안내입니다.</p>
+
+  <h2>1. 앱에서 삭제하는 방법</h2>
+  <div class="quote">
+    <p>인벨 앱 → 우측 상단 프로필 → 설정 → 회원 탈퇴 → 휴대폰 인증 후 삭제</p>
+  </div>
+
+  <h2>2. 앱 없이 요청하는 방법</h2>
+  <p><a href="mailto:help@inbell.co.kr">help@inbell.co.kr</a> 로 <strong>가입하신 휴대폰 번호</strong>와 함께 계정 삭제를 요청해 주세요. 본인 확인 후 처리합니다.</p>
+
+  <h2>3. 삭제되는 정보와 남는 정보</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>구분</th><th>항목</th></tr></thead>
+      <tbody>
+        <tr><th>삭제되는 정보</th><td>계정 정보(이름·휴대폰 번호·프로필 사진·이메일), 프로필 사진 파일, 푸시 알림 토큰, 휴대폰 인증 계정</td></tr>
+        <tr><th>학원에 남는 정보</th><td>출결·학습 기록. 이는 학원이 보관 의무를 지는 자료이며, 보관과 파기는 학원의 책임입니다.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="margin-top:12px">학원이 보관하는 서류의 법정 기간(학원법 기준)은 수강생대장 3년, 영수증 5년, 현금출납부 5년입니다. 학원에 남은 기록이 필요하시면 삭제 전에 학원에 요청해 주세요.</p>
+
+  <h2>4. 처리 기간</h2>
+  <ul>
+    <li>앱에서 회원 탈퇴를 하시면 그 자리에서 바로 삭제됩니다.</li>
+    <li>이메일로 요청하시면 본인 확인을 마친 뒤 처리합니다.</li>
+  </ul>
+
+  <p style="margin-top:32px">더 자세한 내용은 <a href="privacy.html">개인정보처리방침</a>을 참고해 주세요.</p>
+</main>
+
+<footer>
+  <div class="inner">
+    <div class="brand">인벨 · 지누리</div>
+    <div><a href="privacy.html">개인정보처리방침</a><span class="sep">|</span><a href="delete-account.html">계정 삭제 요청</a></div>
+    <div class="mail"><a href="mailto:help@inbell.co.kr">help@inbell.co.kr</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
