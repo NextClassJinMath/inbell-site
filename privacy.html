@@ -101,7 +101,7 @@
         <tr><th>구성원</th><td>역할(원장·선생님·학부모·학생), 상태, 학교, 학년, 보호자-학생 연결</td></tr>
         <tr><th>출결</th><td>날짜별 출결 상태, 등원·하원 시각, 지각·결석 예고(도착 예정 시각·사유·자유 입력), 지각 알림 발송 기록</td></tr>
         <tr><th>학습</th><td>숙제 미제출·불성실 기록과 메모, 수강 반과 기간, 개인 시간표, 보강·특강·휴강 일정과 메모</td></tr>
-        <tr><th>소통</th><td>채팅 대화 내용·이미지, 공지 본문과 읽음 기록, 발송된 알림의 제목·본문·읽은 시각</td></tr>
+        <tr><th>소통</th><td>채팅 대화 내용, 공지 본문과 읽음 기록, 발송된 알림의 제목·본문·읽은 시각</td></tr>
         <tr><th>기기</th><td>푸시 알림 토큰, 기기 종류</td></tr>
       </tbody>
     </table>
@@ -120,15 +120,16 @@
       <thead><tr><th>이전받는 곳</th><th>목적</th><th>항목</th><th>보유기간</th></tr></thead>
       <tbody>
         <tr><td>구글(파이어베이스)</td><td>휴대폰 인증</td><td>휴대폰 번호</td><td>회원 탈퇴 시까지(탈퇴 시 휴대폰 인증 계정 삭제)</td></tr>
-        <tr><td>구글(파이어베이스)</td><td>푸시 알림</td><td>알림 제목·본문</td><td>알림 전달에만 사용</td></tr>
+        <tr><td>구글(파이어베이스)</td><td>푸시 알림</td><td>알림 제목·본문, 기기 토큰</td><td>알림 전달에만 사용</td></tr>
       </tbody>
     </table>
   </div>
+  <p>푸시 알림을 위해 기기 토큰이 Google(Firebase Cloud Messaging)로 전송됩니다.</p>
 
   <h2>6. 보유와 파기</h2>
   <h3>회원 탈퇴 시 삭제되는 것</h3>
   <ul>
-    <li>계정 정보(이름·휴대폰 번호·프로필 사진·이메일)</li>
+    <li>계정 정보(이름·휴대폰 번호·프로필 사진)</li>
     <li>프로필 사진 파일</li>
     <li>푸시 알림 토큰</li>
     <li>휴대폰 인증 계정</li>
@@ -181,7 +182,7 @@
 
 <footer>
   <div class="inner">
-    <div class="brand">인벨 · 지누리</div>
+    <div class="brand">인벨</div>
     <div><a href="privacy.html">개인정보처리방침</a><span class="sep">|</span><a href="delete-account.html">계정 삭제 요청</a></div>
     <div class="mail"><a href="mailto:help@inbell.co.kr">help@inbell.co.kr</a></div>
   </div>
