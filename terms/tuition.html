@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>인벨 원비 서비스 이용약관</title>
+<meta name="description" content="인벨(InBell) 원비 서비스 이용약관 (판본 1 · 베타 기간 초안)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1d1d76;
+    --navy-deep: #14144f;
+    --ink: #1c2230;
+    --ink-soft: #5a6275;
+    --white: #ffffff;
+    --gray: #f3f4f7;
+    --line: #e2e5ec;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Noto Sans KR", system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--white);
+    line-height: 1.75;
+    word-break: keep-all;
+    -webkit-font-smoothing: antialiased;
+  }
+  .top {
+    border-bottom: 1px solid var(--line);
+    padding: 14px 16px;
+  }
+  .top .inner, main, footer .inner { max-width: 760px; margin: 0 auto; }
+  .top .inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .logo { display: flex; align-items: center; gap: 8px; color: var(--navy); font-weight: 800; font-size: 18px; text-decoration: none; }
+  .logo svg { width: 28px; height: 28px; }
+  .home { color: var(--ink-soft); font-size: 14px; text-decoration: none; }
+  .home:hover { color: var(--navy); text-decoration: underline; }
+  main { padding: 40px 16px 72px; }
+  h1 { color: var(--navy); font-size: clamp(26px, 6vw, 34px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.3; }
+  .meta { color: var(--ink-soft); font-size: 14px; margin-top: 8px; }
+  .intro { margin-top: 24px; }
+  h2 { color: var(--navy); font-size: 20px; font-weight: 700; margin: 44px 0 12px; line-height: 1.4; }
+  h3 { color: var(--navy); font-size: 16px; font-weight: 700; margin: 24px 0 8px; }
+  p, li { font-size: 16px; }
+  p + p { margin-top: 10px; }
+  ul { padding-left: 20px; margin-top: 8px; }
+  li + li { margin-top: 4px; }
+  .draft { background: #fff7e0; border: 1px solid #f0d58a; border-radius: 12px; padding: 12px 16px; font-size: 15px; font-weight: 500; margin-top: 16px; }
+  ol.sum { padding-left: 22px; margin-top: 12px; }
+  ol.sum li + li { margin-top: 10px; }
+  ol.sum .sub { display: block; color: var(--ink-soft); font-size: 15px; }
+  ol.terms { padding-left: 22px; margin-top: 8px; }
+  .quote { background: var(--gray); border-radius: 12px; padding: 16px 18px; }
+  .table-wrap { overflow-x: auto; margin-top: 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 480px; }
+  th, td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+  th { background: var(--gray); font-weight: 700; white-space: nowrap; }
+  a { color: var(--navy); }
+  footer { background: var(--navy-deep); color: rgba(255,255,255,0.7); text-align: center; font-size: 14px; padding: 36px 16px; }
+  footer .brand { color: var(--white); font-weight: 700; margin-bottom: 8px; }
+  footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+  footer a:hover { color: var(--white); text-decoration: underline; }
+  footer .sep { margin: 0 8px; opacity: 0.5; }
+  footer .mail { margin-top: 6px; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="inner">
+    <a class="logo" href="../">
+      <!-- 앱 아이콘(docs/brand/inbell_4_on_white.svg)과 같은 종 모양 -->
+      <svg viewBox="100 150 824 824" aria-hidden="true">
+        <defs><mask id="cut" maskUnits="userSpaceOnUse" x="0" y="0" width="1024" height="1200"><rect x="0" y="0" width="1024" height="1200" fill="#fff"/><polygon points="0,287 1024,1021 1024,1032 0,298" fill="#000"/></mask></defs>
+        <g mask="url(#cut)" fill="#1d1d76"><path d="M352 330 C340 480 306 620 196 742 L828 742 C718 620 684 480 672 330 A172 172 0 0 0 352 330 Z"/><path d="M150 742 H874 a24 24 0 0 1 24 24 v42 a24 24 0 0 1 -24 24 H150 a24 24 0 0 1 -24 -24 v-42 a24 24 0 0 1 24 -24 Z"/><circle cx="512" cy="876" r="88"/></g>
+      </svg>
+      인벨
+    </a>
+    <a class="home" href="../">← 인벨 홈으로</a>
+  </div>
+</header>
+
+<main>
+  <!-- 판본 1 · 앱 동의 화면(lib/tuition/tuition_terms_widget.dart) 4항목 + 전문(inbell 저장소 docs/business/약관_원비서비스_v1.md) · 세션 85-2 -->
+  <h1>원비 서비스 이용약관</h1>
+  <p class="meta">판본 1 · 시행일 ○○년 ○○월 ○○일</p>
+  <p class="draft">베타 기간 초안 · 정식 출시 전 변호사 검토 예정</p>
+
+  <h2>요약 — 앱에서 동의하는 네 가지</h2>
+  <ol class="sum">
+    <li><strong>청구 내용은 학원이 정해요</strong><span class="sub">금액·품목·받는 분은 원장님이 확인하고 보냅니다. 인벨은 청구서를 전달하고 기록을 보관하는 도구예요</span></li>
+    <li><strong>인벨은 자동으로 보내지 않아요</strong><span class="sub">매달 초안만 만들어 두고, 원장님이 확인을 눌러야 보내집니다</span></li>
+    <li><strong>받은 돈은 원장님이 기록해요</strong><span class="sub">학부모가 결제선생·카드 단말기·계좌이체·현금으로 낸 원비를 「수납처리」로 적습니다. 기록은 지우지 않고 취소로만 되돌려요</span></li>
+    <li><strong>영수증·현금영수증 발급은 학원 몫이에요</strong></li>
+  </ol>
+  <p style="margin-top:12px">아래 전문이 위 네 가지의 자세한 내용입니다.</p>
+
+  <h2>제1조 (목적)</h2>
+  <p>이 약관은 ○○(이하 「회사」)가 학원 행정 앱 「인벨」에서 제공하는 원비 서비스를 학원(학원의 원장 · 이하 「학원」)이 이용하는 데 필요한 조건과 절차, 회사와 학원의 권리·의무 및 책임 범위를 정하는 것을 목적으로 합니다.</p>
+
+  <h2>제2조 (정의)</h2>
+  <ol class="terms">
+    <li>「원비 서비스」란 학원이 인벨에서 교습비 청구서를 만들고 보내며, 미납을 표시하고, 수납 사실을 기록하고, 영수증과 수납 기록(원부)을 보관하는 기능을 말합니다.</li>
+    <li>「청구서」란 학원이 학생 한 명에 대하여 만든 교습비 청구 내용(품목 · 금액 · 마감일 등)을 말합니다.</li>
+    <li>「수납 기록」이란 학원이 교습비를 받은 사실(받은 날 · 받은 방법 · 금액 · 현금영수증 발급 여부 등)을 인벨에 적은 기록을 말합니다.</li>
+    <li>「보호자」란 학원이 학생과 연결한 인벨 사용자로서 청구서를 받는 사람을 말합니다.</li>
+    <li>「결제」는 이 판본에서 제공하지 않습니다. 결제 기능은 이 약관의 다음 판본(결제 조항 추가 판본)에서 정의합니다.</li>
+  </ol>
+
+  <h2>제3조 (서비스의 성격)</h2>
+  <ol class="terms">
+    <li>회사는 학원이 작성한 청구 내용을 보호자에게 전달하고 그 기록을 보관하는 <strong>도구</strong>를 제공합니다.</li>
+    <li>교습비의 금액 · 내용 · 청구 대상의 결정과 그 정확성, 그리고 교습비와 관련된 법령(학원의 설립·운영 및 과외교습에 관한 법률 등)상 의무는 <strong>학원의 책임</strong>입니다.</li>
+    <li>회사는 학원과 보호자 사이의 교습 계약의 당사자가 아닙니다.</li>
+  </ol>
+
+  <h2>제4조 (청구서 발송)</h2>
+  <ol class="terms">
+    <li>청구서는 <strong>학원이 내용을 확인한 뒤</strong> 보내기를 눌러야 발송됩니다. 회사는 학원의 확인 없이 청구서를 자동으로 발송하지 않습니다(매달 자동으로 만들어지는 청구서는 「초안」이며, 발송 전까지 보호자에게 보이지 않습니다).</li>
+    <li>발송된 청구서는 고칠 수 없습니다. 내용을 바꾸려면 학원이 그 청구서를 파기하고 새 청구서를 보냅니다.</li>
+    <li>학원은 발송 시각을 미리 정해 둘 수 있으며(예약), 정한 시각에 발송됩니다.</li>
+  </ol>
+
+  <h2>제5조 (수납 기록)</h2>
+  <ol class="terms">
+    <li>학원이 인벨에 적는 수납 기록은 <strong>학원의 장부 기록</strong>이며, 회사는 그 사실관계(실제로 돈을 받았는지 등)를 보증하지 않습니다.</li>
+    <li>수납 기록은 지워지지 않습니다. 잘못 적은 기록은 <strong>취소 기록을 더하는 방식으로만</strong> 되돌리며, 원래 기록과 취소 기록은 함께 보관됩니다.</li>
+    <li>수납 기록은 교습비 영수증 원부로서 <strong>5년간</strong> 보관됩니다.</li>
+  </ol>
+
+  <h2>제6조 (영수증 · 현금영수증)</h2>
+  <ol class="terms">
+    <li>인벨 안에서 보호자가 보는 영수증은 <strong>학원이 발급하는 교습비 영수증</strong>이며, 학습자 성명 · 교습과목 · 교습기간 · 금액 · 학원 정보(학원 이름 · 사업자등록번호 · 학원등록번호)를 표시합니다. 표시되는 학원 정보의 정확성은 학원의 책임입니다.</li>
+    <li>현금영수증의 발급 의무와 발급 책임은 <strong>학원</strong>에 있습니다. 인벨의 현금영수증 칸(발급함 · 자진발급 · 나중에)은 학원이 발급 여부를 기록하는 칸이며, 회사가 현금영수증을 대신 발급하지 않습니다.</li>
+  </ol>
+
+  <h2>제7조 (알림)</h2>
+  <ol class="terms">
+    <li>청구서와 재발송은 앱 푸시 알림으로 보내며, 학원에 별도 발송 비용을 받지 않습니다.</li>
+    <li>보호자가 앱을 설치하지 않았거나 알림을 끈 경우, 기기·통신 사정이 있는 경우에는 알림이 전달되지 않을 수 있습니다. 학원은 인벨 화면에서 알림이 닿지 않는 보호자를 확인할 수 있습니다.</li>
+    <li>앱을 설치하지 않은 보호자에게 문자로 대신 보내는 기능은 이 판본에서 제공하지 않으며, 제공하게 되면 별도 조항으로 정합니다.</li>
+  </ol>
+
+  <h2>제8조 (책임의 제한)</h2>
+  <ol class="terms">
+    <li>회사는 회사의 고의 또는 중대한 과실이 없는 한, 청구 내용의 오류 · 미납 · 학원과 보호자 사이의 분쟁으로 생긴 손해에 대하여 책임지지 않습니다. <strong>(법률 검토 필요 항목)</strong></li>
+    <li>회사는 서비스 장애를 줄이도록 노력하며, 장애가 있으면 인벨 공지로 알립니다.</li>
+    <li>학원은 인벨이 일시적으로 쓸 수 없는 경우에 대비하여 다른 수납·안내 수단을 유지합니다.</li>
+  </ol>
+
+  <h2>제9조 (자료 보관 · 내보내기)</h2>
+  <ol class="terms">
+    <li>청구서 · 수납 기록 · 취소 기록은 제5조 제3항의 기간 동안 보관됩니다.</li>
+    <li>학원은 인벨의 자료 내보내기 기능으로 자기 학원의 자료를 받을 수 있습니다.</li>
+    <li>학원이 인벨 이용을 끝내거나 학원을 닫는 경우의 자료 처리는 회사의 개인정보 처리방침과 법령이 정한 보관 의무를 따릅니다. 보관 의무가 있는 기간에는 자료를 지우지 않습니다.</li>
+  </ol>
+
+  <h2>제10조 (약관의 변경 · 동의)</h2>
+  <ol class="terms">
+    <li>회사는 약관을 바꿀 때 새 판본을 인벨과 이 페이지에 알립니다.</li>
+    <li>새 판본이 나오면 학원은 다시 동의해야 원비 서비스를 계속 쓸 수 있습니다. 동의하지 않으면 원비 기능은 잠기며(입구는 보이되 「약관 동의 후 사용」), 이미 보관된 자료는 제9조에 따라 보관됩니다.</li>
+    <li>동의는 학원 단위로 하되, <strong>학원의 원장이 바뀌면 새 원장이 처음 원비 서비스를 열 때 다시 동의</strong>해야 합니다.</li>
+    <li>회사는 동의한 사람 · 학원 · 약관 종류 · 판본 · 일시 · 기기를 기록합니다.</li>
+  </ol>
+
+  <h2>부칙</h2>
+  <p>이 약관은 ○○년 ○○월 ○○일부터 시행합니다.</p>
+  <p>회사: ○○ · 주소 ○○ · 대표 ○○ · 사업자등록번호 ○○ · 문의 ○○</p>
+</main>
+
+<footer>
+  <div class="inner">
+    <div class="brand">인벨</div>
+    <div><a href="../privacy.html">개인정보처리방침</a><span class="sep">|</span><a href="../delete-account.html">계정 삭제 요청</a></div>
+    <div class="mail"><a href="mailto:help@inbell.co.kr">help@inbell.co.kr</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
