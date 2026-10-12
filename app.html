@@ -4,100 +4,255 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>인벨 앱 설치 안내</title>
-<meta name="description" content="인벨(InBell) 앱 설치 안내 — 비공개 테스트 참여 방법">
+<title>인벨 앱 안내</title>
+<meta name="description" content="등원·하원 알림과 공지를 앱으로 받아 보세요">
+<!-- 카톡 미리 보기(OG) — 정적 페이지라 학원 이름은 OG 에 못 넣는다(미리 보기 로봇은 스크립트를 돌리지 않음 · 추정) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="인벨 앱 안내">
+<meta property="og:description" content="등원·하원 알림과 공지를 앱으로 받아 보세요">
+<meta property="og:image" content="https://inbell.co.kr/inbell_logo.png">
+<meta property="og:url" content="https://inbell.co.kr/app">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+<!-- 문구·모양 = 저장소 inbell docs/spec/공통디자인_설계_v1.md 8절 · 로고·종 = docs/brand SVG 값 그대로 -->
+<!-- 주소: /app?a=<학원 이름> · &print = A4 안내장 · &greet=<인사 글> -->
 <style>
+  /* 한 장 · 위 남색 띠 → 회색 카드 목록(휴대폰) / A4 한 장(print) — 한 가지 밝은 모양만 씀 */
   :root {
+    color-scheme: light;
     --navy: #1d1d76;
-    --navy-deep: #14144f;
-    --ink: #1c2230;
-    --ink-soft: #5a6275;
+    --navy-a: #15155e;
+    --navy-c: #3a3aa6;
+    --ink: #1a1a2e;
+    --soft: #64748b;
+    --card: #f1f3f9;
+    --tint: #eef0fb;
     --white: #ffffff;
-    --gray: #f3f4f7;
-    --line: #e2e5ec;
+    --black: #111111;
+    --desk: #e6e8ef;
+    --font: "Noto Sans KR", system-ui, -apple-system, "Apple SD Gothic Neo", sans-serif;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: "Noto Sans KR", system-ui, -apple-system, sans-serif;
-    color: var(--ink);
-    background: var(--white);
-    line-height: 1.75;
-    word-break: keep-all;
-    -webkit-font-smoothing: antialiased;
-  }
-  .top {
-    border-bottom: 1px solid var(--line);
-    padding: 14px 16px;
-  }
-  .top .inner, main, footer .inner { max-width: 760px; margin: 0 auto; }
-  .top .inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-  .logo { display: flex; align-items: center; gap: 8px; color: var(--navy); font-weight: 800; font-size: 18px; text-decoration: none; }
-  .logo svg { width: 28px; height: 28px; }
-  .home { color: var(--ink-soft); font-size: 14px; text-decoration: none; }
-  .home:hover { color: var(--navy); text-decoration: underline; }
-  main { padding: 40px 16px 72px; }
-  h1 { color: var(--navy); font-size: clamp(26px, 6vw, 34px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.3; }
-  .meta { color: var(--ink-soft); font-size: 14px; margin-top: 8px; }
-  .intro { margin-top: 24px; }
-  h2 { color: var(--navy); font-size: 20px; font-weight: 700; margin: 44px 0 12px; line-height: 1.4; }
-  h3 { color: var(--navy); font-size: 16px; font-weight: 700; margin: 24px 0 8px; }
-  p, li { font-size: 16px; }
-  p + p { margin-top: 10px; }
-  ul { padding-left: 20px; margin-top: 8px; }
-  li + li { margin-top: 4px; }
-  .quote { background: var(--gray); border-radius: 12px; padding: 16px 18px; }
-  .table-wrap { overflow-x: auto; margin-top: 12px; }
-  table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 480px; }
-  th, td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
-  th { background: var(--gray); font-weight: 700; white-space: nowrap; }
+  body { font-family: var(--font); color: var(--ink); background: var(--white); line-height: 1.6; word-break: keep-all; -webkit-font-smoothing: antialiased; }
   a { color: var(--navy); }
-  footer { background: var(--navy-deep); color: rgba(255,255,255,0.7); text-align: center; font-size: 14px; padding: 36px 16px; }
-  footer .brand { color: var(--white); font-weight: 700; margin-bottom: 8px; }
-  footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
-  footer a:hover { color: var(--white); text-decoration: underline; }
-  footer .sep { margin: 0 8px; opacity: 0.5; }
-  footer .mail { margin-top: 6px; }
+  svg { display: block; }
+  .band { background: linear-gradient(135deg, var(--navy-a) 0%, var(--navy) 50%, var(--navy-c) 100%); color: var(--white); position: relative; overflow: hidden; }
+  .bell-bg { position: absolute; opacity: .13; pointer-events: none; }
+  .logo { display: flex; align-items: center; gap: 8px; font-weight: 800; }
+  .logo .tile { border-radius: 26%; overflow: hidden; flex: none; }
+  .pill { background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.28); border-radius: 999px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  h1 { font-weight: 800; letter-spacing: -0.02em; line-height: 1.3; text-wrap: balance; }
+
+  /* ── 휴대폰 안내 ── */
+  .web .band { padding: 18px 20px 30px; }
+  .web .bell-bg { width: 150px; height: 150px; right: -14px; top: 6px; }
+  .web .top { display: flex; align-items: center; justify-content: space-between; gap: 12px; position: relative; }
+  .web .logo { font-size: 17px; }
+  .web .logo .tile { width: 28px; height: 28px; }
+  .web .pill { font-size: 13px; padding: 4px 12px; max-width: 55%; }
+  .web .from { margin-top: 26px; font-size: 13px; color: rgba(255,255,255,.78); position: relative; }
+  .web h1 { margin-top: 26px; font-size: clamp(25px, 7vw, 32px); position: relative; }
+  .web .from + h1 { margin-top: 6px; }
+  .web .lead { margin-top: 10px; font-size: 15px; color: rgba(255,255,255,.85); position: relative; }
+  .web main { max-width: 560px; margin: 0 auto; padding: 24px 20px 40px; display: flex; flex-direction: column; gap: 32px; }
+  .web h2 { font-size: 18px; font-weight: 800; color: var(--ink); margin-bottom: 12px; }
+  .gains { display: grid; gap: 10px; }
+  .gain { background: var(--card); border-radius: 14px; padding: 14px 16px; display: grid; grid-template-columns: 40px 1fr; gap: 12px; align-items: center; }
+  .gain > div { min-width: 0; }
+  .ico { width: 40px; height: 40px; border-radius: 12px; background: var(--white); display: grid; place-items: center; }
+  .ico svg { width: 22px; height: 22px; fill: var(--navy); }
+  .gain b { display: block; font-size: 15px; font-weight: 700; }
+  .gain span { display: block; font-size: 13px; color: var(--soft); line-height: 1.5; }
+  .steps { list-style: none; display: grid; gap: 14px; }
+  .step { display: grid; grid-template-columns: 28px 1fr; gap: 12px; }
+  .num { width: 28px; height: 28px; border-radius: 50%; background: var(--navy); color: var(--white); font-size: 14px; font-weight: 700; display: grid; place-items: center; font-variant-numeric: tabular-nums; }
+  .step b { display: block; font-size: 15px; font-weight: 700; line-height: 28px; }
+  .step div > span { display: block; font-size: 14px; color: var(--soft); line-height: 1.55; }
+  .step div > .note { margin-top: 4px; font-size: 13px; }
+  .stores { display: grid; gap: 10px; }
+  .store { display: flex; align-items: center; justify-content: center; gap: 10px; height: 54px; border-radius: 14px; background: var(--black); color: var(--white); text-decoration: none; font-size: 16px; font-weight: 700; }
+  .store svg { width: 22px; height: 22px; fill: var(--white); }
+  .store:focus-visible, summary:focus-visible { outline: 3px solid var(--navy-c); outline-offset: 2px; }
+  .faq { display: grid; gap: 8px; }
+  details { background: var(--card); border-radius: 12px; padding: 0 16px; }
+  summary { cursor: pointer; list-style: none; padding: 14px 0; font-size: 15px; font-weight: 600; display: flex; justify-content: space-between; gap: 12px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "⌄"; color: var(--soft); transition: transform .15s; }
+  details[open] summary::after { transform: rotate(180deg); }
+  details p { padding: 0 0 14px; font-size: 14px; color: var(--soft); }
+  .foot { font-size: 13px; color: var(--soft); text-align: center; line-height: 1.7; }
+  @media (prefers-reduced-motion: reduce) { summary::after { transition: none; } }
+
+  /* ── A4 안내장(&print) — 글자·여백은 종이 폭 기준(cqw) ── */
+  body.paper { background: var(--desk); }
+  .desk { padding: 24px 16px; display: flex; justify-content: center; }
+  .sheet { width: 100%; max-width: 640px; aspect-ratio: 595 / 842; background: var(--white); box-shadow: 0 6px 24px rgba(26,26,46,.18); container-type: inline-size; overflow: hidden; display: flex; flex-direction: column; }
+  .sheet .band { height: 28%; flex: none; padding: 4cqw 7cqw 0; }
+  .sheet .bell-bg { width: 38cqw; height: 38cqw; right: -3cqw; top: 2cqw; }
+  .sheet .top { display: flex; justify-content: space-between; align-items: center; gap: 3cqw; position: relative; }
+  .sheet .logo { font-size: 3.4cqw; gap: 1.6cqw; }
+  .sheet .logo .tile { width: 5.2cqw; height: 5.2cqw; }
+  .sheet .pill { font-size: 2.3cqw; padding: .7cqw 2.4cqw; max-width: 50%; }
+  .sheet h1 { margin-top: 2.6cqw; font-size: 5.6cqw; position: relative; }
+  .sheet .lead { margin-top: 1cqw; font-size: 2.5cqw; color: rgba(255,255,255,.85); position: relative; }
+  .sheet .stamp { margin-top: .8cqw; font-size: 2.1cqw; color: rgba(255,255,255,.7); position: relative; }
+  .sheet .body { flex: 1; display: flex; flex-direction: column; padding: 0 7cqw; gap: 2.2cqw; }
+  .greet { margin-top: -3cqw; position: relative; background: var(--white); border-radius: 2.4cqw; box-shadow: 0 .6cqw 2.4cqw rgba(26,26,46,.14); padding: 2.8cqw 3.6cqw; font-size: 2.35cqw; line-height: 1.65; white-space: pre-line; }
+  .sheet h2 { font-size: 2.8cqw; font-weight: 800; margin-bottom: 1.4cqw; }
+  .sheet .gains { grid-template-columns: 1fr 1fr; gap: 1.6cqw; }
+  .sheet .gain { grid-template-columns: 6cqw 1fr; gap: 2cqw; padding: 2cqw 2.4cqw; border-radius: 2cqw; }
+  .sheet .ico { width: 6cqw; height: 6cqw; border-radius: 1.8cqw; }
+  .sheet .ico svg { width: 3.6cqw; height: 3.6cqw; }
+  .sheet .gain b { font-size: 2.1cqw; line-height: 1.4; }
+  .sheet .gain span { font-size: 1.85cqw; line-height: 1.45; }
+  .row { display: grid; grid-template-columns: 1fr 19cqw; gap: 3cqw; align-items: stretch; }
+  .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.6cqw; }
+  .flow li { list-style: none; background: var(--card); border-radius: 1.8cqw; padding: 1.8cqw 1.5cqw; position: relative; min-width: 0; }
+  .flow li + li::before { content: "›"; position: absolute; left: -1.6cqw; top: 50%; width: 1.6cqw; text-align: center; transform: translateY(-50%); font-size: 2.6cqw; color: var(--soft); }
+  .flow .num { width: 4.4cqw; height: 4.4cqw; font-size: 2.2cqw; }
+  .flow b { display: block; margin-top: 1.2cqw; font-size: 2.05cqw; line-height: 1.35; }
+  .flow li > span:not(.num) { display: block; margin-top: .5cqw; font-size: 1.6cqw; color: var(--soft); line-height: 1.4; }
+  .qr { background: var(--navy); color: var(--white); border-radius: 2.4cqw; padding: 2cqw; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.6cqw; text-align: center; }
+  .qr .code { background: var(--white); padding: 1.2cqw; border-radius: 1.4cqw; width: 13cqw; height: 13cqw; }
+  .qr .code img, .qr .code canvas { width: 100% !important; height: 100% !important; display: block; }
+  .qr p { font-size: 1.75cqw; line-height: 1.4; }
+  .bottom { margin: auto -7cqw 0; background: var(--tint); padding: 2cqw 7cqw 2.4cqw; display: grid; gap: .3cqw; font-size: 1.7cqw; line-height: 1.5; color: var(--ink); }
+  .bottom .q b { font-weight: 700; }
+  .bottom .q span { color: var(--soft); }
+  .bottom .end { margin-top: .8cqw; display: flex; justify-content: space-between; gap: 2cqw; color: var(--soft); }
+  .bottom .end b { color: var(--navy); }
+  @page { size: A4 portrait; margin: 0; }
+  @media print {
+    body.paper { background: var(--white); }
+    .desk { padding: 0; display: block; }
+    .sheet { max-width: none; width: 210mm; height: 297mm; aspect-ratio: auto; box-shadow: none; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
 </style>
 </head>
 <body>
 
-<header class="top">
-  <div class="inner">
-    <a class="logo" href="index.html">
-      <!-- 앱 아이콘(docs/brand/inbell_4_on_white.svg)과 같은 종 모양 -->
-      <svg viewBox="100 150 824 824" aria-hidden="true">
-        <defs><mask id="cut" maskUnits="userSpaceOnUse" x="0" y="0" width="1024" height="1200"><rect x="0" y="0" width="1024" height="1200" fill="#fff"/><polygon points="0,287 1024,1021 1024,1032 0,298" fill="#000"/></mask></defs>
-        <g mask="url(#cut)" fill="#1d1d76"><path d="M352 330 C340 480 306 620 196 742 L828 742 C718 620 684 480 672 330 A172 172 0 0 0 352 330 Z"/><path d="M150 742 H874 a24 24 0 0 1 24 24 v42 a24 24 0 0 1 -24 24 H150 a24 24 0 0 1 -24 -24 v-42 a24 24 0 0 1 24 -24 Z"/><circle cx="512" cy="876" r="88"/></g>
-      </svg>
-      인벨
-    </a>
-    <a class="home" href="index.html">← 인벨 홈으로</a>
-  </div>
-</header>
+<!-- 공식 로고 A판(inbell_A_white) · 흰 종(1번 종·음영 #d6d6e6) — docs/brand 값 그대로 -->
+<template id="logoA"><svg viewBox="0 80 1024 1024" width="100%" height="100%" aria-hidden="true"><defs><clipPath id="LID"><path d="M352 330 C340 480 306 620 196 742 L828 742 C718 620 684 480 672 330 A172 172 0 0 0 352 330 Z"/><path d="M150 742 H874 a24 24 0 0 1 24 24 v42 a24 24 0 0 1 -24 24 H150 a24 24 0 0 1 -24 -24 v-42 a24 24 0 0 1 24 -24 Z"/><circle cx="512" cy="876" r="88"/></clipPath></defs><rect x="0" y="80" width="1024" height="1024" fill="#ffffff"/><g clip-path="url(#LID)"><rect x="0" y="0" width="1024" height="1200" fill="#1d1d76"/><polygon points="0,287 1024,1021 1024,1200 0,1200" fill="#46479d"/></g></svg></template>
+<template id="bellW"><svg viewBox="100 150 824 824" width="100%" height="100%" aria-hidden="true"><defs><clipPath id="LID"><path d="M352 330 C340 480 306 620 196 742 L828 742 C718 620 684 480 672 330 A172 172 0 0 0 352 330 Z"/><path d="M150 742 H874 a24 24 0 0 1 24 24 v42 a24 24 0 0 1 -24 24 H150 a24 24 0 0 1 -24 -24 v-42 a24 24 0 0 1 24 -24 Z"/><circle cx="512" cy="876" r="88"/></clipPath></defs><g clip-path="url(#LID)"><rect x="0" y="0" width="1024" height="1200" fill="#ffffff"/><polygon points="0,287 1024,1021 1024,1200 0,1200" fill="#d6d6e6"/></g></svg></template>
 
-<main>
-  <!-- 문구 = 저장소 inbell docs/학원홈_재설계_v1.md 14절. 정식 출시 뒤 아래 .quote 자리를 스토어 링크로 바꾼다. -->
-  <h1>인벨 앱 설치 안내</h1>
+<div id="root"></div>
 
-  <div class="quote intro">
-    <p>인벨은 지금 비공개 테스트 중이에요.</p>
-    <p>학원에서 초대 문자를 받으셨다면, 원장님께 테스터 참여 링크를 요청해 주세요. 참여 뒤 Google Play 에서 「인벨」을 설치할 수 있어요.</p>
-    <p>정식 출시 뒤에는 이 페이지에서 바로 설치할 수 있어요.</p>
-  </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+(function () {
+  // 스토어 주소 — App Store 앱 번호는 아직 미확인(심사 통과 뒤 채움 · 그때까지 검색 주소)
+  var PLAY = 'https://play.google.com/store/apps/details?id=com.jinuri.inbell';
+  var APPSTORE = 'https://apps.apple.com/kr/search?term=%EC%9D%B8%EB%B2%A8';
+  var PRIVACY = 'https://inbell.co.kr/privacy.html';
 
-  <p style="margin-top:32px">문의 <a href="mailto:help@inbell.co.kr">help@inbell.co.kr</a></p>
-</main>
+  var q = new URLSearchParams(window.__INBELL_QS || location.search);
+  var aca = (q.get('a') || '').trim().slice(0, 40);
+  var isPrint = q.has('print');
+  var greetIn = (q.get('greet') || '').trim().slice(0, 400);
 
-<footer>
-  <div class="inner">
-    <div class="brand">인벨</div>
-    <div><a href="privacy.html">개인정보처리방침</a><span class="sep">|</span><a href="delete-account.html">계정 삭제 요청</a></div>
-    <div class="mail"><a href="mailto:help@inbell.co.kr">help@inbell.co.kr</a></div>
-  </div>
-</footer>
+  function esc(s) { return s.replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  // 받침 있으면 「이」, 없으면 「가」
+  function iga(w) { var c = w.charCodeAt(w.length - 1); return (c >= 0xAC00 && c <= 0xD7A3 && (c - 0xAC00) % 28 === 0) ? '가' : '이'; }
+  var uid = 0;
+  function svg(id) { uid++; return document.getElementById(id).innerHTML.replace(/LID/g, 'c' + id + uid); }
 
+  var I = {
+    door: 'M19 19V5c0-1.1-.9-2-2-2H7c-1.1 0-2 .9-2 2v14H3v2h18v-2h-2zm-2 0H7V5h10v14zm-4-8h2v2h-2z',
+    run: 'M13.49 5.48c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-3.6 13.9l1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3c1.3 1.5 3.3 2.5 5.5 2.5v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1l-5.2 2.2v4.7h2v-3.4l1.8-.7-1.6 8.1-4.9-1-.4 2 7 1.4z',
+    clock: 'M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z',
+    cal: 'M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z',
+    play: 'M3.6 2.2c-.3.3-.4.7-.4 1.2v17.2c0 .5.1.9.4 1.2l9.7-9.8-9.7-9.8zm10.8 10.9 2.6 2.6-11.1 6.3 8.5-8.9zm0-2.2L5.9 2l11.1 6.3-2.6 2.6zm3.9-1.8 3 1.7c.9.5.9 1.8 0 2.3l-3 1.7-2.9-2.9 2.9-2.8z',
+    apple: 'M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1.1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.1.1 2.3-.6 3-1.5z'
+  };
+  function ico(k) { return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="' + I[k] + '"/></svg>'; }
+
+  var GAINS = [
+    ['door', '등원·하원 알림', '아이가 학원에 들어가고 나올 때 바로 알려 드려요'],
+    ['run', '지각·결석·조퇴, 앱에서 바로 알려요', '전화하지 않아도 버튼 하나면 학원에 전해져요'],
+    ['clock', '출발 알림 · 숙제 시작 알림', '학원 갈 시간, 숙제 할 시간을 정해 두면 아이 폰에 알려요'],
+    ['cal', '공지·일정 한 곳에', '시험·특강·휴원 안내를 놓치지 않아요']
+  ];
+  var FAQ = [
+    ['아이 폰이 없어도 되나요?', '네. 보호자님 폰만으로 등원·하원 알림과 공지를 받으실 수 있어요.'],
+    ['아버지도 같이 받을 수 있나요?', '학원에 번호를 알려 주시면 두 분 모두 받으실 수 있어요.'],
+    ['비용이 드나요?', '없어요. 학원이 보내는 알림과 공지는 무료예요.']
+  ];
+  function gainsHtml() {
+    return '<div class="gains">' + GAINS.map(function (g) {
+      return '<div class="gain"><div class="ico">' + ico(g[0]) + '</div><div><b>' + g[1] + '</b><span>' + g[2] + '</span></div></div>';
+    }).join('') + '</div>';
+  }
+  var A = aca ? esc(aca) : '';
+  var pillHtml = aca ? '<span class="pill">' + A + '</span>' : '';
+  var topHtml = '<div class="top"><div class="logo"><span class="tile">' + svg('logoA') + '</span>인벨</div>' + pillHtml + '</div>';
+  var bellHtml = '<div class="bell-bg">' + svg('bellW') + '</div>';
+  var link = 'https://inbell.co.kr/app' + (aca ? '?a=' + encodeURIComponent(aca) : '');
+
+  if (!isPrint) {
+    if (aca) document.title = aca + ' · 인벨 앱 안내';
+    var ios = /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    var gp = '<a class="store" href="' + PLAY + '" target="_blank" rel="noopener">' + ico('play') + 'Google Play</a>';
+    var as = '<a class="store" href="' + APPSTORE + '" target="_blank" rel="noopener">' + ico('apple') + 'App Store</a>';
+    document.body.className = 'web';
+    document.getElementById('root').innerHTML =
+      '<header class="band">' + bellHtml + topHtml +
+        (aca ? '<p class="from">' + A + iga(aca) + ' 인벨로 알려 드려요</p>' : '') +
+        '<h1>이제 학원 소식은<br>인벨로 받아 보세요</h1>' +
+        '<p class="lead">등원·하원부터 공지까지, 앱 하나로 빠짐없이</p>' +
+      '</header>' +
+      '<main>' +
+        '<section>' + gainsHtml() + '</section>' +
+        '<section><h2>이렇게 시작해요</h2><ol class="steps">' +
+          '<li class="step"><span class="num">1</span><div><b>앱 받기</b><span>아래 버튼으로 인벨을 설치해요</span></div></li>' +
+          '<li class="step"><span class="num">2</span><div><b>휴대폰 번호로 로그인</b><span>번호를 넣으면 인증번호 문자가 와요. 비밀번호는 없어요</span></div></li>' +
+          '<li class="step"><span class="num">3</span><div><b>학원 초대 수락</b><span>로그인하면 학원 초대장이 보여요. 「수락」을 누르면 연결돼요</span><span class="note">초대장이 안 보이면 학원에 알려 주세요</span></div></li>' +
+          '<li class="step"><span class="num">4</span><div><b>자녀 등록 동의</b><span>자녀도 쓰려면 이어서 한 번만 동의해 주세요. 그러면 자녀 폰에도 초대장이 가요</span></div></li>' +
+        '</ol></section>' +
+        '<section class="stores">' + (ios ? as + gp : gp + as) + '</section>' +
+        '<section class="faq">' + FAQ.map(function (f) { return '<details><summary>' + f[0] + '</summary><p>' + f[1] + '</p></details>'; }).join('') + '</section>' +
+        '<p class="foot">학원이 등록한 이름·번호만 쓰고, 학원을 그만두면 앱에서 사라져요 · <a href="' + PRIVACY + '" target="_blank" rel="noopener">개인정보 처리방침</a></p>' +
+      '</main>';
+    return;
+  }
+
+  // ── A4 안내장 ──
+  var now = new Date();
+  var stamp = (aca ? A + ' · ' : '') + now.getFullYear() + '년 ' + (now.getMonth() + 1) + '월';
+  var greet = greetIn ? esc(greetIn) :
+    (aca ? '안녕하세요, ' + A + '입니다. ' : '안녕하세요. ') +
+    "아이들의 등원·하원과 학원 소식을 더 정확하게 전해 드리려고 '인벨' 앱을 쓰기 시작합니다. 아래 안내를 보시고 설치해 주시면 감사하겠습니다.";
+  if (aca) document.title = aca + ' · 인벨 안내장';
+  document.body.className = 'paper';
+  document.getElementById('root').innerHTML =
+    '<div class="desk"><article class="sheet">' +
+      '<header class="band">' + bellHtml + topHtml +
+        '<h1>이제 학원 소식은<br>인벨로 받아 보세요</h1>' +
+        '<p class="lead">등원·하원부터 공지까지, 앱 하나로 빠짐없이</p>' +
+        '<p class="stamp">' + stamp + '</p>' +
+      '</header>' +
+      '<div class="body">' +
+        '<div class="greet">' + greet + '</div>' +
+        '<section><h2>학부모님께 이런 점이 좋아져요</h2>' + gainsHtml() + '</section>' +
+        '<section><h2>이렇게 시작해요</h2><div class="row"><ol class="flow">' +
+          '<li><span class="num">1</span><b>앱 받기</b><span>QR을 찍어 설치해요</span></li>' +
+          '<li><span class="num">2</span><b>번호로 로그인</b><span>인증번호 문자 · 비밀번호 없음</span></li>' +
+          '<li><span class="num">3</span><b>초대 수락</b><span>학원 초대장에서 「수락」</span></li>' +
+          '<li><span class="num">4</span><b>자녀 등록 동의</b><span>자녀 폰에도 초대장이 가요</span></li>' +
+        '</ol><div class="qr"><div class="code" id="qr"></div><p>휴대폰 카메라로<br>찍어 보세요</p></div></div></section>' +
+        '<footer class="bottom">' +
+          FAQ.map(function (f) { return '<div class="q"><b>' + f[0] + '</b> <span>' + f[1] + '</span></div>'; }).join('') +
+          '<div class="end"><span>학원이 등록한 이름·번호만 쓰고, 학원을 그만두면 앱에서 사라져요 · 문의 · ' + (aca ? A : '다니시는 학원') + '</span><b>inbell.co.kr</b></div>' +
+        '</footer>' +
+      '</div>' +
+    '</article></div>';
+  try {
+    new QRCode(document.getElementById('qr'), { text: link, width: 256, height: 256, colorDark: '#1d1d76', colorLight: '#ffffff', correctLevel: QRCode.CorrectLevel.M });
+  } catch (e) {
+    document.getElementById('qr').textContent = 'inbell.co.kr/app';
+  }
+})();
+</script>
 </body>
 </html>
