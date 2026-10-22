@@ -1,285 +1,154 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<title>인벨 — 학원 업무 서비스 앱</title>
-<meta name="description" content="지각 자동 대응, 연락처 비공개 상담, 학습 이력 자동 기록, 보강 시간 계산. 학원 업무 서비스 앱 인벨.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --navy: #1d1d76;
-    --navy-deep: #14144f;
-    --ink: #1c2230;
-    --ink-soft: #5a6275;
-    --white: #ffffff;
-    --gray: #f3f4f7;
-    --line: #e2e5ec;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: "Noto Sans KR", system-ui, -apple-system, sans-serif;
-    color: var(--ink);
-    background: var(--white);
-    line-height: 1.6;
-    word-break: keep-all;
-    -webkit-font-smoothing: antialiased;
-  }
-  section, footer { padding: 72px 16px; }
-  .wrap { max-width: 880px; margin: 0 auto; }
-  h2 {
-    font-size: clamp(24px, 5vw, 32px);
-    font-weight: 800;
-    text-align: center;
-    margin-bottom: 40px;
-    letter-spacing: -0.02em;
-  }
-
-  /* 구역 1 — 남색 */
-  .hero {
-    background: var(--navy);
-    color: var(--white);
-    text-align: center;
-    padding: 96px 16px 88px;
-  }
-  .hero svg { width: 88px; height: 88px; margin-bottom: 20px; }
-  .hero h1 {
-    font-size: clamp(44px, 11vw, 64px);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    line-height: 1.1;
-  }
-  .hero p {
-    margin-top: 14px;
-    font-size: clamp(17px, 4vw, 20px);
-    opacity: 0.85;
-  }
-
-  /* 구역 2 — 흰색 */
-  .features { background: var(--white); }
-  .feature-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  @media (min-width: 720px) {
-    .feature-grid { grid-template-columns: 1fr 1fr; }
-  }
-  .feature {
-    border: 1px solid var(--line);
-    border-radius: 16px;
-    padding: 28px 24px;
-  }
-  .feature h3 {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--navy);
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 12px;
-  }
-  .feature h3::before {
-    content: "";
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    background: var(--navy);
-    flex-shrink: 0;
-  }
-  .badge {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--navy-deep);
-    background: #e6e6f3;
-    border-radius: 999px;
-    padding: 2px 10px;
-  }
-  .feature p { color: var(--ink-soft); font-size: 16px; }
-  .feature p.strong { color: var(--ink); font-weight: 700; margin-top: 4px; }
-
-  /* 구역 3 — 연한 회색 */
-  .free { background: var(--gray); }
-  .free-list {
-    list-style: none;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-  @media (min-width: 720px) {
-    .free-list { grid-template-columns: 1fr 1fr; }
-  }
-  .free-list li {
-    background: var(--white);
-    border-radius: 12px;
-    padding: 16px 20px 16px 48px;
-    position: relative;
-    font-size: 16px;
-    font-weight: 500;
-  }
-  .free-list li::before {
-    content: "";
-    position: absolute;
-    left: 20px; top: 50%;
-    width: 14px; height: 8px;
-    border-left: 2.5px solid var(--navy);
-    border-bottom: 2.5px solid var(--navy);
-    transform: translateY(-70%) rotate(-45deg);
-  }
-
-  /* 구역 4 — 흰색 */
-  .soon { background: var(--white); text-align: center; }
-  .soon-items {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 32px;
-  }
-  .soon-items span {
-    border: 1.5px dashed var(--navy);
-    color: var(--navy);
-    border-radius: 999px;
-    padding: 10px 24px;
-    font-weight: 700;
-    font-size: 17px;
-  }
-  .soon p { color: var(--ink-soft); font-size: 17px; }
-
-  /* 구역 5 — 남색 */
-  .cta {
-    background: var(--navy);
-    color: var(--white);
-    text-align: center;
-    padding: 88px 16px;
-  }
-  .cta-btn {
-    display: inline-block;
-    background: var(--white);
-    color: var(--navy);
-    font-size: clamp(20px, 5vw, 24px);
-    font-weight: 800;
-    text-decoration: none;
-    padding: 20px 56px;
-    border-radius: 14px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-    transition: transform .15s ease, box-shadow .15s ease;
-  }
-  .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(0,0,0,0.3); }
-  .cta-btn:focus-visible { outline: 3px solid var(--white); outline-offset: 4px; }
-  .cta p { margin-top: 20px; opacity: 0.85; font-size: 16px; }
-  .hero .cta-btn { margin-top: 32px; }
-
-  /* 꼬리 */
-  footer {
-    background: var(--navy-deep);
-    color: rgba(255,255,255,0.7);
-    text-align: center;
-    font-size: 14px;
-    padding: 36px 16px;
-  }
-  footer .brand { color: var(--white); font-weight: 700; margin-bottom: 8px; }
-  footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
-  footer a:hover { color: var(--white); text-decoration: underline; }
-  footer .sep { margin: 0 8px; opacity: 0.5; }
-  footer .mail { margin-top: 6px; }
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>인벨 — 안 온 아이, 선생님 대신 인벨이 묻습니다</title>
+<meta name="description" content="학원 출결 알림 · 지각 자동 대응 · 연락처 비공개 상담 · 공지 읽음 확인. 13년차 학원 원장이 만든 학원 앱, 전부 0원.">
+<link rel="canonical" href="https://inbell.co.kr/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="인벨">
+<meta property="og:title" content="인벨 — 안 온 아이, 선생님 대신 인벨이 묻습니다">
+<meta property="og:description" content="출결 알림 · 지각 자동 대응 · 번호 비공개 상담 · 공지 읽음 확인. 전부 0원이에요.">
+<meta property="og:image" content="https://inbell.co.kr/assets/og/owner.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:url" content="https://inbell.co.kr/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1D1D76">
+<link rel="icon" href="/inbell_logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap">
+<link rel="stylesheet" href="/assets/deck.css">
 </head>
 <body>
+<header class="tbar"><div class="tb-in">
+  <a href="/" class="tb-home" aria-label="인벨 처음으로"><svg viewBox="0 80 1024 1024" aria-hidden="true"><defs><clipPath id="lg"><path d="M352 330 C340 480 306 620 196 742 L828 742 C718 620 684 480 672 330 A172 172 0 0 0 352 330 Z"/><path d="M150 742 H874 a24 24 0 0 1 24 24 v42 a24 24 0 0 1 -24 24 H150 a24 24 0 0 1 -24 -24 v-42 a24 24 0 0 1 24 -24 Z"/><circle cx="512" cy="876" r="88"/></clipPath></defs><rect x="0" y="80" width="1024" height="1024" rx="230" fill="#1d1d76"/><g clip-path="url(#lg)"><rect x="0" y="80" width="1024" height="1200" fill="#ffffff"/><polygon points="0,287 1024,1021 1024,1200 0,1200" fill="#d6d6e6"/></g></svg>인벨</a>
+  <nav class="tabs" aria-label="페이지"><a href="/" class="cur" aria-current="page">원장님께</a><a href="/parent">학부모님께</a><a href="/get">다운로드</a></nav>
+</div></header>
 
-<!-- 구역 1 -->
-<header class="hero">
-  <!-- 앱 아이콘(docs/brand/inbell_1_app_icon.svg)과 같은 종 모양 -->
-  <svg viewBox="100 150 824 824" aria-hidden="true">
-    <defs><clipPath id="bell"><path d="M352 330 C340 480 306 620 196 742 L828 742 C718 620 684 480 672 330 A172 172 0 0 0 352 330 Z"/><path d="M150 742 H874 a24 24 0 0 1 24 24 v42 a24 24 0 0 1 -24 24 H150 a24 24 0 0 1 -24 -24 v-42 a24 24 0 0 1 24 -24 Z"/><circle cx="512" cy="876" r="88"/></clipPath></defs>
-    <g clip-path="url(#bell)"><rect x="0" y="0" width="1024" height="1200" fill="#ffffff"/><polygon points="0,287 1024,1021 1024,1024 0,1024" fill="#d6d6e6"/><polygon points="0,287 1024,1021 1024,1032 0,298" fill="#ffffff"/></g>
-  </svg>
-  <h1>인벨</h1>
-  <p>학원 업무 서비스 앱</p>
-  <a class="cta-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfqXw7gOLrbRGYUEsBgpl69vMp1XywwiR5uoyZcdxKJSvFR9w/viewform" target="_blank" rel="noopener">베타 신청하기</a>
-</header>
+<main class="deck">
 
-<!-- 구역 2 -->
-<section class="features">
-  <div class="wrap">
-    <h2>인벨에만 있습니다</h2>
-    <div class="feature-grid">
-      <article class="feature">
-        <h3>지각 자동 대응 <span class="badge">특허 출원 중</span></h3>
-        <p>학생이 지각해도 연락하지 마세요</p>
-        <p>학생과 학부모님이 먼저 연락해 옵니다</p>
-        <p class="strong">늦은 이유와 도착 예상 시간까지</p>
-      </article>
-      <article class="feature">
-        <h3>연락처 비공개 상담</h3>
-        <p>선생님 번호를 알려주지 않고 상담합니다</p>
-        <p>반대도 마찬가지입니다</p>
-        <p class="strong">원장님은 상담 내용까지 보실 수 있습니다</p>
-      </article>
-      <article class="feature">
-        <h3>학습 이력 자동 기록</h3>
-        <p>출결과 숙제가 날짜별로 쌓입니다</p>
-        <p>클릭 몇 번이면 기록된 자료가 전송됩니다</p>
-        <p class="strong">말이 아니라 자료로 설득하세요</p>
-      </article>
-      <article class="feature">
-        <h3>보강 시간 계산</h3>
-        <p>수업 시간과 보강 시간을 나누어 기록합니다</p>
-        <p>얼마나 보강했는지 숫자로 남습니다</p>
-        <p class="strong">원장님의 노력을 증명합니다</p>
-      </article>
+<!-- 1 시작 -->
+<section class="ch" data-name="시작" data-dark data-dur="5200">
+  <div class="hero">
+    <div class="txt">
+      <h1>안 온 아이,<br>선생님 대신<br>인벨이 묻습니다</h1>
+      <span class="badge"><span class="sig" aria-hidden="true"><i style="background:#DC2626"></i><i style="background:#F2B705"></i><i style="background:#43A047"></i></span>지각 자동 대응 · 특허 출원</span>
+      <span class="who">13년차 학원 원장이 직접 만들었어요</span>
+      <div class="store">
+        <a href="https://play.google.com/store/apps/details?id=com.jinuri.inbell" target="_blank" rel="noopener">Google Play</a>
+        <a href="https://apps.apple.com/kr/app/id6818784496" target="_blank" rel="noopener">App Store</a>
+      </div>
+    </div>
+    <div class="pair" aria-hidden="true">
+      <img class="b" src="/assets/shots/O_students_late.webp" alt="" width="783" height="1160">
+      <img class="f" src="/assets/shots/O_room_timeline.webp" alt="" width="783" height="1160">
     </div>
   </div>
 </section>
 
-<!-- 구역 3 -->
-<section class="free">
-  <div class="wrap">
-    <h2>전부 무료입니다</h2>
-    <ul class="free-list">
-      <li>등원·하원 알림 · 출결 관리</li>
-      <li>지각·결석 간편 예고 · 접수</li>
-      <li>공지 발송 · 공지 확인 체크</li>
-      <li>수업·반 생성 · 학생 관리</li>
-      <li>반 시간표 · 학생 개인 시간표</li>
-      <li>상담톡 · 상담 내용 확인</li>
-      <li>학원 스케줄 달력</li>
-      <li>학생 학습 달력 · 월간 학습 통계</li>
-    </ul>
-  </div>
-</section>
-
-<!-- 구역 4 -->
-<section class="soon">
-  <div class="wrap">
-    <h2>이런 것도 만들고 있습니다</h2>
-    <div class="soon-items">
-      <span>원비 청구 · 미납 자동 관리</span>
-      <span>교육청 제출 서류 자동 생성</span>
+<!-- 2 지각 자동 대응 -->
+<section class="ch" data-name="지각 자동 대응" data-dur="26000">
+  <div class="scene">
+    <div class="txt">
+      <p class="kick">지각 자동 대응</p>
+      <h2>학생이 안 오면,<br>인벨이 알아서 챙겨요</h2>
+      <ol class="caps">
+        <li data-k="1">수업 3분이 지나도 안 오면 학생·학부모 폰에 알림</li>
+        <li data-k="2">대화방에 빨간 카드 — 인벨이 묻습니다</li>
+        <li data-k="3">학부모가 「지각 알리기」 — 인벨이 듣습니다</li>
+        <li data-k="4">키오스크로 등원하면 초록 카드 — 인벨이 확인합니다</li>
+        <li data-k="5">원장님은 학생 탭에서 보기만 하세요</li>
+      </ol>
+      <p class="concl" data-done>지각 자동 대응, 알아서 관리해 드립니다</p>
     </div>
-    <p>쓰시면서 필요한 것을 말씀해 주세요</p>
-    <p>만드는 중입니다</p>
+    <figure class="fig">
+      <img class="shot" data-k="1" src="/assets/shots/P_late_push.webp" alt="학부모 폰 알림: 아직 등원하지 않았어요" width="783" height="1160">
+      <img class="shot" data-k="2" src="/assets/shots/P2a_red.webp" alt="대화방 빨간 카드: 지각 발생 · 지각 알리기 · 결석 알리기 단추" width="783" height="1160" loading="lazy">
+      <img class="shot" data-k="3" src="/assets/shots/P2b_amber.webp" alt="대화방 노란 카드: 도착 예정 · 사유 교통" width="783" height="1160" loading="lazy">
+      <img class="shot" data-k="4" src="/assets/shots/P2c_green.webp" alt="대화방 초록 카드: 등원 · 키오스크로 등원했어요" width="783" height="1160" loading="lazy">
+      <img class="shot" data-k="5" src="/assets/shots/O_students_late.webp" alt="원장 학생 탭: 지각 자동 대응 상자" width="783" height="1160" loading="lazy">
+      <span class="tapdot" data-k="2" data-tap="P2a_red"></span>
+      <figcaption class="cap-m"><span data-k="1">학생이 안 오면</span><span data-k="2">인벨이 묻습니다</span><span data-k="3">인벨이 듣습니다</span><span data-k="4">인벨이 확인합니다</span><span data-k="5">원장님은 보기만 하세요</span></figcaption>
+    </figure>
   </div>
 </section>
 
-<!-- 구역 5 -->
-<section class="cta">
-  <!-- 베타 신청 = 구글 폼 "인벨 베타 신청" (첫 화면 버튼과 같은 주소) -->
-  <a class="cta-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfqXw7gOLrbRGYUEsBgpl69vMp1XywwiR5uoyZcdxKJSvFR9w/viewform" target="_blank" rel="noopener">베타 신청하기</a>
-  <p>이름만 남겨 주시면 설치 링크를 보내드립니다</p>
+<!-- 3 전부 무료 -->
+<section class="ch alt" data-name="전부 무료" data-dur="18000">
+  <div class="scene">
+    <div class="txt">
+      <p class="kick">전부 무료예요</p>
+      <h2>지금 보신 기능은<br>앞으로도 0원이에요</h2>
+      <ol class="caps">
+        <li data-k="1">등원·하원 알림과 오늘 출결이 한눈에</li>
+        <li data-k="2">연락처 비공개 상담 — 번호를 알리지 않고 학부모와 상담</li>
+        <li data-k="3">학원 일정도, 신규생 상담 예약도 한 달력에</li>
+        <li data-k="4">공지는 앱 알림으로 — 누가 읽었는지는 숫자로</li>
+      </ol>
+      <p class="concl" data-done>전부 0원입니다</p>
+    </div>
+    <figure class="fig">
+      <img class="shot" data-k="1" src="/assets/shots/O_home_today.webp" alt="원장 학원 홈: 오늘 출결" width="783" height="1160" loading="lazy">
+      <img class="shot" data-k="2" src="/assets/shots/O_chat_list.webp" alt="원장 상담 목록: 학생·학부모 대화방" width="783" height="1160" loading="lazy">
+      <img class="shot" data-k="3" src="/assets/shots/O_calendar_consult.webp" alt="원장 달력: 상담 예약 · 특강 · 휴원" width="783" height="1160" loading="lazy">
+      <img class="shot" data-k="4" src="/assets/shots/O_notice_reads.webp" alt="원장 공지: 읽음 3 / 4" width="783" height="1160" loading="lazy">
+      <span class="tapdot" data-k="4" data-tap="O_notice_reads"></span>
+      <figcaption class="cap-m"><span data-k="1">오늘 출결이 한눈에</span><span data-k="2">번호 비공개 상담</span><span data-k="3">일정·상담 한 달력</span><span data-k="4">공지 읽음까지</span></figcaption>
+    </figure>
+  </div>
 </section>
 
-<!-- 꼬리 -->
-<footer>
-  <div class="brand">인벨</div>
-  <div>
-    <a href="privacy.html">개인정보처리방침</a><span class="sep">|</span><a href="delete-account.html">계정 삭제 요청</a>
+<!-- 4 학부모 안내 -->
+<section class="ch" data-name="학부모 안내" data-dur="20000">
+  <div class="scene">
+    <div class="txt">
+      <p class="kick">학부모님 앱 설치 안내</p>
+      <h2>안내 글도, 종이 안내장도<br>준비돼 있어요</h2>
+      <ol class="caps">
+        <li data-k="1">카톡·문자 안내 글 — 학원 이름·링크가 들어가 있어요</li>
+        <li data-k="2">종이 안내장 — 인사 한 줄만 고치면 돼요</li>
+        <li data-k="3">QR이 들어간 A4 한 장 · 인쇄·PDF 저장</li>
+        <li data-k="4">학부모님은 링크로 안내를 보고 바로 설치해요</li>
+      </ol>
+      <p class="concl" data-done>보내기만 하세요</p>
+    </div>
+    <figure class="fig">
+      <img class="shot" data-k="1" src="/assets/shots/O_install_kakao.webp" alt="앱 설치 안내문: 카톡·문자용 글" width="783" height="1160" loading="lazy">
+      <img class="shot" data-k="2" src="/assets/shots/O_install_a4.webp" alt="앱 설치 안내문: 종이 안내장" width="783" height="1160" loading="lazy">
+      <img class="shot" data-k="3" src="/assets/shots/S_a4_print.webp" alt="A4 안내장 — QR 포함" width="783" height="1160" loading="lazy">
+      <img class="shot" data-k="4" src="/assets/shots/S_parent_page.webp" alt="학부모 안내 페이지 inbell.co.kr/parent" width="783" height="1160" loading="lazy">
+      <span class="tapdot" data-k="1" data-tap="O_install_kakao"></span>
+      <figcaption class="cap-m"><span data-k="1">카톡 안내 글</span><span data-k="2">종이 안내장</span><span data-k="3">QR이 들어간 A4</span><span data-k="4">학부모님이 보는 안내</span></figcaption>
+    </figure>
   </div>
-  <div class="mail"><a href="mailto:help@inbell.co.kr">help@inbell.co.kr</a></div>
-</footer>
+</section>
 
+<!-- 5 시작하기 -->
+<section class="ch last" data-name="시작하기">
+  <div class="scroll"><div class="endwrap">
+    <p class="mk1">13년째 수학 학원을 하는 원장이 만들었습니다.</p>
+    <p class="mk2">학원이 매일 겪는 일을 알기에,<br>원장님의 손은 덜고 학부모님의 마음은 편하게 만들었습니다.</p>
+    <ol class="steps3">
+      <li><b>휴대폰 번호로 로그인</b><span>비밀번호 없이 인증번호만</span></li>
+      <li><b>학원 · 반 · 시간표 넣기</b><span>시간표대로 지각 자동 대응이 움직여요</span></li>
+      <li><b>학생 등록 · 안내문 보내기</b><span>학부모님이 링크로 앱을 받아요</span></li>
+    </ol>
+    <p class="mk2"><b>원장님 계정 하나면 시작돼요. 전부 0원입니다.</b></p>
+    <a class="getbtn" href="/get">인벨 다운로드 ›</a>
+    <div class="again-row">
+      <div class="speed" aria-label="넘기는 빠르기"><button type="button" data-v="1.5">천천히</button><button type="button" data-v="1">보통</button><button type="button" data-v="0.7">빠르게</button></div>
+      <a class="again" href="/">처음부터 다시 ↺</a>
+    </div>
+    <footer class="foot">
+      <a class="alt" href="/parent">학부모님이신가요? 안내 보기 ›</a>
+      <div class="foot-l"><span>인벨 · 지누리</span><a href="mailto:help@inbell.co.kr">help@inbell.co.kr</a><a href="/terms/">이용약관</a><a href="/privacy.html">개인정보처리방침</a><a href="/delete-account.html">계정 삭제</a></div>
+    </footer>
+  </div></div>
+</section>
+
+</main>
+<script src="/assets/taps.js"></script>
+<script src="/assets/deck.js"></script>
 </body>
 </html>

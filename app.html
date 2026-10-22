@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 세션 102-M — 옛 주소 /app?a=… 는 새 학부모 안내(/parent?a=…)로 넘긴다 · &print(A4 안내장 · 앱 「인쇄 · PDF 저장」)는 이 페이지 그대로 -->
+<script>(function(){var q=new URLSearchParams(location.search);if(!q.has('print')&&!window.__INBELL_QS){var a=q.get('a');location.replace('/parent'+(a?'?a='+encodeURIComponent(a):''));}})();</script>
 <meta name="robots" content="noindex, nofollow">
 <title>인벨 앱 안내</title>
 <meta name="description" content="등원·하원 알림과 공지를 앱으로 받아 보세요">
@@ -142,9 +144,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script>
 (function () {
-  // 스토어 주소 — App Store 앱 번호는 아직 미확인(심사 통과 뒤 채움 · 그때까지 검색 주소)
+  // 스토어 주소(세션 102-M — App Store 앱 번호 6818784496 · 10-15 공개 확인)
   var PLAY = 'https://play.google.com/store/apps/details?id=com.jinuri.inbell';
-  var APPSTORE = 'https://apps.apple.com/kr/search?term=%EC%9D%B8%EB%B2%A8';
+  var APPSTORE = 'https://apps.apple.com/kr/app/id6818784496';
   var PRIVACY = 'https://inbell.co.kr/privacy.html';
 
   var q = new URLSearchParams(window.__INBELL_QS || location.search);
