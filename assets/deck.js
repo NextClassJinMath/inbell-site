@@ -62,7 +62,7 @@
           const imgs = [...c.querySelectorAll('img[data-k], .shot[data-k]')].filter((x) => x.closest('.ch') === c);
           const best = Math.max(...imgs.map((x) => +x.dataset.k).filter((x) => x <= shown), 0);
           e.classList.toggle('cur', ek === best);
-        } else if (e.matches('.tapdot')) {
+        } else if (e.matches('.tapdot, .spot')) {
           e.classList.toggle('on', ek === shown);
         } else {
           e.classList.toggle('on', ek <= shown);
