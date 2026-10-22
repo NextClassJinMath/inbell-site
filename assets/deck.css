@@ -176,7 +176,7 @@ body.mobile .pdots { display: none; }
   .fig .cap-m { display: block; position: absolute; left: 50%; bottom: -32px; transform: translateX(-50%); white-space: nowrap; font-size: 15px; font-weight: 800; color: var(--ink); }
   .fig .cap-m span { display: none; } .fig .cap-m span.now { display: inline; }
   .done .fig .cap-m { opacity: 0; }
-  .done .fig { opacity: .25; transition: opacity .4s; }
+
   .fig .shot { border-radius: 24px; }
   .hero { display: flex; flex-direction: column; justify-content: center; gap: 22px; padding: 70px 20px 60px; text-align: left; }
   .hero h1 { font-size: clamp(28px, 8vw, 34px); }
@@ -195,25 +195,14 @@ body.mobile .pdots { display: none; }
 }
 @media (max-width: 899px) and (max-height: 640px) { .hero .pair, .hero .solo { display: none; } }
 
-/* ── 102-M 고침 ②(대장님 10-23): 학부모 장 = 남색 그라데이션 바탕 위 스크린샷 · 가장자리를 바탕색으로 눌러 알림 카드 · 누르는 자리만 떠오르게 ── */
-.ch.navy { background: var(--hero); color: #FFFFFF; }
-.navy .kick { color: #C9CBF5; }
-.navy .txt h2 { color: #FFFFFF; }
-.navy .caps li { color: rgba(255, 255, 255, .62); }
-.navy .caps li.now { color: #FFFFFF; }
-.navy .caps li.now::before { background: #FFFFFF; }
-.navy .concl, :root .navy .concl { color: #D9DBFF; }
-.navy .fig .cap-m { color: #FFFFFF; }
-.scr { position: absolute; inset: 0; border-radius: 30px; overflow: hidden; box-shadow: 0 18px 44px rgba(5, 5, 40, .45), 0 0 0 1px rgba(255, 255, 255, .14); }
-.scr .shot { box-shadow: none; border-radius: 0; }
-/* 가장자리 = 바탕색으로 살짝 눌림(안쪽 그림자) */
-.scr::after { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 2; box-shadow: inset 0 0 28px 10px rgba(21, 21, 94, .55); }
-/* 떠오르는 자리 — 나머지를 바탕색으로 덮음(구멍 = 이 상자) · 단계마다 하나 */
-.spot { position: absolute; left: var(--x); top: var(--y); width: var(--w); height: var(--h); border-radius: 16px; z-index: 1; pointer-events: none;
-  box-shadow: 0 0 0 2400px rgba(21, 21, 94, .64), 0 0 22px 6px rgba(21, 21, 94, .5); opacity: 0; transition: opacity .45s ease; }
-.spot.on { opacity: 1; }
-.spot.always { opacity: 1; }
-.navy .tapdot { border-color: #FFFFFF; background: rgba(29, 29, 118, .35); box-shadow: 0 0 0 3px rgba(29, 29, 118, .9); z-index: 3; }
-.hero .scrwrap { position: relative; height: var(--shot-h); aspect-ratio: 1080 / 2220; justify-self: center; }
-@media (max-width: 899px) { .hero .scrwrap { --shot-h: min(42svh, 360px); } .scr { border-radius: 24px; } .done .fig { opacity: .35; } }
-.scrwrap .shot { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 1; }
+/* ── 102-M 고침 ③(대장님 10-23): 덮개 · 떠오르는 자리 없음 — 원장 페이지처럼 시작 장만 남색 · ①②③ 흰 바탕 · 깨끗한 폰 그림 + 남색 동그라미 + 그림 아래 한 줄 ── */
+.card1 { justify-self: center; align-self: center; width: 460px; max-width: 42vw; height: auto; border-radius: 28px; box-shadow: 0 30px 70px rgba(5, 5, 40, .5), 0 0 0 1px rgba(255, 255, 255, .15); }
+@media (min-width: 900px) { .card1 { animation: hff2 6s ease-in-out infinite; } }
+@keyframes hff2 { 0%, 100% { transform: rotate(-3deg) translateY(0); } 50% { transform: rotate(-3deg) translateY(-10px); } }
+@media (prefers-reduced-motion: reduce) { .card1 { animation: none; } }
+/* 그림 아래 한 줄 = 휴대폰 · 컴퓨터 모두 */
+.fig .cap-m { display: block; position: absolute; left: 50%; bottom: -36px; transform: translateX(-50%); white-space: nowrap; font-size: 15px; font-weight: 800; color: var(--ink); }
+.fig .cap-m span { display: none; } .fig .cap-m span.now { display: inline; }
+.done .fig .cap-m { opacity: 0; }
+@media (min-width: 900px) { .scene { padding-bottom: 64px; } :root { --shot-h: min(600px, calc(100svh - 160px)); } }
+@media (max-width: 899px) { .hero .card1 { width: min(340px, 92vw); max-width: none; } }
