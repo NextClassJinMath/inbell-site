@@ -206,3 +206,6 @@ body.mobile .pdots { display: none; }
 .done .fig .cap-m { opacity: 0; }
 @media (min-width: 900px) { .scene { padding-bottom: 64px; } :root { --shot-h: min(600px, calc(100svh - 160px)); } }
 @media (max-width: 899px) { .hero .card1 { width: min(340px, 92vw); max-width: none; } }
+/* 102-M 고침 ④: 학부모 = 설명 문장 0 · 그림 아래 핵심 글 한 줄(2~6글자)을 크게 */
+.fig .cap-m { font-size: 19px; font-weight: 900; letter-spacing: -.3px; bottom: -42px; }
+@media (max-width: 899px) { .fig .cap-m { font-size: 17px; bottom: -36px; } }
