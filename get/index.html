@@ -19,17 +19,16 @@
 <link rel="stylesheet" href="/assets/deck.css">
 <script src="/assets/dl.js"></script>
 <style>
-  /* 세션 102-M — 흰 바탕 한 장 · 줄 넷 · 지금 기기 줄만 연남색 · 왼쪽 동그라미 그림 하나(Android = 초록 로봇 · 나머지 선 아이콘 · 사과·윈도우 로고 없음) · 오른쪽 남색 「다운로드」(배지 없음) */
+  /* 세션 102-M — 흰 바탕 한 장 · 줄 넷 · 지금 기기 줄만 연남색 · 왼쪽 동그라미 = 같은 남색 선 아이콘(Android·iPhone = 휴대폰 · Windows = 컴퓨터 · Mac = 노트북 · 고침 ⑦ · 기기 구분은 이름 글자) · 오른쪽 남색 「다운로드」(배지 없음) */
   html, body { overflow: auto; height: auto; min-height: 100%; }
   body { background: var(--bg); }
   .page { max-width: 640px; margin: 0 auto; padding: calc(84px + env(safe-area-inset-top, 0px)) 20px 64px; display: flex; flex-direction: column; gap: 28px; }
   h1 { margin: 0; font-size: 30px; font-weight: 900; letter-spacing: -.8px; }
   .lead { margin: 6px 0 0; font-size: 15.5px; color: var(--mute); }
   .rows { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
-  .row { display: flex; align-items: center; gap: 16px; padding: 20px 4px; border-bottom: 1px solid var(--line); scroll-margin-top: 90px; flex-wrap: wrap; }
-  .ic { flex: none; width: 48px; height: 48px; border-radius: 50%; background: var(--chip); color: var(--accent); display: flex; align-items: center; justify-content: center; }
+  .row { display: flex; align-items: center; gap: 16px; padding: 18px 14px; min-height: 92px; border-bottom: 1px solid var(--line); scroll-margin-top: 90px; flex-wrap: wrap; }
+  .ic { flex: none; width: 48px; height: 48px; border-radius: 50%; background: #E8E9F7; color: #1D1D76; display: flex; align-items: center; justify-content: center; }
   .ic svg { width: 26px; height: 26px; }
-  .ic.robot { background: #E8F8EF; }
   .dlb { display: inline-flex; align-items: center; gap: 7px; height: 42px; padding: 0 18px; border-radius: 11px; background: #1D1D76; color: #FFFFFF; font-size: 15px; font-weight: 800; text-decoration: none; }
   .dlb .tri { width: 11px; height: 11px; opacity: .85; } .dlb small { font-size: 11.5px; font-weight: 700; opacity: .8; }
   .dlb.off { background: var(--chip); color: var(--mute); } .soon { font-size: 12.5px; font-weight: 700; color: var(--mute); margin-right: 8px; }
@@ -38,9 +37,9 @@
   .l { flex: 1 1 180px; display: flex; flex-direction: column; gap: 3px; min-width: 0; }
   .l b { font-size: 17px; font-weight: 800; } .l span { font-size: 13.5px; color: var(--mute); }
   .act { flex: none; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-  .row.me { background: #EEF0FB; border-radius: 16px; border-bottom-color: transparent; padding: 20px 16px; margin: 8px 0; }
-  .row.me .l b { font-size: 19px; font-weight: 900; }
-  .row.me .ic { background: var(--bg); }
+  .row.me { background: #EEF0FB; border-bottom-color: transparent; border-radius: 16px; }
+
+  .row.me .ic { background: #FFFFFF; }
   .me-tag { display: none; font-size: 12px; font-weight: 800; color: var(--accent); }
   .row.me .me-tag { display: inline; }
   .st { margin: 0; font-size: 13px; font-weight: 800; color: var(--mute); }
@@ -50,9 +49,9 @@
   ol.s b { font-size: 15px; } ol.s span { font-size: 13.5px; color: var(--mute); }
   .alt { align-self: center; font-size: 13.5px; font-weight: 700; color: var(--accent); text-decoration: none; }
   @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .ic { background: #24275A; color: #C9CBF5; } :root:not([data-theme="light"]) .row.me .ic { background: #10112A; }
     :root:not([data-theme="light"]) .row.me { background: var(--chip); }
     :root:not([data-theme="light"]) .dlb:not(.off) { background: #FFFFFF; color: #1D1D76; }
-    :root:not([data-theme="light"]) .ic.robot { background: #1E3A2C; }
   }
 </style>
 </head>
@@ -65,7 +64,7 @@
   <div><h1>인벨 다운로드</h1><p class="lead">휴대폰도, 학원 컴퓨터도 같은 화면이에요. 전부 0원.</p></div>
   <div class="rows" id="rows">
     <div class="row" id="android" data-os="android">
-      <span class="ic robot" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="#3DDC84"><path d="M5 10.2a7 7 0 0 1 14 0Z"/><rect x="5" y="11" width="14" height="8.4" rx="1.6"/><rect x="2" y="11.2" width="2.2" height="6" rx="1.1"/><rect x="19.8" y="11.2" width="2.2" height="6" rx="1.1"/><rect x="8" y="18" width="2.2" height="4" rx="1.1"/><rect x="13.8" y="18" width="2.2" height="4" rx="1.1"/></g><path d="M7.6 3.6 9 5.7M16.4 3.6 15 5.7" stroke="#3DDC84" stroke-width="1.2" stroke-linecap="round"/><circle cx="9.6" cy="7.9" r=".9" fill="#FFFFFF"/><circle cx="14.4" cy="7.9" r=".9" fill="#FFFFFF"/></svg></span>
+      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.8"/><path d="M10.2 5.2h3.6"/></svg></span>
       <div class="l"><b>Android 휴대폰 <span class="me-tag">· 지금 이 기기</span></b><span>삼성 갤럭시 등</span></div>
       <div class="act"><a class="dlb" href="https://play.google.com/store/apps/details?id=com.jinuri.inbell" target="_blank" rel="noopener"><svg class="tri" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.8 10.2 6 3 10.2Z" fill="currentColor"/></svg><span>다운로드</span></a></div>
     </div>
