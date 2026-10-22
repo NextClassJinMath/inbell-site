@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="/assets/deck.css">
 <script src="/assets/dl.js"></script>
 <style>
-  /* 세션 102-M — 흰 바탕 한 장 · 줄 넷(Android · iPhone · Windows · Mac) · 지금 기기 줄 맨 위에 진하게 · 로고 그림 없음(글자 + 단순 아이콘) · 스토어 배지 = 공식 파일 */
+  /* 세션 102-M — 흰 바탕 한 장 · 줄 넷 · 지금 기기 줄만 연남색 · 왼쪽 동그라미 그림 하나(Android = 초록 로봇 · 나머지 선 아이콘 · 사과·윈도우 로고 없음) · 오른쪽 남색 「다운로드」(배지 없음) */
   html, body { overflow: auto; height: auto; min-height: 100%; }
   body { background: var(--bg); }
   .page { max-width: 640px; margin: 0 auto; padding: calc(84px + env(safe-area-inset-top, 0px)) 20px 64px; display: flex; flex-direction: column; gap: 28px; }
@@ -27,19 +27,20 @@
   .lead { margin: 6px 0 0; font-size: 15.5px; color: var(--mute); }
   .rows { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
   .row { display: flex; align-items: center; gap: 16px; padding: 20px 4px; border-bottom: 1px solid var(--line); scroll-margin-top: 90px; flex-wrap: wrap; }
-  .ic { flex: none; width: 44px; height: 44px; border-radius: 12px; background: var(--chip); color: var(--accent); display: flex; align-items: center; justify-content: center; }
-  .ic svg { width: 24px; height: 24px; }
+  .ic { flex: none; width: 48px; height: 48px; border-radius: 50%; background: var(--chip); color: var(--accent); display: flex; align-items: center; justify-content: center; }
+  .ic svg { width: 26px; height: 26px; }
+  .ic.robot { background: #E8F8EF; }
+  .dlb { display: inline-flex; align-items: center; gap: 7px; height: 42px; padding: 0 18px; border-radius: 11px; background: #1D1D76; color: #FFFFFF; font-size: 15px; font-weight: 800; text-decoration: none; }
+  .dlb .tri { width: 11px; height: 11px; opacity: .85; } .dlb small { font-size: 11.5px; font-weight: 700; opacity: .8; }
+  .dlb.off { background: var(--chip); color: var(--mute); } .soon { font-size: 12.5px; font-weight: 700; color: var(--mute); margin-right: 8px; }
+  #pcact { display: inline-flex; align-items: center; }
+  .row.me .dlb.off { background: var(--bg); border: 1px solid var(--line); }
   .l { flex: 1 1 180px; display: flex; flex-direction: column; gap: 3px; min-width: 0; }
   .l b { font-size: 17px; font-weight: 800; } .l span { font-size: 13.5px; color: var(--mute); }
   .act { flex: none; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-  .badge-gp { height: 58px; width: auto; margin: -8px -6px; display: block; } /* 공식 PNG 는 둘레 여백 포함 — 애플 배지(높이 40)와 같은 크기로 보이게 */
-  .badge-as { height: 40px; width: auto; display: block; }
-  .act .as-w { display: none; }
-  .pcbtn { display: inline-flex; align-items: center; height: 44px; padding: 0 20px; border-radius: 10px; background: #1A1A2E; color: #FFFFFF; font-size: 14.5px; font-weight: 800; text-decoration: none; }
-  .pcbtn.off { background: var(--chip); color: var(--mute); }
-  .row.me { background: var(--chip); border-radius: 16px; border-bottom-color: transparent; padding: 20px 16px; margin: 8px 0; }
+  .row.me { background: #EEF0FB; border-radius: 16px; border-bottom-color: transparent; padding: 20px 16px; margin: 8px 0; }
   .row.me .l b { font-size: 19px; font-weight: 900; }
-  .row.me .ic { background: var(--accent); color: var(--bg); }
+  .row.me .ic { background: var(--bg); }
   .me-tag { display: none; font-size: 12px; font-weight: 800; color: var(--accent); }
   .row.me .me-tag { display: inline; }
   .st { margin: 0; font-size: 13px; font-weight: 800; color: var(--mute); }
@@ -49,8 +50,9 @@
   ol.s b { font-size: 15px; } ol.s span { font-size: 13.5px; color: var(--mute); }
   .alt { align-self: center; font-size: 13.5px; font-weight: 700; color: var(--accent); text-decoration: none; }
   @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) .act .as-b { display: none; } :root:not([data-theme="light"]) .act .as-w { display: block; }
-    :root:not([data-theme="light"]) .pcbtn:not(.off) { background: #FFFFFF; color: #1A1A2E; }
+    :root:not([data-theme="light"]) .row.me { background: var(--chip); }
+    :root:not([data-theme="light"]) .dlb:not(.off) { background: #FFFFFF; color: #1D1D76; }
+    :root:not([data-theme="light"]) .ic.robot { background: #1E3A2C; }
   }
 </style>
 </head>
@@ -63,24 +65,24 @@
   <div><h1>인벨 다운로드</h1><p class="lead">휴대폰도, 학원 컴퓨터도 같은 화면이에요. 전부 0원.</p></div>
   <div class="rows" id="rows">
     <div class="row" id="android" data-os="android">
-      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg></span>
-      <div class="l"><b>Android 휴대폰 <span class="me-tag">· 지금 이 기기</span></b><span>삼성 갤럭시 등 · Google Play</span></div>
-      <div class="act"><a href="https://play.google.com/store/apps/details?id=com.jinuri.inbell" target="_blank" rel="noopener"><img class="badge-gp" src="/assets/badges/google-play-ko.png" alt="Google Play에서 다운로드" width="646" height="250"></a></div>
+      <span class="ic robot" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="#3DDC84"><path d="M5 10.2a7 7 0 0 1 14 0Z"/><rect x="5" y="11" width="14" height="8.4" rx="1.6"/><rect x="2" y="11.2" width="2.2" height="6" rx="1.1"/><rect x="19.8" y="11.2" width="2.2" height="6" rx="1.1"/><rect x="8" y="18" width="2.2" height="4" rx="1.1"/><rect x="13.8" y="18" width="2.2" height="4" rx="1.1"/></g><path d="M7.6 3.6 9 5.7M16.4 3.6 15 5.7" stroke="#3DDC84" stroke-width="1.2" stroke-linecap="round"/><circle cx="9.6" cy="7.9" r=".9" fill="#FFFFFF"/><circle cx="14.4" cy="7.9" r=".9" fill="#FFFFFF"/></svg></span>
+      <div class="l"><b>Android 휴대폰 <span class="me-tag">· 지금 이 기기</span></b><span>삼성 갤럭시 등</span></div>
+      <div class="act"><a class="dlb" href="https://play.google.com/store/apps/details?id=com.jinuri.inbell" target="_blank" rel="noopener"><svg class="tri" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.8 10.2 6 3 10.2Z" fill="currentColor"/></svg><span>다운로드</span></a></div>
     </div>
     <div class="row" id="ios" data-os="ios">
-      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M10 5h4"/></svg></span>
-      <div class="l"><b>iPhone · iPad <span class="me-tag">· 지금 이 기기</span></b><span>App Store</span></div>
-      <div class="act"><a href="https://apps.apple.com/kr/app/id6818784496" target="_blank" rel="noopener"><img class="badge-as as-b" src="/assets/badges/app-store-ko-black.svg" alt="App Store에서 다운로드" width="130" height="40"><img class="badge-as as-w" src="/assets/badges/app-store-ko-white.svg" alt="App Store에서 다운로드" width="130" height="40"></a></div>
+      <span class="ic " aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.8"/><path d="M10.2 5.2h3.6"/></svg></span>
+      <div class="l"><b>iPhone · iPad <span class="me-tag">· 지금 이 기기</span></b><span>아이폰 · 아이패드</span></div>
+      <div class="act"><a class="dlb" href="https://apps.apple.com/kr/app/id6818784496" target="_blank" rel="noopener"><small>App Store</small><span>다운로드</span></a></div>
     </div>
     <div class="row" id="pc" data-os="windows">
-      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="12.5" rx="1.8"/><path d="M8.5 20h7M12 16.5V20"/></svg></span>
+      <span class="ic " aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="12.5" rx="1.8"/><path d="M8.5 20h7M12 16.5V20"/></svg></span>
       <div class="l"><b>Windows PC <span class="me-tag">· 지금 이 기기</span></b><span>학원 컴퓨터 화면 한쪽에 띄워 두고 써요 · Windows 10 · 11</span></div>
-      <div class="act" id="pcact"><span class="pcbtn off">PC 프로그램 · 곧 열려요</span></div>
+      <div class="act"><span id="pcact"><small class="soon">곧 열려요</small><span class="dlb off"><span>다운로드</span></span></span></div>
     </div>
     <div class="row" id="mac" data-os="mac">
-      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="10.5" rx="1.6"/><path d="M2 18.5h20"/></svg></span>
+      <span class="ic " aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="10.5" rx="1.6"/><path d="M2 18.5h20"/></svg></span>
       <div class="l"><b>Mac <span class="me-tag">· 지금 이 기기</span></b><span>Mac 프로그램은 아직 없어요 — 휴대폰 앱으로 쓰세요</span></div>
-      <div class="act"><a href="https://play.google.com/store/apps/details?id=com.jinuri.inbell" target="_blank" rel="noopener"><img class="badge-gp" src="/assets/badges/google-play-ko.png" alt="Google Play에서 다운로드" width="646" height="250"></a><a href="https://apps.apple.com/kr/app/id6818784496" target="_blank" rel="noopener"><img class="badge-as as-b" src="/assets/badges/app-store-ko-black.svg" alt="App Store에서 다운로드" width="130" height="40"><img class="badge-as as-w" src="/assets/badges/app-store-ko-white.svg" alt="App Store에서 다운로드" width="130" height="40"></a></div>
+      <div class="act"><a class="dlb" href="https://play.google.com/store/apps/details?id=com.jinuri.inbell" target="_blank" rel="noopener"><svg class="tri" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.8 10.2 6 3 10.2Z" fill="currentColor"/></svg><span>다운로드</span></a><a class="dlb" href="https://apps.apple.com/kr/app/id6818784496" target="_blank" rel="noopener"><small>App Store</small><span>다운로드</span></a></div>
     </div>
   </div>
   <div>
@@ -97,7 +99,7 @@
 <script>
 (function () {
   var D = window.INBELL_DL || {}; var rows = document.getElementById('rows');
-  if (D.PC_SETUP_URL) document.getElementById('pcact').innerHTML = '<a class="pcbtn" href="' + D.PC_SETUP_URL + '">PC 프로그램 받기</a>';
+  if (D.PC_SETUP_URL) document.getElementById('pcact').innerHTML = '<a class="dlb" href="' + D.PC_SETUP_URL + '"><span>다운로드</span></a>';
   var me = rows.querySelector('[data-os="' + D.os + '"]');
   if (me) { me.classList.add('me'); rows.insertBefore(me, rows.firstChild); }
 })();

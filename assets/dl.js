@@ -1,6 +1,6 @@
 /* 세션 102-M — 「인벨 다운로드」 버튼 하나 · 기기 인식(대장님 10-23)
  *  Android → Google Play · iPhone/iPad → App Store · Windows → PC 프로그램(PC_SETUP_URL · 비어 있으면 /get#pc) · Mac · 그 밖 → /get
- *  쓰는 법: <div class="dlbtn"></div> 자리마다 버튼 + 작은 글(「Android용 · Google Play」) + 「다른 기기 ›」(/get) 이 들어간다.
+ *  쓰는 법: <div class="dlbtn"></div> 자리마다 버튼 + 작은 글(기기 이름만 · 대장님 10-23 · 배지 없음) + 「다른 기기 ›」(/get) 이 들어간다.
  *  /get 페이지는 window.INBELL_DL.os 로 지금 기기 줄을 맨 위에 진하게.
  *  시험: 주소 끝 ?os=android|ios|windows|mac 로 인식 결과를 강제(확인용 · 공개판에도 남아 있어도 무해).
  */
@@ -16,11 +16,11 @@
     : /windows/i.test(ua) ? 'windows'
     : /macintosh|mac os x/i.test(ua) ? 'mac' : 'other');
   var T = {
-    android: { href: PLAY, label: 'Android용 · Google Play', ext: true },
-    ios: { href: APPSTORE, label: 'iPhone · iPad용 · App Store', ext: true },
-    windows: { href: PC_SETUP_URL || '/get#pc', label: PC_SETUP_URL ? 'Windows용 · PC 프로그램' : 'Windows용 · PC 프로그램(곧 열려요)', ext: false },
-    mac: { href: '/get', label: 'Mac에서는 휴대폰 앱으로 써요', ext: false },
-    other: { href: '/get', label: '휴대폰 · 컴퓨터 받는 곳', ext: false }
+    android: { href: PLAY, label: 'Android', ext: true },
+    ios: { href: APPSTORE, label: 'iPhone · iPad', ext: true },
+    windows: { href: PC_SETUP_URL || '/get#pc', label: 'Windows', ext: false },
+    mac: { href: '/get', label: 'Mac', ext: false },
+    other: { href: '/get', label: '다른 기기', ext: false }
   };
   var t = T[os] || T.other;
   window.INBELL_DL = { os: os, PLAY: PLAY, APPSTORE: APPSTORE, PC_SETUP_URL: PC_SETUP_URL };
