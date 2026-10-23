@@ -16,24 +16,28 @@
     : /windows/i.test(ua) ? 'windows'
     : /macintosh|mac os x/i.test(ua) ? 'mac' : 'other');
   var T = {
-    android: { href: PLAY, label: 'Android', ext: true },
-    ios: { href: APPSTORE, label: 'iPhone · iPad', ext: true },
-    windows: { href: PC_SETUP_URL || '/get#pc', label: 'Windows', ext: false },
-    mac: { href: '/get', label: 'Mac', ext: false },
-    other: { href: '/get', label: '다른 기기', ext: false }
+    android: { href: PLAY, text: 'Google Play에서 인벨 받기', ext: true, sub: '다른 기기로 받기 ›' },
+    ios: { href: APPSTORE, text: 'App Store에서 인벨 받기', ext: true, sub: '다른 기기로 받기 ›' },
+    windows: PC_SETUP_URL ? { href: PC_SETUP_URL, text: 'Windows용 인벨 받기', ext: false, sub: '다른 기기로 받기 ›' }
+                          : { off: true, text: 'Windows용은 곧 열려요', sub: '다른 기기로 받기 ›' },
+    mac: { off: true, text: 'Mac용은 곧 열려요', sub: '다른 기기로 받기 ›' },
+    other: { href: '/get', text: '인벨 받기', ext: false, sub: '' }
   };
   var t = T[os] || T.other;
   window.INBELL_DL = { os: os, PLAY: PLAY, APPSTORE: APPSTORE, PC_SETUP_URL: PC_SETUP_URL };
   function fill() {
     document.querySelectorAll('.dlbtn').forEach(function (w) {
       if (w.dataset.done) return; w.dataset.done = '1';
-      var a = document.createElement('a'); a.className = 'dl-main'; a.href = t.href; a.textContent = '인벨 다운로드';
-      if (t.ext) { a.target = '_blank'; a.rel = 'noopener'; }
-      var row = document.createElement('div'); row.className = 'dl-sub';
-      var s = document.createElement('span'); s.textContent = t.label;
-      var o = document.createElement('a'); o.href = '/get'; o.textContent = '다른 기기 ›';
-      row.appendChild(s); row.appendChild(o);
-      w.appendChild(a); w.appendChild(row);
+      var a;
+      if (t.off) { a = document.createElement('span'); a.className = 'dl-main off'; a.setAttribute('aria-disabled', 'true'); }
+      else { a = document.createElement('a'); a.className = 'dl-main'; a.href = t.href; if (t.ext) { a.target = '_blank'; a.rel = 'noopener'; } }
+      a.textContent = t.text;
+      w.appendChild(a);
+      if (t.sub) {
+        var row = document.createElement('div'); row.className = 'dl-sub';
+        var o = document.createElement('a'); o.href = '/get'; o.textContent = t.sub;
+        row.appendChild(o); w.appendChild(row);
+      }
     });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fill); else fill();

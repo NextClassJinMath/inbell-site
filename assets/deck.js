@@ -8,7 +8,7 @@
 (function () {
   const chs = [...document.querySelectorAll('.ch')];
   if (!chs.length) return;
-  const MQ = matchMedia('(max-width:899px)'), TQ = matchMedia('(hover: none) and (pointer: coarse)');
+  const MQ = matchMedia('(max-width:760px)'), TQ = matchMedia('(hover: none) and (pointer: coarse)');
   let mobile = MQ.matches || TQ.matches;
   const body = document.body;
   body.classList.toggle('mobile', mobile);
@@ -95,7 +95,7 @@
   function next() { if (paused && pauseBy === 'start') resume(); if (cur < steps.length - 1) go(cur + 1); }
   function prev() { go(cur - 1); }
   function loop(now) {
-    if (!paused && cur < steps.length - 1 && !reduce) {
+    if (!paused && cur < steps.length - 1) {
       const d = dur(cur), e = elapsed + (now - t0);
       if (e >= d) next(); else paint(e / d);
     }
@@ -143,13 +143,13 @@
     if (document.hidden) { if (!paused) pause('hidden'); } else if (pauseBy === 'hidden') resume();
   });
   document.querySelectorAll('.again').forEach((a) => a.addEventListener('click', (e) => { e.preventDefault(); go(0); if (paused) resume(); }));
-  document.querySelectorAll('.speed button').forEach((b) => {
-    if (Math.abs(+b.dataset.v - mult) < 0.01) b.classList.add('on');
-    b.addEventListener('click', (e) => {
-      e.preventDefault(); e.stopPropagation(); mult = +b.dataset.v;
-      try { localStorage.setItem('inbellSpeed', mult); } catch (_) {}
-      b.parentNode.querySelectorAll('button').forEach((x) => x.classList.toggle('on', x === b));
-    });
+  document.querySelectorAll('.speed').forEach((sp) => {
+    const LV=[0.65,0.8,1,1.3,1.6]; sp.className='spd1';
+    const bt=document.createElement('button'); bt.type='button';
+    const idx=()=>{const i=LV.findIndex((v)=>Math.abs(v-mult)<.01); return i<0?2:i;};
+    function lab(){ bt.textContent='속도 '+(1/LV[idx()]).toFixed(1)+'×'; }
+    bt.addEventListener('click',(e)=>{e.preventDefault();e.stopPropagation(); mult=LV[(idx()+1)%LV.length]; try{localStorage.setItem('inbellSpeed',mult)}catch(_){} lab();});
+    mult=LV[idx()]; lab(); sp.appendChild(bt);
   });
   function onMode() {
     mobile = MQ.matches || TQ.matches; body.classList.toggle('mobile', mobile);
@@ -158,7 +158,7 @@
   }
   [MQ, TQ].forEach((q) => q.addEventListener && q.addEventListener('change', onMode));
   render();
-  if (mobile || reduce) pause(reduce ? 'btn' : 'start');
+  if (mobile) pause('start');
   setBtn();
   if (mobile) setTimeout(() => { if (cur === 0 && paused) { tip.classList.add('on'); setTimeout(() => tip.classList.remove('on'), 6000); } }, 700);
   requestAnimationFrame(loop);

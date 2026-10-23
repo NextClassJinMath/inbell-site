@@ -135,7 +135,7 @@ body.dark .kick, .ch[data-dark] .kick { color: #C9CBF5; }
 .foot .alt { font-size: 13.5px; font-weight: 700; color: var(--accent); }
 
 /* 진행 막대(휴대폰) · 점(컴퓨터) · 재생 · 안내 */
-.pbar { position: fixed; left: 16px; right: 62px; bottom: calc(env(safe-area-inset-bottom, 0px) + 18px); display: flex; gap: 4px; z-index: 40; }
+.pbar { position: fixed; left: 16px; right: 70px; bottom: calc(env(safe-area-inset-bottom, 0px) + 24px); display: flex; gap: 4px; z-index: 40; }
 .pbar .seg { flex: 1; height: 15px; padding: 6px 0; border: 0; background: none; cursor: pointer; }
 .pbar .seg::before { content: ""; display: block; height: 3px; border-radius: 2px; background: rgba(140, 148, 170, .45); }
 .pbar .seg i { display: block; height: 3px; width: 0; margin-top: -3px; border-radius: 2px; background: var(--accent); }
@@ -147,7 +147,7 @@ body.dark .pbar .seg::before { background: rgba(255, 255, 255, .3); } body.dark 
 .pdots button::before { content: attr(data-n); position: absolute; right: 20px; top: 50%; transform: translateY(-50%); white-space: nowrap; font-size: 12px; font-weight: 700; color: var(--mute); opacity: 0; transition: opacity .2s; pointer-events: none; }
 .pdots button:hover::before, .pdots button.on::before { opacity: 1; }
 body.dark .pdots button { background: rgba(255, 255, 255, .4); } body.dark .pdots button.on::after { background: #FFFFFF; } body.dark .pdots button::before { color: rgba(255, 255, 255, .85); }
-.pp { position: fixed; right: 14px; bottom: calc(env(safe-area-inset-bottom, 0px) + 8px); width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line);
+.pp { position: fixed; right: 14px; bottom: calc(env(safe-area-inset-bottom, 0px) + 14px); width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line);
   background: color-mix(in srgb, var(--card) 80%, transparent); color: var(--accent); font-size: 13px; font-weight: 900; z-index: 41; cursor: pointer;
   -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); box-shadow: 0 2px 8px rgba(26, 26, 46, .08); }
 body.dark .pp { background: rgba(255, 255, 255, .18); border-color: rgba(255, 255, 255, .3); color: #FFFFFF; }
@@ -210,3 +210,5 @@ body.mobile .pdots { display: none; }
 .fig .cap-m { font-size: 19px; font-weight: 900; letter-spacing: -.3px; bottom: -42px; }
 @media (max-width: 899px) { .fig .cap-m { font-size: 17px; bottom: -36px; } }
 .ch.last.white { background: var(--bg); }
+
+body.dark .tb-home svg { filter: drop-shadow(0 4px 10px rgba(5, 5, 40, .45)); }

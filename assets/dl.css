@@ -14,3 +14,12 @@
   :root:not([data-theme="light"]) .dlbtn:not(.on-dark):not(.fixed-light) .dl-sub a { color: #B9BCFF; }
 }
 @media (max-width: 760px) { .dlbtn.mcenter { align-items: center; } .dl-main { width: 100%; max-width: 360px; } }
+
+.dl-main.off { background: #E3E6EE !important; color: #64748B !important; box-shadow: none !important; cursor: default; }
+.dlbtn.on-dark .dl-main.off { background: rgba(255,255,255,.16) !important; color: rgba(255,255,255,.85) !important; }
+.dl-sub { justify-content: center; }
+/* 단추와 아랫줄을 한 묶음으로 — 아랫줄은 단추 가운데 아래(PC 왼쪽 정렬 첫 화면에서도) */
+.dlbtn { align-self: flex-start; align-items: stretch; width: max-content; max-width: 100%; }
+.dlbtn.center, .dlbtn.mcenter.center { align-self: center; }
+.dlbtn .dl-sub { justify-content: center; }
+@media (max-width: 760px) { .dlbtn.mcenter { align-self: stretch; width: auto; align-items: center; } }

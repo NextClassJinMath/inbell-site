@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html lang="ko" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -37,7 +37,199 @@
   .faq p { margin: 8px 0 0; font-size: 14px; line-height: 1.6; color: var(--sub); }
   .priv { margin: 0; font-size: 12.5px; line-height: 1.7; color: var(--mute); }
 </style>
-</head>
+<style>
+:root{--bg:#FFFFFF}
+body{background:#FFFFFF}
+.ch.last,.last{background:#FFFFFF!important}
+.fig{--shot-h:min(56svh,520px)}
+@media (min-width:900px){.fig{--shot-h:min(540px,calc(100svh - 250px))}}
+.fig .shot.lockph,.hero-ph.lockph{background:linear-gradient(165deg,#2F2F8E 0%,#5C4EA8 45%,#C9A6C7 100%);border:6px solid #1A1A2E;display:flex;flex-direction:column;align-items:center;padding:14% 6% 0;box-sizing:border-box;color:#FFFFFF}
+.lockph .lt{font-size:clamp(28px,9cqw,44px);font-weight:300;letter-spacing:1px;line-height:1}
+.lockph .ld{font-size:11px;opacity:.85;margin:6px 0 16px}
+.lockph img{width:100%;height:auto;border-radius:14px;box-shadow:0 10px 24px rgba(0,0,0,.25)}
+.fig{container-type:inline-size}
+</style><style>
+/* 원장 페이지 짜임 흉내: 장 제목 혼자 → 그림 + 큰 글 */
+.ch .txt h2{display:none}
+.ch .txt h2.now{display:block;font-size:34px;font-weight:900;letter-spacing:-.8px;text-align:center;margin:0}
+.ch:has(.txt h2.now) .fig{display:none}
+.ch:has(.txt h2.now) .scene{grid-template-columns:1fr;justify-items:center}
+.ch .txt .concl{text-align:center}
+.fig .cap-m{display:block!important;position:absolute;left:50%;top:calc(100% + 14px);bottom:auto;transform:translateX(-50%);white-space:nowrap;font-size:26px;font-weight:900;letter-spacing:-.6px;color:#1A1A2E;opacity:1}
+.fig .cap-m span{display:none}.fig .cap-m span.now{display:inline}
+.ch.done .fig .cap-m{display:none!important}
+.ch:has(.txt h2.now) .scene{justify-content:center;align-content:center}
+@media (min-width:900px){.scene{display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:28px;padding-top:96px;padding-bottom:70px}.txt{order:2;align-items:center}.fig{order:1;margin-bottom:54px}.ch .txt h2.now{font-size:44px}.fig .cap-m{font-size:28px}.ch .txt .concl{margin-top:0}}
+@media (max-width:899px){.fig .cap-m{font-size:22px}.ch .txt h2.now{font-size:30px}.ch .txt{min-height:0}}
+
+/* 장 끝: 제목이 다시 나타나 위로, 아래에 남색 결론 */
+.ch.done .fig{display:none}
+.ch.done .txt{align-items:center;gap:22px}
+.ch.done .txt h2{display:block;font-size:34px;font-weight:900;letter-spacing:-.8px;text-align:center;margin:0;animation:pa-up .6s cubic-bezier(.2,.7,.2,1) both}
+.ch.done .txt .concl{position:static;margin:0;font-size:24px;text-align:center}
+.ch.done .scene{justify-content:center;align-content:center}
+@keyframes pa-up{from{transform:translateY(40px)}to{transform:none}}
+@media (min-width:900px){.ch.done .txt h2{font-size:44px}.ch.done .txt .concl{font-size:30px}}
+</style><style>
+.fig .shot.lockph .ntmock,.hero-ph .ntmock{width:100%;background:#E9E9EE;border-radius:14px;padding:10px 12px;box-sizing:border-box;display:flex;flex-direction:column;gap:2px;text-align:left;color:#1A1A2E;box-shadow:0 10px 24px rgba(0,0,0,.25)}
+.ntmock .nh{display:flex;align-items:center;gap:6px;font-size:10px;color:#4B5568}
+.ntmock .nh i{width:14px;height:14px;border-radius:50%;background:#1D1D76;display:inline-block}
+.ntmock .nh b{font-weight:600;color:#4B5568}
+.ntmock .nt1{font-size:12px;font-weight:700}
+.ntmock .nt2{font-size:11px;color:#3F4A5C}
+</style><style>
+.fig .hl{position:absolute;border:3px solid #1D1D76;border-radius:10px;box-shadow:0 0 0 4px rgba(29,29,118,.18);opacity:0;transform:scale(.96);transition:opacity .35s,transform .35s;pointer-events:none;z-index:3}
+.fig .hl.now{opacity:1;transform:none}
+</style><style>
+.again-row{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.spd{display:inline-flex;align-items:center;gap:2px;border:1px solid #D7DBE4;border-radius:999px;padding:3px 6px;background:#FFFFFF}
+.spd button{width:28px;height:28px;border:0;background:transparent;border-radius:50%;font:inherit;font-size:18px;line-height:1;color:#1D1D76;cursor:pointer}
+.spd button:disabled{opacity:.3;cursor:default}
+.spd b{min-width:44px;text-align:center;font-size:13px;font-weight:800;color:#1A1A2E}
+</style><style>
+.ch[data-dark]{background:linear-gradient(135deg,#15155E,#1D1D76 50%,#3A3AA6)}
+.bellbg{position:absolute;right:-80px;top:-60px;opacity:.13;pointer-events:none}
+.hero2{position:relative;width:100%;max-width:1120px;margin:0 auto;padding:72px 32px 40px;display:flex;flex-wrap:wrap;gap:48px;align-items:center;justify-content:center}
+.hero2 .txt{flex:1 1 380px;display:flex;flex-direction:column;gap:18px;align-items:flex-start;text-align:left}
+.hero2 h1{margin:0;font-size:52px;font-weight:900;line-height:1.2;letter-spacing:-1.5px;color:#FFFFFF}
+.hero2 .pill{align-self:flex-start;font-size:14px;font-weight:800;background:#FFFFFF;color:#1D1D76;border-radius:999px;padding:8px 16px}
+.hero2 .who{font-size:16px;opacity:.85;color:#FFFFFF}
+.hero2 .hero-ph{flex:0 0 auto;width:min(280px,66vw);aspect-ratio:9/19;border-radius:32px;overflow:hidden;transform:rotate(-4deg);box-shadow:0 30px 60px rgba(0,0,0,.35);order:2;container-type:inline-size}
+.hero2 .txt{order:1}
+.hero2 .hero-ph img{width:86%}
+body.mobile .hero2{padding:74px 22px 70px;gap:14px;flex-direction:column;align-items:flex-start;justify-content:flex-start;height:100%;box-sizing:border-box;overflow:hidden}
+body.mobile .hero2 h1{font-size:clamp(28px,8vw,34px)}
+body.mobile .hero2 .hero-ph{width:min(230px,60vw);height:auto;aspect-ratio:9/16;align-self:center;transform:rotate(-3deg);margin-top:4px;flex:none;border-bottom-left-radius:0;border-bottom-right-radius:0}
+.hero-ph .ntmock .nt1{font-size:14px}.hero-ph .ntmock .nt2{font-size:12.5px}.hero-ph .ntmock .nh{font-size:11px}
+body.mobile .hero2{flex-wrap:nowrap}
+body.mobile .hero2 .txt{gap:12px;flex:0 0 auto}
+body.mobile .hero2 .who{font-size:14px}
+</style><style>
+.ntmock .nlogo{width:15px;height:15px;border-radius:4px;flex:none}
+.hero-ph{animation:phfloat 5s ease-in-out infinite}
+.hero-ph .ntmock{animation:cardin .7s cubic-bezier(.2,.9,.3,1.2) .5s both}
+@keyframes phfloat{0%,100%{transform:rotate(-3deg) translateY(0)}50%{transform:rotate(-3deg) translateY(-10px)}}
+@keyframes cardin{0%{opacity:0;transform:translateY(-28px) scale(.96)}100%{opacity:1;transform:none}}
+body:not(.mobile) .hero2 .hero-ph{animation-name:phfloat2}
+@keyframes phfloat2{0%,100%{transform:rotate(-4deg) translateY(0)}50%{transform:rotate(-4deg) translateY(-12px)}}
+body.mobile .hero2 .hero-ph{width:auto;height:41vh;max-height:360px;aspect-ratio:9/18;border-radius:28px;margin-top:8px}
+body.mobile .hero2 h1{font-size:clamp(26px,7.4vw,32px)}
+body.mobile .hero2{padding-top:68px}
+.hero-ph .ntmock .nt2{font-size:12px}
+</style><style>
+.hero2{position:relative;width:100%;max-width:1120px;margin:0 auto;padding:72px 32px 104px;display:flex;flex-wrap:wrap;gap:64px;align-items:center;justify-content:center;box-sizing:border-box}
+.hero2 .txt{flex:1 1 420px;display:flex;flex-direction:column;gap:18px;align-items:flex-start;text-align:left;order:1}
+.hero2 h1{margin:0;font-size:56px;white-space:nowrap;font-weight:900;line-height:1.2;letter-spacing:-1.5px;color:#FFFFFF}
+.hero2 .dlbtn{margin-top:8px}
+.hero2 .compwrap{flex:0 0 auto;min-width:300px;display:flex;justify-content:center;order:2}
+.comp{position:relative;width:600px;height:811px;flex:none;zoom:.86}
+.comp .glow{position:absolute;left:50%;top:50%;width:520px;height:520px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(217,167,181,.75),rgba(123,111,176,.55) 45%,rgba(59,63,143,0) 70%);filter:blur(20px)}
+.hf-b{animation:hfb 7s ease-in-out infinite}.hf-f{animation:hff 6s ease-in-out infinite}
+@keyframes hfb{0%,100%{transform:rotate(8deg) translateY(0)}50%{transform:rotate(8deg) translateY(10px)}}
+@keyframes hff{0%,100%{transform:rotate(-6deg) translateY(0)}50%{transform:rotate(-6deg) translateY(-10px)}}
+.lockin{background:linear-gradient(165deg,#2F2F8E 0%,#5C4EA8 45%,#C9A6C7 100%);display:flex;flex-direction:column;align-items:center;padding:64px 20px 0;box-sizing:border-box;color:#FFFFFF}
+.lockin .lt{font-size:46px;font-weight:300;letter-spacing:1px;line-height:1}
+.lockin .ld{font-size:13px;opacity:.85;margin:8px 0 22px}
+.lockin .ntmock{width:100%;background:#E9E9EE;border-radius:16px;padding:12px 14px;box-sizing:border-box;display:flex;flex-direction:column;gap:3px;text-align:left;color:#1A1A2E;box-shadow:0 10px 24px rgba(0,0,0,.25);animation:cardin .7s cubic-bezier(.2,.9,.3,1.2) .5s both}
+.lockin .ntmock .nh{font-size:12px}.lockin .ntmock .nt1{font-size:15px}.lockin .ntmock .nt2{font-size:13.5px}.lockin .nlogo{width:17px;height:17px}
+body.mobile .hero2{flex-direction:column;flex-wrap:nowrap;align-items:flex-start;justify-content:flex-start;gap:36px;padding:72px 32px 60px;height:auto;overflow:visible;width:100%}
+body.mobile .hero2 .txt{flex:0 0 auto;gap:18px;width:100%}
+body.mobile .hero2 .dlbtn{align-self:stretch}
+body.mobile .hero2 h1{font-size:34px;letter-spacing:-1px;white-space:normal}
+body.mobile .hero2 .who{font-size:16px}
+body.mobile .hero2 .compwrap{align-self:center;min-width:0}
+body.mobile .comp{zoom:.58}
+.hero-ph{display:none}
+</style><style>
+.ntmock .nh{position:relative}
+.ntmock .nlogo{width:18px!important;height:18px!important;border-radius:50%!important}
+.lockin .nlogo{width:22px!important;height:22px!important}
+.ntmock .nbell{font-size:9px;opacity:.6;margin-left:2px;filter:grayscale(1)}
+.ntmock .nchev{position:absolute;right:0;top:-6px;width:22px;height:22px;border-radius:50%;background:#FFFFFF;color:#1A1A2E;font-size:16px;font-weight:700;display:flex;align-items:center;justify-content:center;line-height:1}
+.lockin .nchev{width:28px;height:28px;font-size:20px;top:-4px}
+/* 지각→결석→조퇴 이동하는 점 */
+.tapdot.walk.on{animation:walk3 2.3s ease-in-out .15s 1 both}
+@keyframes walk3{0%{opacity:0;left:18.6%;transform:translate(-50%,-50%) scale(1.5)}10%{opacity:1;transform:translate(-50%,-50%) scale(.9)}28%{left:18.6%;transform:translate(-50%,-50%) scale(1)}42%,56%{left:50%}70%,88%{left:81.4%;opacity:1}100%{left:81.4%;opacity:0;transform:translate(-50%,-50%) scale(1.05)}}
+</style><style>
+.spd1 button{font:inherit;font-size:14px;font-weight:700;color:#1D1D76;background:#FFFFFF;border:1px solid #D7DBE4;border-radius:999px;padding:8px 14px;cursor:pointer;white-space:nowrap}
+.again-row{display:flex!important;flex-direction:row!important;align-items:center;justify-content:center;gap:10px;flex-wrap:nowrap!important}
+</style><style>
+.hero2{position:relative;width:100%;max-width:none;margin:0;padding:0;display:block;overflow:hidden}
+.hero2-in{position:relative;max-width:1120px;margin:0 auto;padding:72px 32px 104px;display:flex;flex-wrap:wrap;gap:64px;align-items:center;justify-content:center;box-sizing:border-box}
+.bellbg{position:absolute;right:-80px;top:-60px;opacity:.13;pointer-events:none}
+body.mobile .hero2{display:block;padding:0;height:auto;overflow:hidden;flex-wrap:nowrap}
+body.mobile .hero2-in{flex-direction:column;flex-wrap:nowrap;align-items:flex-start;justify-content:flex-start;gap:36px;padding:72px 32px 60px}
+</style><style>
+.hero2-in{justify-content:flex-start}
+body.mobile .hero2-in{flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:64px;padding:40px 20px 40px}
+body.mobile .hero2 .txt{flex:1 1 420px;align-items:stretch;gap:18px;width:auto}
+body.mobile .hero2 .txt .pill{align-self:flex-start}
+body.mobile .hero2 .txt .who{font-size:16px}
+body.mobile .hero2 .dlbtn{align-self:auto}
+body.mobile .hero2 .compwrap{flex:0 0 auto;min-width:300px;align-self:auto}
+</style><style>
+.ch[data-dark]{background:linear-gradient(135deg,#15155E,#1D1D76 50%,#3A3AA6)}
+.fit0{width:100%}
+.fit0 .h1{font-size:56px;white-space:nowrap}
+.fit0 .comp{zoom:.86}
+.hf-b{animation:hfb 7s ease-in-out infinite}
+@keyframes hfb{0%,100%{transform:rotate(8deg) translateY(0)}50%{transform:rotate(8deg) translateY(10px)}}
+.br-m{display:none}
+@media (max-width:760px){
+ .fit0 .h1{font-size:34px!important;white-space:normal}
+ .fit0 .comp{zoom:.58}
+ .fit0>section>div{padding-left:20px!important;padding-right:20px!important;padding-top:40px!important;padding-bottom:40px!important}
+ .br-m{display:inline}
+}
+.lockin .lt{position:static}
+</style><style>
+.endwrap{gap:44px;padding:88px 28px 80px}
+.endwrap .mk1{font-size:30px}
+.pa-steps{width:100%;max-width:560px;margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;counter-reset:s}
+.pa-steps li{counter-increment:s;display:grid!important;grid-template-columns:30px 1fr;column-gap:14px;row-gap:0;align-items:start;text-align:left;background:#F5F6FA;border-radius:16px;padding:16px 18px;margin:0}
+.pa-steps li::before{grid-row:1/3}
+.pa-steps li b,.pa-steps li span{grid-column:2}
+.pa-steps li::before{content:counter(s);flex:none;width:30px;height:30px;border-radius:50%;background:#1D1D76;color:#FFFFFF;font-size:14px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.pa-steps li b{display:block;font-size:17px;line-height:1.4;color:#1A1A2E}
+.pa-steps li span{display:block;font-size:14px;line-height:1.55;color:#64748B;margin-top:3px}
+.faqwrap{width:100%;max-width:560px;display:flex;flex-direction:column;gap:10px}
+.faqh{margin:0;font-size:13px;font-weight:800;letter-spacing:.3px;color:#94A3B8;text-align:left}
+.faq{width:100%;border-top:1px solid #EEF0F5}
+.faq details{border-bottom:1px solid #EEF0F5;text-align:left;padding:0!important;margin:0!important}
+.faq summary{padding:12px 0!important;margin:0!important;line-height:1.4;font-size:15px;font-weight:700;color:#1A1A2E;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.faq summary::after{content:"⌄";color:#94A3B8;font-size:18px}
+.faq p{margin:0 0 14px;font-size:14px;line-height:1.6;color:#64748B}
+.priv{margin:0;font-size:13px;line-height:1.7;color:#94A3B8;max-width:460px}
+.endwrap .again-row{margin-top:-10px}
+.endwrap .again,.spd1 button{border-color:#E3E6EE;color:#64748B;font-weight:600;font-size:13px;padding:7px 13px}
+@media (max-width:760px){.endwrap{gap:34px;padding:68px 20px 72px}.endwrap .mk1{font-size:24px}.pa-steps li{padding:13px 14px;gap:12px}.pa-steps li b{font-size:15.5px}.pa-steps li span{font-size:13px}}
+</style><style>.foot .foot-l span{color:#94A3B8;font-weight:400}.foot a{color:#64748B;font-weight:400}.foot{font-size:12.5px}</style><style>.endwrap .spd1,.endwrap .speed{display:none!important}.endwrap{min-height:100%;box-sizing:border-box}.endwrap>:first-child{margin-top:auto}.endwrap .foot{margin-top:auto}</style><style>
+.fixfoot{position:fixed!important;left:0;right:0;bottom:0;margin:0!important;z-index:30;background:#FFFFFF;border-top:1px solid #EEF0F5;padding:12px 16px calc(env(safe-area-inset-bottom,0px) + 12px)!important;box-sizing:border-box}
+
+.endwrap{min-height:0!important;padding-bottom:120px!important}
+.endwrap>:first-child{margin-top:0!important}
+body.onlast .pbar{bottom:calc(env(safe-area-inset-bottom,0px) + 86px)!important}
+body.onlast .pp{bottom:calc(env(safe-area-inset-bottom,0px) + 76px)!important}
+@media (max-width:760px){.endwrap{padding-bottom:150px!important}}
+</style><style>
+.endwrap .pa-steps,.endwrap .faqwrap{max-width:420px}
+.endwrap .pa-steps li{padding:14px 16px;row-gap:2px}
+.endwrap .pa-steps li span{margin-top:0!important}
+</style><style>
+/* 마지막 장 — 머리와 발자국 사이 가운데 · 넘치면 위부터 · 여백 차등 */
+.ch.last .scroll{display:flex;flex-direction:column}
+.endwrap{flex:1 0 auto;min-height:0!important;justify-content:safe center!important;gap:0!important;padding:calc(64px + 2vh) 28px calc(96px + 2vh)!important}
+.endwrap>*{margin-top:0}
+.endwrap .pa-steps{margin-top:clamp(16px,2.2vh,22px)!important}
+.endwrap .dlbtn{margin-top:clamp(28px,4.5vh,44px)!important}
+.endwrap .faqwrap{margin-top:clamp(48px,8vh,80px)!important}
+.endwrap .again-row{margin-top:clamp(28px,4.5vh,44px)!important}
+@media (max-width:760px){.endwrap{padding:72px 20px 132px!important}}
+</style><style>
+body:not(.mobile) .endwrap .pa-steps{display:grid!important;grid-template-columns:1fr 1fr;gap:12px;max-width:600px}
+body:not(.mobile) .endwrap .faqwrap{max-width:600px}
+body:not(.mobile) .endwrap .pa-steps li{align-content:start}
+</style></head>
 <body>
 <header class="tbar"><div class="tb-in">
   <a href="/" class="tb-home" aria-label="인벨 처음으로"><svg viewBox="0 80 1024 1024" aria-hidden="true"><defs><clipPath id="lg"><path d="M352 330 C340 480 306 620 196 742 L828 742 C718 620 684 480 672 330 A172 172 0 0 0 352 330 Z"/><path d="M150 742 H874 a24 24 0 0 1 24 24 v42 a24 24 0 0 1 -24 24 H150 a24 24 0 0 1 -24 -24 v-42 a24 24 0 0 1 24 -24 Z"/><circle cx="512" cy="876" r="88"/></clipPath></defs><rect x="0" y="80" width="1024" height="1024" rx="230" fill="#1d1d76"/><g clip-path="url(#lg)"><rect x="0" y="80" width="1024" height="1200" fill="#ffffff"/><polygon points="0,287 1024,1021 1024,1200 0,1200" fill="#d6d6e6"/></g></svg>인벨</a>
@@ -48,69 +240,67 @@
 
 <!-- 1 시작 -->
 <section class="ch" data-name="시작" data-dark data-dur="6000">
-  <div class="hero">
-    <div class="txt">
-      <span class="ac"><span id="acn">우리 학원</span>이 인벨로 소식을 보내요</span>
-      <h1>아이가 학원에 도착하면,<br>폰이 먼저 알려 드려요</h1>
-      <span class="who">설치는 1분 · 비용은 없어요</span>
-      <div class="dlbtn on-dark mcenter"></div>
-    </div>
-    <img class="card1" src="/assets/shots/P1_arrive_card.webp" alt="학부모 폰 알림: 인벨수학학원 · 한서준 학생이 등원했어요(오후 07:48)" width="996" height="315">
-  </div>
+  <div class="fit0"><section style="position:relative;overflow:hidden;background:linear-gradient(135deg,#15155E,#1D1D76 50%,#3A3AA6);color:#FFFFFF">
+<div style="position:absolute;right:-80px;top:-60px;opacity:.13"><svg width="520" height="520" viewBox="100 150 824 824" aria-hidden="true"><defs><clipPath id="cwp0"><path d="M352 330 C340 480 306 620 196 742 L828 742 C718 620 684 480 672 330 A172 172 0 0 0 352 330 Z"/><path d="M150 742 H874 a24 24 0 0 1 24 24 v42 a24 24 0 0 1 -24 24 H150 a24 24 0 0 1 -24 -24 v-42 a24 24 0 0 1 24 -24 Z"/><circle cx="512" cy="876" r="88"/></clipPath></defs><g clip-path="url(#cwp0)"><rect x="0" y="80" width="1024" height="1200" fill="#ffffff"/><polygon points="0,287 1024,1021 1024,1200 0,1200" fill="#d6d6e6"/></g></svg></div>
+<div style="height:52px" aria-hidden="true"></div>
+<div style="position:relative;max-width:1120px;margin:0 auto;padding:72px 32px 104px;display:flex;flex-wrap:wrap;gap:64px;align-items:center">
+<div style="flex:1 1 420px;display:flex;flex-direction:column;gap:18px">
+<h1 class="h1" style="margin:0;font-size:56px;font-weight:900;line-height:1.2;letter-spacing:-1.5px">학원에 오면,<br>선생님보다 먼저<br>폰이 알려 드려요</h1>
+<span style="align-self:flex-start;display:flex;align-items:center;gap:8px;font-size:14px;font-weight:800;background:#FFFFFF;color:#1D1D76;border-radius:999px;padding:8px 16px">등원 · 지각 · 공지까지, 학원이 보내는 소식</span><span style="font-size:16px;opacity:.85">설치는 1분 · 가입은 번호 인증뿐</span><div class="dlbtn on-dark mcenter" style="margin-top:8px"></div>
+</div>
+<div style="flex:0 0 auto;min-width:300px;display:flex;justify-content:center"><div style="display:flex;flex-direction:column;align-items:center;gap:10px">
+<div class="comp" style="position:relative;width:600px;height:811px;flex:none"><div style="position:absolute;left:50%;top:50%;width:520px;height:520px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(217,167,181,.75),rgba(123,111,176,.55) 45%,rgba(59,63,143,0) 70%);filter:blur(20px)"></div><div class="hf-b" style="position:absolute;right:10px;top:20px;transform:rotate(8deg)"><div style="width:290px;height:604px;box-sizing:border-box;border-radius:40px;border:10px solid #0B0B30;background:#0B0B30;overflow:hidden;box-shadow:0 40px 90px rgba(5,5,40,.55),0 0 0 1px rgba(255,255,255,.08) inset;color:#1A1A2E;text-align:left"><div style="width:270px;height:584px;overflow:hidden;position:relative;border-radius:31px"><img src="/assets/shots/P5a_month_summary.webp" alt="학생 탭: 10월 출결과 숙제" style="position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;object-position:top"></div></div></div><div class="hf-f" style="position:absolute;left:30px;top:90px;transform:rotate(-6deg)"><div style="width:330px;height:691px;box-sizing:border-box;border-radius:46px;border:10px solid #0B0B30;background:#0B0B30;overflow:hidden;box-shadow:0 40px 90px rgba(5,5,40,.55),0 0 0 1px rgba(255,255,255,.08) inset;color:#1A1A2E;text-align:left"><div style="width:310px;height:671px;overflow:hidden;position:relative;border-radius:36px"><div class="lockin" style="position:absolute;inset:0;width:100%;height:100%"><div class="lt">19:48</div><div class="ld">10월 22일 목요일</div><div class="ntmock"><div class="nh"><img class="nlogo" src="/assets/shots/noti_icon.png" alt=""><b>인벨 · 지금</b><span class="nbell">🔔</span><span class="nchev">⌃</span></div><b class="nt1">인벨수학학원</b><span class="nt2">한서준 학생이 등원했어요 (오후 07:48)</span></div></div></div></div></div></div>
+</div></div>
+</div></section></div>
 </section>
 
 <!-- 2 알려 드려요 -->
-<section class="ch" data-name="알려 드려요" data-dur="11000">
+<section class="ch" data-name="알려 드려요" data-dur="12000">
   <div class="scene">
     <div class="txt">
-      <h2>알려 드려요</h2>
+      <h2 data-k="1">알려 드려요</h2>
       <p class="concl" data-done>학원 출발 시간부터 등원, 하원까지</p>
     </div>
     <figure class="fig">
-      <img class="shot" data-k="1" src="/assets/shots/P2_0_depart_push.webp" alt="아이 폰 알림: 출발할 시간이에요" width="584" height="1200">
-      <img class="shot" data-k="2" src="/assets/shots/P1_arrive_push.webp" alt="보호자 폰 알림: 한서준 학생이 등원했어요" width="584" height="1200" loading="lazy">
-      <img class="shot" data-k="3" src="/assets/shots/P2a_red.webp" alt="대화방 빨간 카드: 지각 발생" width="584" height="1200" loading="lazy">
-      <img class="shot" data-k="4" src="/assets/shots/P2b_amber.webp" alt="대화방 노란 카드: 도착 예정 19:50 · 교통" width="584" height="1200" loading="lazy">
-      <img class="shot" data-k="5" src="/assets/shots/P2c_green.webp" alt="대화방 초록 카드: 등원 19:48 · 18분 늦음" width="584" height="1200" loading="lazy">
-      <span class="tapdot" data-k="3" data-tap="P2a_red"></span>
-      <figcaption class="cap-m"><span data-k="1">출발할 시간이에요</span><span data-k="2">등원했어요</span><span data-k="3">인벨이 묻습니다</span><span data-k="4">답했어요</span><span data-k="5">도착했어요</span></figcaption>
+      <div class="shot lockph" data-k="2"><div class="lt">19:20</div><div class="ld">10월 22일 목요일</div><div class="ntmock"><div class="nh"><img class="nlogo" src="/assets/shots/noti_icon.png" alt=""><b>인벨 · 지금</b><span class="nbell">🔔</span><span class="nchev">⌃</span></div><b class="nt1">출발할 시간이에요</b><span class="nt2">한서준 학생, 오후 7:30 수업이 10분 뒤에 시작해요. 지금 출발하면 늦지 않아요.</span></div></div>
+      <div class="shot lockph" data-k="3"><div class="lt">19:48</div><div class="ld">10월 22일 목요일</div><div class="ntmock"><div class="nh"><img class="nlogo" src="/assets/shots/noti_icon.png" alt=""><b>인벨 · 지금</b><span class="nbell">🔔</span><span class="nchev">⌃</span></div><b class="nt1">인벨수학학원</b><span class="nt2">한서준 학생이 등원했어요 (오후 07:48)</span></div></div>
+      <div class="shot lockph" data-k="4"><div class="lt">21:02</div><div class="ld">10월 22일 목요일</div><div class="ntmock"><div class="nh"><img class="nlogo" src="/assets/shots/noti_icon.png" alt=""><b>인벨 · 지금</b><span class="nbell">🔔</span><span class="nchev">⌃</span></div><b class="nt1">인벨수학학원</b><span class="nt2">한서준 학생이 하원했어요 (오후 09:02)</span></div></div>
+      <figcaption class="cap-m"><span data-k="2">출발할 시간이에요</span><span data-k="3">등원했어요</span><span data-k="4">하원했어요</span></figcaption>
     </figure>
   </div>
 </section>
 
 <!-- 3 대신 전해 드려요 -->
-<section class="ch" data-name="대신 전해 드려요" data-dur="11000">
+<section class="ch" data-name="대신 전해 드려요" data-dur="14000">
   <div class="scene">
     <div class="txt">
-      <h2>대신 전해 드려요</h2>
+      <h2 data-k="1">대신 전해 드려요</h2>
       <p class="concl" data-done>지각, 결석, 조퇴를 간편하게</p>
     </div>
     <figure class="fig">
-      <img class="shot" data-k="1" src="/assets/shots/P3a_home_unchecked.webp" alt="학부모 홈: 오늘 수업 알림" width="584" height="1200" loading="lazy">
-      <img class="shot" data-k="2" src="/assets/shots/P3b_home_checked.webp" alt="체크하면 아래에 지각 · 결석 · 조퇴 알리기" width="584" height="1200" loading="lazy">
-      <img class="shot" data-k="3" src="/assets/shots/P3c_late_sheet.webp" alt="알리기 창: 지각 · 결석 · 조퇴와 이유 고르기" width="584" height="1200" loading="lazy">
-      <img class="shot" data-k="4" src="/assets/shots/P4b_pre_mode.webp" alt="달력 미리 알리기" width="584" height="1200" loading="lazy">
-      <img class="shot" data-k="5" src="/assets/shots/P4c_multi_day_tags.webp" alt="달력에 결석 꼬리표" width="584" height="1200" loading="lazy">
-      <span class="tapdot" data-k="1" data-tap="P3a_home_unchecked"></span>
-      <span class="tapdot" data-k="2" data-tap="P3b_home_checked"></span>
-      <span class="tapdot" data-k="4" data-tap="P4b_pre_mode"></span>
-      <figcaption class="cap-m"><span data-k="1">체크하면</span><span data-k="2">지각 · 결석 · 조퇴</span><span data-k="3">고르고 보내기</span><span data-k="4">며칠은 달력에서</span><span data-k="5">미리 알렸어요</span></figcaption>
+      <img class="shot" data-k="2" src="/assets/shots/P3a_home_unchecked.webp" alt="학부모 홈: 오늘 수업 알림" width="584" height="1200" loading="lazy">
+      <img class="shot" data-k="3" src="/assets/shots/P3b_home_checked.webp" alt="체크하면 아래에 지각 · 결석 · 조퇴 알리기" width="584" height="1200" loading="lazy">
+      <img class="shot" data-k="4" src="/assets/shots/P3c_late_sheet.webp" alt="알리기 창: 지각 · 결석 · 조퇴와 이유 고르기" width="584" height="1200" loading="lazy">
+      <span class="tapdot" data-k="2" data-tap="P3a_home_unchecked"></span>
+      <span class="tapdot walk" data-k="3" data-tap="P3b_home_checked"></span>
+      <figcaption class="cap-m"><span data-k="2">체크하고</span><span data-k="3">지각 · 결석 · 조퇴</span><span data-k="4">이유만 고르면 끝</span></figcaption>
     </figure>
   </div>
 </section>
 
 <!-- 4 확인해 드려요 -->
-<section class="ch" data-name="확인해 드려요" data-dur="8000">
+<section class="ch" data-name="확인해 드려요" data-dur="12000">
   <div class="scene">
     <div class="txt">
-      <h2>확인해 드려요</h2>
+      <h2 data-k="1">확인해 드려요</h2>
       <p class="concl" data-done>공부 시간, 출결, 숙제까지</p>
     </div>
     <figure class="fig">
-      <img class="shot" data-k="1" src="/assets/shots/P5a_month_summary.webp" alt="학생 탭 출결: 10월 · 총 16시간 8분 공부했어요" width="584" height="1200" loading="lazy">
-      <img class="shot" data-k="2" src="/assets/shots/P5b_day_detail.webp" alt="10/15 지각 · 등원 20:42 → 하원 22:00 · 이날 1시간 18분 공부했어요" width="584" height="1200" loading="lazy">
-      <span class="tapdot" data-k="2" data-tap="P5b_day_detail"></span>
-      <figcaption class="cap-m"><span data-k="1">이번 달 16시간 8분</span><span data-k="2">그날 하루</span></figcaption>
+      <img class="shot" data-k="2" src="/assets/shots/P5a_month_summary.webp" alt="학생 탭 출결: 10월 · 총 16시간 8분 공부했어요" width="584" height="1200" loading="lazy">
+      <span class="hl" data-k="2" style="left:5%;top:31.5%;width:58%;height:5%"></span>
+      <span class="hl" data-k="3" style="left:5%;top:35.5%;width:51%;height:6%"></span>
+      <span class="hl" data-k="4" style="left:58%;top:35.5%;width:36%;height:6%"></span>
+      <figcaption class="cap-m"><span data-k="2">이번 달 수업 시간</span><span data-k="3">등원 · 지각 · 결석 횟수</span><span data-k="4">숙제 안 한 횟수</span></figcaption>
     </figure>
   </div>
 </section>
@@ -126,19 +316,17 @@
       <li><b>자녀 연결 동의</b><span>자녀 폰에서도 쓰려면 한 번만 동의해요</span></li>
     </ol>
     <div class="dlbtn center"></div>
-    <div class="faq">
+    <div class="faqwrap"><p class="faqh">자주 묻는 것</p><div class="faq">
       <details><summary>아이 폰이 없어도 되나요?</summary><p>네. 보호자님 폰만으로 알림을 받으실 수 있어요.</p></details>
       <details><summary>아버지도 같이 받을 수 있나요?</summary><p>학원에 번호를 알려 주시면 함께 받으실 수 있어요.</p></details>
-      <details><summary>비용이 드나요?</summary><p>없어요.</p></details>
-    </div>
-    <p class="priv">학원이 등록한 이름·번호만 쓰고, 학원을 그만두면 앱에서 사라져요.<br>초대장이 안 보이면 학원에 알려 주세요.</p>
+      <details><summary>알림이 너무 많이 오지 않나요?</summary><p>등원·하원, 학원 공지처럼 꼭 필요한 것만 와요. 알림 시간 설정도 가능해요.</p></details>
+    </div></div>
     <div class="again-row">
-      <div class="speed" aria-label="넘기는 빠르기"><button type="button" data-v="1.5">천천히</button><button type="button" data-v="1">보통</button><button type="button" data-v="0.7">빠르게</button></div>
       <a class="again" href="/parent">처음부터 다시 ↺</a>
+      <div class="speed" aria-label="넘기는 빠르기"></div>
     </div>
-    <footer class="foot">
-      <a class="alt" href="/">원장님이신가요? 인벨 소개 보기 ›</a>
-      <div class="foot-l"><span>인벨 · 지누리</span><a href="mailto:help@inbell.co.kr">help@inbell.co.kr</a><a href="/terms/">이용약관</a><a href="/privacy.html">개인정보처리방침</a><a href="/delete-account.html">계정 삭제</a></div>
+    <footer class="foot fixfoot">
+      <div class="foot-l"><span>인벨</span><a href="mailto:help@inbell.co.kr">help@inbell.co.kr</a><a href="/terms/">이용약관</a><a href="/privacy.html">개인정보처리방침</a><a href="/delete-account.html">계정 삭제</a></div>
     </footer>
   </div></div>
 </section>
@@ -150,5 +338,5 @@
 </script>
 <script src="/assets/taps.js"></script>
 <script src="/assets/deck.js"></script>
-</body>
+<script>(function(){const f=document.querySelector('.fit0');if(!f)return;function fit(){f.style.zoom=1;const top=document.body.classList.contains('mobile')?60:20;const z=Math.min(1,(innerHeight-top)/f.scrollHeight,innerWidth/f.clientWidth);f.style.zoom=z.toFixed(3);}addEventListener('resize',fit);addEventListener('load',fit);setTimeout(fit,50);setTimeout(fit,600);})();</script><script>(function(){const last=document.querySelector('.ch.last');if(!last)return;const f=()=>document.body.classList.toggle('onlast',last.classList.contains('on'));new MutationObserver(f).observe(last,{attributes:true,attributeFilter:['class']});f();})();</script></body>
 </html>
