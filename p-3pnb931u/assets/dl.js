@@ -6,6 +6,8 @@
  */
 (function () {
   // 103-C-1 — 다운로드 페이지 주소를 이 파일 주소에서 셈(공개 사이트 = /get/ · 숨김 폴더 = /p-…/get/)
+  // 103-C-6 — Mac 프로그램(공증된 .dmg · 사이트 안 mac/ · 이 파일 주소에서 셈 → 숨김 폴더에서도 그 안)
+  var MAC = new URL('../mac/Inbell-1.0.4.dmg', (document.currentScript && document.currentScript.src) || location.href).pathname;
   var GET = new URL('../get/', (document.currentScript && document.currentScript.src) || location.href).pathname;
   // PC 설치 파일 주소 — 공개 때 이 한 줄만 바꾼다(빈 칸 = /get#pc). 비밀 주소는 이 공개 저장소에 절대 적지 않는다.
   var PC_SETUP_URL = '';
@@ -22,7 +24,7 @@
     ios: { href: APPSTORE, text: '인벨 앱 다운로드', ext: true, sub: '' },
     windows: PC_SETUP_URL ? { href: PC_SETUP_URL, text: 'Windows용 다운로드', ext: false, sub: '' }
                           : { off: true, text: 'Windows용은 곧 열려요', sub: '' },
-    mac: { off: true, text: 'Mac용은 곧 열려요', sub: '' },
+    mac: { href: MAC, text: 'Mac용 다운로드', ext: false, sub: '' },
     other: { href: GET, text: '인벨 앱 다운로드', ext: false, sub: '' }
   };
   var t = T[os] || T.other;

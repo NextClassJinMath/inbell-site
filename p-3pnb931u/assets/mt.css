@@ -19,7 +19,6 @@ html.mt .mt-hero h1+span{font-size:var(--tsmall)!important;padding:7px 14px!impo
 html.mt.mt-tb .mt-hero h1+span{padding:9px 18px!important}
 html.mt .mt-hero h1+span+span{display:none!important}
 html.mt .mt-hero .compwrap2{flex:none!important;width:100%!important;min-width:0!important;display:flex!important;justify-content:center!important}
-html.mt .mt-hero .bell2{display:none!important}
 
 /* ── 가운데 장면: 큰 제목 크기만(원장 = 장면 확대 비율을 되돌려 실제 22 / 32 · 학부모 = deck.css 장면) ── */
 html.mt .slide:not([data-s="0"]):not(:last-of-type) .sh2,html.mt .slide:not([data-s="0"]):not(:last-of-type) .fit h2,html.mt #guide .g-title{font-size:calc(var(--tbig) / var(--tz,1))!important}
@@ -62,3 +61,28 @@ html.mt body .ch.last .faqwrap{margin-top:44px!important}
 body .again,body .lastwrap .again{display:none!important}
 body.onlast .pp{font-size:0!important}
 body.onlast .pp::after{content:"↺";font-size:19px;font-weight:900;line-height:1}
+
+/* ── 103-C-6 PC(1024 이상) 첫 장 = 한 줄 배치(제목 → 알약 → 휴대폰 그림 · 기둥 가운데 · 기둥 폭 = mt.js) ── */
+html.mt-pc .mt-hero{zoom:1!important;width:100%}
+html.mt-pc .mt-hero>section{overflow:visible!important}
+html.mt-pc .mt-hero>section>div[aria-hidden]{display:none!important}
+html.mt-pc .mt-hero>section>div:not([aria-hidden]){display:flex!important;flex-direction:column!important;flex-wrap:nowrap!important;align-items:stretch!important;gap:28px!important;max-width:none!important;margin:0 auto!important;padding:0!important;box-sizing:border-box}
+html.mt-pc .mt-hero>section>div:not([aria-hidden])>div:first-child{flex:none!important;gap:24px!important;align-items:flex-start!important;text-align:left!important}
+html.mt-pc .mt-hero h1{font-size:44px!important;font-weight:800!important;line-height:1.25!important;letter-spacing:-.5px!important;white-space:normal!important}
+html.mt-pc.mt-short .mt-hero h1{font-size:40px!important}
+html.mt-pc .mt-hero h1+span{font-size:16px!important;padding:8px 16px!important}
+html.mt-pc .mt-hero h1+span+span{display:none!important}
+html.mt-pc .mt-hero .compwrap2{flex:none!important;width:100%!important;min-width:0!important;display:flex!important;justify-content:center!important}
+/* PC 기둥: 상단 바(assets/topbar.css html.colset) · 점 막대 · 재생 동그라미 = mt.js */
+
+/* ── 103-C-6 휴대폰 = 학부모 「자주 묻는 것 3가지 ›」 ── */
+.faqtog{display:none}
+html.mt-ph body .ch.last .faqwrap{margin-top:16px!important}
+html.mt-ph body .faqwrap .faqtog{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;margin:0;padding:10px 0;border:0;background:none;font:inherit;font-size:var(--tsmall);font-weight:700;color:#64748B;cursor:pointer}
+html.mt-ph body .faqwrap .faqtog i{font-style:normal;display:inline-block;transition:transform .2s}
+html.mt-ph body .faqwrap.open .faqtog i{transform:rotate(90deg)}
+html.mt-ph body .faqwrap .faqh{display:none!important}
+html.mt-ph body .faqwrap:not(.open) .faq{display:none!important}
+
+/* 103-C-6 휴대폰·태블릿 가운데 장면 = stage 폭 100vw 가 줄인 칸(fit) 안에서 왼쪽에 붙음 → 칸 폭 100% */
+html.mt .slide>.fit>.stage{width:100%!important}

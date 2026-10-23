@@ -13,12 +13,18 @@
   tabs.forEach(function (t) {
     var on = cur !== null && t[0] === cur;
     var dl = t[0] === 'get';
-    var label = dl ? '<svg class="dl-ic" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v13M6 11l6 6 6-6"/></svg><span class="dl-tx" data-t="' + t[1] + '">' + t[1] + '</span>' : t[1];
+    var label = dl ? '<span class="dl-tx" data-t="' + t[1] + '">' + t[1] + '</span>' : t[1];  // 103-C-6 — 글자만(↓ 뺌)
     var cls = (on ? 'cur' : '') + (dl ? (on ? ' ' : '') + 'dl-tab' : '');
     h += '<a href="' + base + t[0] + '" data-r="' + t[0] + '"' + (cls ? ' class="' + cls + '"' : '') + (on ? ' aria-current="page"' : '') + '>' + label + '</a>';
   });
   h += '</nav></div></div>';
   s.insertAdjacentHTML('beforebegin', h);
+  // 103-C-6 — PC(1024 이상) 기둥 맞추기: 로고 왼쪽 선 · 「다운로드」 글자 오른쪽 선 = 그 페이지 내용 기둥(l · r = 화면 x) · null = 풀기
+  window.__barCol = function (l, r) {
+    var H = document.documentElement;
+    if (l === null || l === undefined) { H.classList.remove('colset'); return; }
+    H.classList.add('colset'); H.style.setProperty('--col-l', l + 'px'); H.style.setProperty('--col-r', (innerWidth - r) + 'px');
+  };
   // 103-C-5 — 위 탭 「다운로드」 빛(45° 사선 · 글자 폭 40% · 1.2초) · 뜬 뒤 1.5초에 한 번, 그 뒤 7초마다 · /get(지금 여기)과 「동작 줄이기」에서는 없음
   var dlt = document.querySelector('#tbar .dl-tab');
   if (dlt && page !== 'get' && !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) {
