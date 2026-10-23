@@ -23,9 +23,7 @@
 @media (max-width: 520px) { .tb-in { padding: 12px 16px; } }
 @media (max-width: 420px) { .tb-name { font-size: 16px; } .tabs a { font-size: 13px; padding: 8px 7px; } .tabs a.cur::after { left: 7px; right: 7px; } }
 
-/* 103-C-5 — 위 탭 「다운로드」: 다른 두 탭과 같은 글자 · 같은 밑줄 + 글자 앞 작은 ↓(14 · 선 2.4 · 글자색 · 간격 4) · 빛 = 글자 위 45° 사선이 왼쪽→오른쪽 한 번(1.2초 · 폭 = 글자의 40%) */
-.tabs a.dl-tab{display:inline-flex;align-items:center}
-.tabs a.dl-tab .dl-ic{flex:none;width:14px;height:14px;margin-right:4px;display:block}
+/* 103-C-5 · 103-C-6 — 위 탭 「다운로드」: 다른 두 탭과 같은 글자 · 같은 밑줄(↓ 없음) · 빛 = 글자 위 45° 사선이 왼쪽→오른쪽 한 번(1.2초 · 폭 = 글자의 40%) */
 .tabs a.dl-tab .dl-tx{position:relative;display:inline-block}
 .tabs a.dl-tab .dl-tx::after{content:attr(data-t);position:absolute;left:0;top:0;right:0;bottom:0;color:transparent;-webkit-background-clip:text;background-clip:text;background-repeat:no-repeat;background-size:250% 100%;background-position:150% 0;pointer-events:none;opacity:0}
 .tbar:not(.lt) .tabs a.dl-tab .dl-tx::after{background-image:linear-gradient(135deg,rgba(255,255,255,0) 42%,rgba(255,255,255,.7) 50%,rgba(255,255,255,0) 58%);filter:drop-shadow(0 0 4px rgba(255,255,255,.85)) drop-shadow(0 0 8px rgba(255,255,255,.5))}
@@ -33,3 +31,6 @@
 .tabs a.dl-tab.shine .dl-tx::after{animation:tabshine 1.2s ease-in-out 1}
 @keyframes tabshine{0%{background-position:150% 0;opacity:1}100%{background-position:-50% 0;opacity:1}}
 @media (prefers-reduced-motion:reduce){.tabs a.dl-tab .dl-tx::after{display:none}}
+
+/* 103-C-6 — PC(1024 이상) 기둥 맞추기(topbar.js window.__barCol): 로고 왼쪽 = 기둥 왼쪽 · 「다운로드」 글자 오른쪽(탭 안쪽 여백 11 빼고) = 기둥 오른쪽 */
+@media (min-width:1024px){html.colset .tb-in{max-width:none!important;padding-left:var(--col-l)!important;padding-right:calc(var(--col-r) - 11px)!important}}
