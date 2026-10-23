@@ -74,8 +74,6 @@ body{padding-bottom:120px}
 .others-h{display:none}
 /* 103-C-2 — Android · iPhone 줄 설명 글 지움(PC · 휴대폰 모두) · 설명 없는 줄은 이름을 아이콘과 세로 가운데(PC 폭 포함) */
 .row .l:not(:has(> span)){align-self:center}
-/* 103-C-2 — 「지금 이 기기」 = 이름 아래 작은 줄(12.5 · 800 · 남색 · 앞 「·」 없음 · PC · 휴대폰 모두 · 목업 최신판) */
-.row.me .me-tag{display:block!important;margin-top:4px;font-size:12.5px;font-weight:800;color:var(--accent)}
 .dlb .short{display:none}
 @media (max-width:560px){
  .page{gap:22px!important}
@@ -97,6 +95,19 @@ body{padding-bottom:120px}
  .row.me .dlb{height:48px}
  .row.me .l{align-self:center}
 }
+
+/* 103-C-2 최종(목업 v3) — 지금 이 기기 카드: 맨 위 작은 글 「지금 이 기기」 → 아이콘 38 · 이름 15.5/800(다른 기기 줄과 같은 크기) → 휴대폰 = 아래 넓은 버튼 48 · PC = 오른쪽 버튼 */
+.row.me{display:grid!important;grid-template-columns:38px 1fr;column-gap:12px;row-gap:10px;align-items:center!important;padding:14px 16px 16px!important}
+.row.me .me-top{grid-column:1 / -1;font-size:12.5px;font-weight:800;color:var(--accent)}
+.row.me .ic{width:38px!important;height:38px!important;margin-top:0!important;background:#FFFFFF}
+.row.me .ic svg{width:21px!important;height:21px!important}
+.row.me .l b{font-size:15.5px!important;font-weight:800!important}
+.row.me .me-tag{display:none!important}
+.row.me .act{grid-column:1 / -1;width:100%!important;margin:2px 0 0!important}
+.row.me .act>*{width:100%}
+.row.me .dlb{width:100%;justify-content:center;height:48px}
+@media (max-width:560px){ .row:not(.me){padding:10px 16px!important} .others-h{margin:14px 16px 6px!important} }
+@media (min-width:561px){ .row.me{grid-template-columns:38px 1fr auto} .row.me .act{grid-column:auto;width:auto!important;margin:0!important} .row.me .act>*{width:auto} .row.me .dlb{width:auto;height:42px} }
 </style></head>
 <body>
 <script src="../assets/topbar.js" data-page="get"></script>
@@ -129,6 +140,8 @@ body{padding-bottom:120px}
   if (D.PC_SETUP_URL) document.getElementById('pcact').innerHTML = '<a class="dlb" href="' + D.PC_SETUP_URL + '"><span>Windows용 받기</span></a>';
   var me = rows.querySelector('[data-os="' + D.os + '"]');
   if (me) { me.classList.add('me'); rows.insertBefore(me, rows.firstChild); }
+  // 103-C-2 — 카드 맨 위 작은 글 「지금 이 기기」
+  if (me) { var mt = document.createElement('div'); mt.className = 'me-top'; mt.textContent = '지금 이 기기'; me.insertBefore(mt, me.firstChild); }
   // 103-C-2 — 휴대폰 폭에서만 보이는 「다른 기기」 제목 · 남은 줄 단추 짧은 글 「받기」(PC 는 원래 글 그대로 · CSS 가 고름)
   var oh = document.createElement('div'); oh.className = 'others-h'; oh.textContent = '다른 기기';
   if (me && me.nextSibling) rows.insertBefore(oh, me.nextSibling);
