@@ -5,6 +5,8 @@
  *  시험: 주소 끝 ?os=android|ios|windows|mac 로 인식 결과를 강제(확인용 · 공개판에도 남아 있어도 무해).
  */
 (function () {
+  // 103-C-1 — 다운로드 페이지 주소를 이 파일 주소에서 셈(공개 사이트 = /get/ · 숨김 폴더 = /p-…/get/)
+  var GET = new URL('../get/', (document.currentScript && document.currentScript.src) || location.href).pathname;
   // PC 설치 파일 주소 — 공개 때 이 한 줄만 바꾼다(빈 칸 = /get#pc). 비밀 주소는 이 공개 저장소에 절대 적지 않는다.
   var PC_SETUP_URL = '';
   var PLAY = 'https://play.google.com/store/apps/details?id=com.jinuri.inbell';
@@ -21,7 +23,7 @@
     windows: PC_SETUP_URL ? { href: PC_SETUP_URL, text: 'Windows용 인벨 받기', ext: false, sub: '다른 기기로 받기 ›' }
                           : { off: true, text: 'Windows용은 곧 열려요', sub: '다른 기기로 받기 ›' },
     mac: { off: true, text: 'Mac용은 곧 열려요', sub: '다른 기기로 받기 ›' },
-    other: { href: '/get', text: '인벨 받기', ext: false, sub: '' }
+    other: { href: GET, text: '인벨 받기', ext: false, sub: '' }
   };
   var t = T[os] || T.other;
   window.INBELL_DL = { os: os, PLAY: PLAY, APPSTORE: APPSTORE, PC_SETUP_URL: PC_SETUP_URL };
@@ -35,7 +37,7 @@
       w.appendChild(a);
       if (t.sub) {
         var row = document.createElement('div'); row.className = 'dl-sub';
-        var o = document.createElement('a'); o.href = '/get'; o.textContent = t.sub;
+        var o = document.createElement('a'); o.href = GET; o.textContent = t.sub;
         row.appendChild(o); w.appendChild(row);
       }
     });

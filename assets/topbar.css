@@ -1,0 +1,24 @@
+/* 세션 103-C-1 — 상단 바 공용 부품(원장 · 학부모 · 다운로드 세 페이지가 이 한 벌을 씀 · 기준 = 원장 페이지 바 그대로)
+ * 짝 = assets/topbar.js(바 글자 · 그림을 그 자리에 넣음). 밝은 장면 = .tbar.lt(흰 반투명 · 남색 글자) · 어두운 장면 = .lt 없음(투명 · 흰 글자 · 로고 그림자). */
+.tbar { position: fixed; top: 0; left: 0; right: 0; z-index: 40; padding-top: env(safe-area-inset-top, 0px); pointer-events: none;
+  transition: background .3s, color .3s; background: transparent; box-shadow: none;
+  font-family: Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', system-ui, sans-serif; -webkit-font-smoothing: antialiased; line-height: normal; }
+.tbar a { pointer-events: auto; }
+.tb-in { max-width: 1120px; margin: 0 auto; padding: 14px 32px; display: flex; align-items: center; gap: 10px; box-sizing: border-box; }
+.tb-home { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #FFFFFF; }
+.tb-home svg { display: block; flex: none; width: 30px; height: 30px; }
+.tb-name { font-size: 18px; font-weight: 900; }
+.tabs { margin-left: auto; display: flex; gap: 2px; }
+.tabs a { position: relative; color: #FFFFFF; opacity: .78; font-size: 14.5px; font-weight: 700; text-decoration: none; padding: 8px 11px; border-radius: 999px; white-space: nowrap; }
+.tabs a.cur { opacity: 1; }
+.tabs a.cur::after { content: ""; position: absolute; left: 11px; right: 11px; bottom: 2px; height: 2px; border-radius: 2px; background: currentColor; }
+.tbar:not(.lt) .tabs a:hover { background: rgba(255, 255, 255, .12); }
+.tbar:not(.lt) .tb-home svg { filter: drop-shadow(0 4px 10px rgba(5, 5, 40, .45)); }
+.tbar.lt { background: rgba(255, 255, 255, .86); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); box-shadow: 0 1px 0 #EEF0F5; }
+.tbar.lt .tb-home { color: #1D1D76; }
+.tbar.lt .tabs a { color: #3F4A5C; opacity: 1; }
+.tbar.lt .tabs a.cur { color: #1D1D76; }
+.tbar.lt .tabs a:hover { background: #F0F1F7; }
+.tbar.lt .tabs a.cur:hover { background: transparent; }
+@media (max-width: 520px) { .tb-in { padding: 12px 16px; } }
+@media (max-width: 420px) { .tb-name { font-size: 16px; } .tabs a { font-size: 13px; padding: 8px 7px; } .tabs a.cur::after { left: 7px; right: 7px; } }
