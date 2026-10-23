@@ -68,6 +68,32 @@ body{padding-bottom:120px}
 
 /* 103-C-1 — 360폭 휴대폰: 「○○ · 지금 이 기기」 한 줄(글자 크기 그대로 · 옆 여백 · 줄 안쪽 여백 · 간격만 줄임) */
 @media (max-width:400px){.page{padding-left:16px!important;padding-right:16px!important}.row,.row.me{padding:16px 12px!important}.row{gap:12px}.row .l b{white-space:nowrap}}
+
+/* 103-C-2 새 안(목업 WAnbmKXgSXe3RqPeZ6g1UH) — 휴대폰 폭(560 이하)만: 지금 이 기기 카드 하나만 큰 버튼 · 다른 기기는 작은 줄 셋 · PC 폭 변경 0 */
+.others-h{display:none}
+/* 103-C-2 — Android · iPhone 줄 설명 글 지움(PC · 휴대폰 모두) · 설명 없는 「지금 이 기기」 카드는 이름을 아이콘과 세로 가운데 */
+.row.me .l:not(:has(> span)){align-self:center}
+.dlb .short{display:none}
+@media (max-width:560px){
+ .page{gap:22px!important}
+ .rows{border-top:0!important}
+ .others-h{display:block;margin:14px 4px 6px;font-size:13px;font-weight:800;color:var(--mute)}
+ .row:not(.me){flex-wrap:nowrap!important;align-items:center!important;gap:12px!important;padding:10px 4px!important;border-bottom:1px solid var(--line)}
+ .others-h + .row{border-top:1px solid var(--line)}
+ .row:not(.me) .ic{width:38px;height:38px;margin-top:0!important}
+ .row:not(.me) .ic svg{width:21px;height:21px}
+ .row:not(.me) .l{flex:1 1 auto}
+ .row:not(.me) .l b{font-size:15.5px;font-weight:800}
+ .row:not(.me) .l > span{display:none}
+ .row:not(.me) .act{width:auto!important;margin-left:auto!important;flex:none}
+ .row:not(.me) .act>*{flex:none!important}
+ .row:not(.me) .act>span{display:inline-flex!important;width:auto!important}
+ .row:not(.me) .dlb{width:auto!important;height:34px;padding:0 16px;font-size:13.5px;border-radius:999px}
+ .row:not(.me) .dlb.off{background:var(--chip);color:var(--mute);border:0}
+ .row:not(.me) .dlb .full{display:none} .row:not(.me) .dlb .short{display:inline}
+ .row.me .dlb{height:48px}
+ .row.me .l{align-self:center}
+}
 </style></head>
 <body>
 <script src="/assets/topbar.js" data-page="get"></script>
@@ -76,12 +102,12 @@ body{padding-bottom:120px}
   <div class="rows" id="rows">
     <div class="row" id="android" data-os="android">
       <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.8"/><path d="M10.2 5.2h3.6"/></svg></span>
-      <div class="l"><b>Android 휴대폰 <span class="me-tag">· 지금 이 기기</span></b><span>삼성 갤럭시 등</span></div>
+      <div class="l"><b>Android 휴대폰 <span class="me-tag">· 지금 이 기기</span></b></div>
       <div class="act"><a class="dlb" href="https://play.google.com/store/apps/details?id=com.jinuri.inbell" target="_blank" rel="noopener"><span>Google Play에서 받기</span></a></div>
     </div>
     <div class="row" id="ios" data-os="ios">
       <span class="ic " aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.8"/><path d="M10.2 5.2h3.6"/></svg></span>
-      <div class="l"><b>iPhone · iPad <span class="me-tag">· 지금 이 기기</span></b><span>아이폰 · 아이패드</span></div>
+      <div class="l"><b>iPhone · iPad <span class="me-tag">· 지금 이 기기</span></b></div>
       <div class="act"><a class="dlb" href="https://apps.apple.com/kr/app/id6818784496" target="_blank" rel="noopener"><span>App Store에서 받기</span></a></div>
     </div>
     <div class="row" id="pc" data-os="windows">
@@ -100,6 +126,14 @@ body{padding-bottom:120px}
   if (D.PC_SETUP_URL) document.getElementById('pcact').innerHTML = '<a class="dlb" href="' + D.PC_SETUP_URL + '"><span>Windows용 받기</span></a>';
   var me = rows.querySelector('[data-os="' + D.os + '"]');
   if (me) { me.classList.add('me'); rows.insertBefore(me, rows.firstChild); }
+  // 103-C-2 — 휴대폰 폭에서만 보이는 「다른 기기」 제목 · 남은 줄 단추 짧은 글 「받기」(PC 는 원래 글 그대로 · CSS 가 고름)
+  var oh = document.createElement('div'); oh.className = 'others-h'; oh.textContent = '다른 기기';
+  if (me && me.nextSibling) rows.insertBefore(oh, me.nextSibling);
+  rows.querySelectorAll('.row .dlb:not(.off) > span').forEach(function (x) {
+    var f = document.createElement('span'); f.className = 'full'; f.textContent = x.textContent;
+    var t = document.createElement('span'); t.className = 'short'; t.textContent = '받기';
+    x.replaceWith(f, t);
+  });
 })();
 </script>
 </body>
