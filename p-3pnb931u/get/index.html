@@ -6,7 +6,7 @@
 <meta name="color-scheme" content="light only">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>인벨 다운로드 — 휴대폰 · 학원 컴퓨터</title>
-<meta name="description" content="인벨 앱 받기 — Android 휴대폰 · 태블릿(Google Play) · iPhone(App Store) · Windows PC 프로그램. 원장님·선생님·학부모님 같은 앱이에요.">
+<meta name="description" content="인벨 앱 다운로드 — Android 휴대폰 · 태블릿(Google Play) · iPhone(App Store) · Windows PC 프로그램. 원장님·선생님·학부모님 같은 앱이에요.">
 <link rel="canonical" href="https://inbell.co.kr/get">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="인벨">
@@ -115,6 +115,12 @@ body{padding-bottom:120px}
 /* 103-C-2 — 짧은 휴대폰 화면(S9 크롬 360×612 등 · 높이 640 이하)만: 위 · 아래 여백을 줄여 스크롤 없이 한 화면(390×690 · 844 는 그대로) */
 @media (max-width:560px) and (max-height:640px){.page{padding-top:calc(64px + env(safe-area-inset-top,0px))!important;padding-bottom:calc(70px + env(safe-area-inset-bottom,0px))!important;min-height:0!important}}
 </style><style>/* 103-C-3 — 브라우저 강제 다크 모드 막기(색 고정) */:root{color-scheme:only light}</style>
+<style>
+/* 103-C-5 — 휴대폰(760 이하) 글자 한 벌: 제목 22 · 부제 14 · 기기 이름 15 · 작은 글 12.5 · 지금 기기 단추 15 / 48(목업) · 모서리 12 */
+@media (max-width:760px){h1{font-size:22px!important}.lead{font-size:14px!important}.row .l b,.row.me .l b{font-size:15px!important}.row .l>span{font-size:12.5px!important}.others-h,.row.me .me-top{font-size:12.5px!important}.row.me .dlb{font-size:15px!important;border-radius:12px!important}}
+/* 103-C-5 — 태블릿(761~1023): 내용 최대 폭 640 · 좌우 40 · 제목 32 · 부제 17 · 기기 이름 18 · 설명 14.5 · 아이콘 48 · 줄 안쪽 20/18 · 단추 16/48 · 작은 글 15 */
+@media (min-width:761px) and (max-width:1023px){.page{max-width:640px!important;padding-left:40px!important;padding-right:40px!important;box-sizing:content-box!important}.page{justify-content:flex-start!important;padding-top:calc(150px + env(safe-area-inset-top,0px))!important}h1{font-size:32px!important}.lead{font-size:17px!important}.row .l b,.row.me .l b{font-size:18px!important}.row .l>span{font-size:14.5px!important}.ic,.row.me .ic{width:48px!important;height:48px!important}.ic svg,.row.me .ic svg{width:26px!important;height:26px!important}.row,.row.me{padding:20px 18px!important}.row.me{grid-template-columns:48px 1fr auto!important}.dlb,.row.me .dlb{font-size:16px!important;height:48px!important;border-radius:12px!important}.others-h,.row.me .me-top{font-size:15px!important}.others-h{margin-left:18px!important}}
+</style>
 </head>
 <body>
 <script src="../assets/topbar.js" data-page="get"></script>
@@ -124,12 +130,12 @@ body{padding-bottom:120px}
     <div class="row" id="android" data-os="android">
       <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.8"/><path d="M10.2 5.2h3.6"/></svg></span>
       <div class="l"><b>Android 휴대폰 · 태블릿 <span class="me-tag">지금 이 기기</span></b></div>
-      <div class="act"><a class="dlb" href="https://play.google.com/store/apps/details?id=com.jinuri.inbell" target="_blank" rel="noopener"><span>Google Play에서 받기</span></a></div>
+      <div class="act"><a class="dlb" href="https://play.google.com/store/apps/details?id=com.jinuri.inbell" target="_blank" rel="noopener"><span>Google Play에서 다운로드</span></a></div>
     </div>
     <div class="row" id="ios" data-os="ios">
       <span class="ic " aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.8"/><path d="M10.2 5.2h3.6"/></svg></span>
       <div class="l"><b>iPhone · iPad <span class="me-tag">지금 이 기기</span></b></div>
-      <div class="act"><a class="dlb" href="https://apps.apple.com/kr/app/id6818784496" target="_blank" rel="noopener"><span>App Store에서 받기</span></a></div>
+      <div class="act"><a class="dlb" href="https://apps.apple.com/kr/app/id6818784496" target="_blank" rel="noopener"><span>App Store에서 다운로드</span></a></div>
     </div>
     <div class="row" id="pc" data-os="windows">
       <span class="ic " aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="12.5" rx="1.8"/><path d="M8.5 20h7M12 16.5V20"/></svg></span>
@@ -144,17 +150,17 @@ body{padding-bottom:120px}
 <script>
 (function () {
   var D = window.INBELL_DL || {}; var rows = document.getElementById('rows');
-  if (D.PC_SETUP_URL) document.getElementById('pcact').innerHTML = '<a class="dlb" href="' + D.PC_SETUP_URL + '"><span>Windows용 받기</span></a>';
+  if (D.PC_SETUP_URL) document.getElementById('pcact').innerHTML = '<a class="dlb" href="' + D.PC_SETUP_URL + '"><span>Windows용 다운로드</span></a>';
   var me = rows.querySelector('[data-os="' + D.os + '"]');
   if (me) { me.classList.add('me'); rows.insertBefore(me, rows.firstChild); }
   // 103-C-2 — 카드 맨 위 작은 글 「지금 이 기기」
   if (me) { var mt = document.createElement('div'); mt.className = 'me-top'; mt.textContent = '지금 이 기기'; me.insertBefore(mt, me.firstChild); }
-  // 103-C-2 — 휴대폰 폭에서만 보이는 「다른 기기」 제목 · 남은 줄 단추 짧은 글 「받기」(PC 는 원래 글 그대로 · CSS 가 고름)
+  // 103-C-2 — 휴대폰 폭에서만 보이는 「다른 기기」 제목 · 남은 줄 단추 짧은 글 「다운로드」(PC 는 원래 글 그대로 · CSS 가 고름)
   var oh = document.createElement('div'); oh.className = 'others-h'; oh.textContent = '다른 기기';
   if (me && me.nextSibling) rows.insertBefore(oh, me.nextSibling);
   rows.querySelectorAll('.row .dlb:not(.off) > span').forEach(function (x) {
     var f = document.createElement('span'); f.className = 'full'; f.textContent = x.textContent;
-    var t = document.createElement('span'); t.className = 'short'; t.textContent = '받기';
+    var t = document.createElement('span'); t.className = 'short'; t.textContent = '다운로드';
     x.replaceWith(f, t);
   });
 })();
