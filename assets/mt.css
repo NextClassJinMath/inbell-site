@@ -86,3 +86,15 @@ html.mt-ph body .faqwrap:not(.open) .faq{display:none!important}
 
 /* 103-C-6 휴대폰·태블릿 가운데 장면 = stage 폭 100vw 가 줄인 칸(fit) 안에서 왼쪽에 붙음 → 칸 폭 100% */
 html.mt .slide>.fit>.stage{width:100%!important}
+/* 103-C-7 마지막 장 상자 폭 = 늘 칸 폭(내용 길이 따라 폭이 바뀌던 것) */
+html.mt body .ch.last .scroll>.endwrap{width:100%!important;box-sizing:border-box!important;margin-left:auto!important;margin-right:auto!important}
+html.mt body .ch.last .endwrap>.faqwrap{width:100%!important;max-width:520px!important;box-sizing:border-box}
+/* 103-C-7 재생 단추 맥박(옛 숨쉬기 대신) · 빛 테두리만 · 단추 그대로 */
+body .pp.breath{animation:none!important}
+@keyframes mtpulse{0%{box-shadow:0 0 0 0 var(--mtp0)}80%,100%{box-shadow:0 0 0 var(--mtps,7px) var(--mtp1)}}
+body .pp{--mtp0:rgba(29,29,118,.45);--mtp1:rgba(29,29,118,0)}
+body .pp.mt-pw{--mtp0:rgba(255,255,255,.7);--mtp1:rgba(255,255,255,0)}
+body .pp.mt-pulse{animation:mtpulse 2s ease-out infinite!important}
+body .pp.mt-pulse3{animation:mtpulse 2s ease-out 3!important}
+@media (prefers-reduced-motion:reduce){body .pp.mt-pulse,body .pp.mt-pulse3{animation:none!important}}
+.tip{display:none!important}

@@ -3,7 +3,7 @@
  *  단계 = 장 안의 [data-k="1"]… 요소(그림 · 글 · 누를 자리 동그라미). 지금 단계 이하 data-k 는 .on(그림은 지금 것만 .cur).
  *  장 끝 = [data-done] 요소(결론 한 줄)가 마지막 단계 다음에 켜짐 · 장 시간 = data-dur(기본 10초)을 단계 수로 나눔.
  *  넘기기: 휴대폰 = 아래 막대 · 누르기(왼쪽 30% = 뒤로) · 쓸어 올리기 · 길게 누르면 멈춤 / 컴퓨터 = 오른쪽 점 · 휠 · 방향키 · 스페이스.
- *  첫 장: 휴대폰은 멈춘 채 「▶ 누르면 시작」 · 컴퓨터는 바로 재생. 마지막 장은 멈춤(스크롤 가능한 내용).
+ *  첫 장: 휴대폰은 멈춘 채(재생 단추 맥박 · 103-C-7) · 컴퓨터는 바로 재생. 마지막 장은 멈춤(스크롤 가능한 내용).
  */
 (function () {
   const chs = [...document.querySelectorAll('.ch')];
@@ -42,7 +42,7 @@
   body.append(bar, dots);
   const fills = [...bar.querySelectorAll('i')];
   const pp = document.createElement('button'); pp.type = 'button'; pp.className = 'pp'; body.appendChild(pp);
-  const tip = document.createElement('div'); tip.className = 'tip'; tip.textContent = '▶ 누르면 시작 · 쓸어 올려도 돼요'; body.appendChild(tip);
+  const tip = document.createElement('div'); /* 103-C-7 안내 글 삭제(붙이지 않음) */
 
   let cur = 0, t0 = performance.now(), elapsed = 0, paused = false, pauseBy = '';
   let mult = 1; try { mult = parseFloat(localStorage.getItem('inbellSpeed')) || 1; } catch (e) {}
@@ -118,6 +118,7 @@
     inScroll = e.target.closest('.scroll'); down = performance.now(); sx = e.clientX; sy = e.clientY; moved = false;
     lp = setTimeout(() => { if (mobile && !paused) pause('hold'); }, 380);
   });
+  addEventListener('pointercancel', () => { clearTimeout(lp); down = 0; });
   addEventListener('pointermove', (e) => { if (down && (Math.abs(e.clientY - sy) > 12 || Math.abs(e.clientX - sx) > 12)) moved = true; });
   addEventListener('pointerup', (e) => {
     if (!down) return; clearTimeout(lp); const held = performance.now() - down; down = 0;
