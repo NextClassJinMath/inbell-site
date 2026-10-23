@@ -8,11 +8,6 @@
 .dlbtn.on-dark .dl-main { background: #FFFFFF; color: #1D1D76; box-shadow: 0 8px 22px rgba(5, 5, 40, .35); }
 .dlbtn.on-dark .dl-sub { color: rgba(255, 255, 255, .78); }
 .dlbtn.on-dark .dl-sub a { color: #FFFFFF; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .dlbtn:not(.on-dark):not(.fixed-light) .dl-main { background: #FFFFFF; color: #1D1D76; }
-  :root:not([data-theme="light"]) .dlbtn:not(.on-dark):not(.fixed-light) .dl-sub { color: #9AA3B8; }
-  :root:not([data-theme="light"]) .dlbtn:not(.on-dark):not(.fixed-light) .dl-sub a { color: #B9BCFF; }
-}
 @media (max-width: 760px) { .dlbtn.mcenter { align-items: center; } .dl-main { width: 100%; max-width: 360px; } }
 
 .dl-main.off { background: #E3E6EE !important; color: #64748B !important; box-shadow: none !important; cursor: default; }

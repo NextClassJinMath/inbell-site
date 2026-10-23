@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html lang="ko" data-theme="light">
 <head>
 <meta name="robots" content="noindex,nofollow">
 <meta charset="utf-8">
@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="/p-3pnb931u/assets/deck.css">
 <script src="/p-3pnb931u/assets/dl.js"></script>
 <style>
+  /* 103-C — 다크 모드 규칙 없음 · <html data-theme="light"> 로 어느 기기에서나 흰 바탕(원장·학부모 페이지처럼 색 고정) */
   /* 세션 102-M — 흰 바탕 한 장 · 줄 넷 · 지금 기기 줄만 연남색 · 왼쪽 동그라미 그림 하나(같은 남색 선 아이콘 · 사과·윈도우 로고 없음) · 오른쪽 남색 「다운로드」(배지 없음) */
   html, body { overflow: auto; height: auto; min-height: 100%; }
   body { background: var(--bg); }
@@ -49,10 +50,7 @@
   ol.s li::before { content: counter(n); grid-row: span 2; width: 24px; height: 24px; border-radius: 50%; background: var(--chip); color: var(--accent); font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
   ol.s b { font-size: 15px; } ol.s span { font-size: 13.5px; color: var(--mute); }
   .alt { align-self: center; font-size: 13.5px; font-weight: 700; color: var(--accent); text-decoration: none; }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) .row.me { background: var(--chip); }
-    :root:not([data-theme="light"]) .dlb:not(.off) { background: #FFFFFF; color: #1D1D76; }
-  }
+
 
 .row{flex-wrap:nowrap}
 .act{margin-left:auto}
@@ -62,8 +60,6 @@
 <style>.row{align-items:flex-start}.row .ic{margin-top:1px}.row .act{align-self:center}</style><style>.foot .foot-l span{color:#94A3B8;font-weight:400}.foot a{color:#64748B;font-weight:400}.foot{font-size:12.5px}</style><style>
 .fixfoot{position:fixed!important;left:0;right:0;bottom:0;margin:0!important;z-index:30;background:#FFFFFF;border-top:1px solid #EEF0F5;padding:12px 16px calc(env(safe-area-inset-bottom,0px) + 12px)!important;box-sizing:border-box}
 body{padding-bottom:120px}
-/* 103-C — 어두운 모드에서 아래 고정 꼬리만 흰 띠로 남던 것 → 바탕과 같은 색 */
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .fixfoot{background:var(--bg);border-top-color:var(--line)}}
 </style><style>body{padding-bottom:0!important}.page{min-height:100vh;box-sizing:border-box;justify-content:safe center;padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))!important}</style><style>
 /* 줄 넷 같은 안쪽 여백 · 지금 기기 줄은 배경만 다르게(아이콘 자리 같음) */
 .row{padding:18px 16px!important;margin:0!important}
