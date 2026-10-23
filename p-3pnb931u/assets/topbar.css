@@ -34,3 +34,6 @@
 
 /* 103-C-6 — PC(1024 이상) 기둥 맞추기(topbar.js window.__barCol): 로고 왼쪽 = 기둥 왼쪽 · 「다운로드」 글자 오른쪽(탭 안쪽 여백 11 빼고) = 기둥 오른쪽 */
 @media (min-width:1024px){html.colset .tb-in{max-width:none!important;padding-left:var(--col-l)!important;padding-right:calc(var(--col-r) - 11px)!important}}
+
+/* 103-C-7 맨 아래 정보 줄 = 휴대폰 한 줄(「인벨」 뺌 · 12 · 사이 12) */
+@media (max-width:760px){.foot .foot-l{flex-wrap:nowrap!important;column-gap:12px!important;white-space:nowrap}.foot .foot-l a,.foot .foot-l{font-size:12px!important}}
