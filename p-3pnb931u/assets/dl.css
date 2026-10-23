@@ -1,0 +1,25 @@
+/* 세션 102-M — 「인벨 다운로드」 버튼 하나(assets/dl.js 가 채움) · 남색 바탕 위 = 흰 버튼 · 흰 바탕 위 = 남색 버튼 */
+.dlbtn { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+.dlbtn.center { align-items: center; }
+.dl-main { display: inline-flex; align-items: center; justify-content: center; height: 56px; padding: 0 40px; border-radius: 14px; font-size: 17px; font-weight: 800; text-decoration: none;
+  background: #1D1D76; color: #FFFFFF; box-shadow: 0 8px 20px rgba(29, 29, 118, .22); font-family: inherit; }
+.dl-sub { display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 600; color: #64748B; }
+.dl-sub a { color: #1D1D76; font-weight: 700; text-decoration: none; }
+.dlbtn.on-dark .dl-main { background: #FFFFFF; color: #1D1D76; box-shadow: 0 8px 22px rgba(5, 5, 40, .35); }
+.dlbtn.on-dark .dl-sub { color: rgba(255, 255, 255, .78); }
+.dlbtn.on-dark .dl-sub a { color: #FFFFFF; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .dlbtn:not(.on-dark):not(.fixed-light) .dl-main { background: #FFFFFF; color: #1D1D76; }
+  :root:not([data-theme="light"]) .dlbtn:not(.on-dark):not(.fixed-light) .dl-sub { color: #9AA3B8; }
+  :root:not([data-theme="light"]) .dlbtn:not(.on-dark):not(.fixed-light) .dl-sub a { color: #B9BCFF; }
+}
+@media (max-width: 760px) { .dlbtn.mcenter { align-items: center; } .dl-main { width: 100%; max-width: 360px; } }
+
+.dl-main.off { background: #E3E6EE !important; color: #64748B !important; box-shadow: none !important; cursor: default; }
+.dlbtn.on-dark .dl-main.off { background: rgba(255,255,255,.16) !important; color: rgba(255,255,255,.85) !important; }
+.dl-sub { justify-content: center; }
+/* 단추와 아랫줄을 한 묶음으로 — 아랫줄은 단추 가운데 아래(PC 왼쪽 정렬 첫 화면에서도) */
+.dlbtn { align-self: flex-start; align-items: stretch; width: max-content; max-width: 100%; }
+.dlbtn.center, .dlbtn.mcenter.center { align-self: center; }
+.dlbtn .dl-sub { justify-content: center; }
+@media (max-width: 760px) { .dlbtn.mcenter { align-self: stretch; width: auto; align-items: center; } }

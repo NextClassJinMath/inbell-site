@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>인벨 다운로드 — 휴대폰 · 학원 컴퓨터</title>
+<meta name="description" content="인벨 앱 받기 — Android(Google Play) · iPhone(App Store) · Windows PC 프로그램. 원장님·선생님·학부모님 같은 앱이에요.">
+<link rel="canonical" href="https://inbell.co.kr/get">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="인벨">
+<meta property="og:title" content="인벨 다운로드">
+<meta property="og:description" content="휴대폰도, 컴퓨터도 같은 화면이에요.">
+<meta property="og:image" content="https://inbell.co.kr/assets/og/owner.png">
+<meta property="og:url" content="https://inbell.co.kr/get">
+<meta name="theme-color" content="#1D1D76">
+<link rel="icon" href="/p-3pnb931u/inbell_logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap">
+<link rel="stylesheet" href="/p-3pnb931u/assets/deck.css">
+<script src="/p-3pnb931u/assets/dl.js"></script>
+<style>
+  /* 세션 102-M — 흰 바탕 한 장 · 줄 넷 · 지금 기기 줄만 연남색 · 왼쪽 동그라미 그림 하나(같은 남색 선 아이콘 · 사과·윈도우 로고 없음) · 오른쪽 남색 「다운로드」(배지 없음) */
+  html, body { overflow: auto; height: auto; min-height: 100%; }
+  body { background: var(--bg); }
+  .page { max-width: 640px; margin: 0 auto; padding: calc(84px + env(safe-area-inset-top, 0px)) 20px 64px; display: flex; flex-direction: column; gap: 28px; }
+  h1 { margin: 0; font-size: 30px; font-weight: 900; letter-spacing: -.8px; }
+  .lead { margin: 6px 0 0; font-size: 15.5px; color: var(--mute); }
+  .rows { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+  .row { display: flex; align-items: center; gap: 16px; padding: 20px 4px; border-bottom: 1px solid var(--line); scroll-margin-top: 90px; flex-wrap: wrap; }
+  .ic { flex: none; width: 48px; height: 48px; border-radius: 50%; background: var(--chip); color: var(--accent); display: flex; align-items: center; justify-content: center; }
+  .ic svg { width: 26px; height: 26px; }
+  .dlb { display: inline-flex; align-items: center; gap: 7px; height: 42px; padding: 0 18px; border-radius: 11px; background: #1D1D76; color: #FFFFFF; font-size: 15px; font-weight: 800; text-decoration: none; }
+  .dlb .tri { width: 11px; height: 11px; opacity: .85; } .dlb small { font-size: 11.5px; font-weight: 700; opacity: .8; }
+  .dlb.off { background: var(--chip); color: var(--mute); } .soon { font-size: 12.5px; font-weight: 700; color: var(--mute); margin-right: 8px; }
+  #pcact { display: inline-flex; align-items: center; }
+  .row.me .dlb.off { background: var(--bg); border: 1px solid var(--line); }
+  .l { flex: 1 1 180px; display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+  .l b { font-size: 17px; font-weight: 800; } .l span { font-size: 13.5px; color: var(--mute); }
+  .act { flex: none; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .row.me { background: #EEF0FB; border-radius: 16px; border-bottom-color: transparent; padding: 20px 16px; margin: 8px 0; }
+  .row.me .l b { font-size: 19px; font-weight: 900; }
+  .row.me .ic { background: var(--bg); }
+  .me-tag { display: none; font-size: 12px; font-weight: 800; color: var(--accent); }
+  .row.me .me-tag { display: inline; }
+  .st { margin: 0; font-size: 13px; font-weight: 800; color: var(--mute); }
+  ol.s { margin: 12px 0 0; padding: 0; list-style: none; counter-reset: n; display: flex; flex-direction: column; gap: 14px; }
+  ol.s li { counter-increment: n; display: grid; grid-template-columns: 26px 1fr; column-gap: 12px; row-gap: 2px; }
+  ol.s li::before { content: counter(n); grid-row: span 2; width: 24px; height: 24px; border-radius: 50%; background: var(--chip); color: var(--accent); font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+  ol.s b { font-size: 15px; } ol.s span { font-size: 13.5px; color: var(--mute); }
+  .alt { align-self: center; font-size: 13.5px; font-weight: 700; color: var(--accent); text-decoration: none; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .row.me { background: var(--chip); }
+    :root:not([data-theme="light"]) .dlb:not(.off) { background: #FFFFFF; color: #1D1D76; }
+  }
+
+.row{flex-wrap:nowrap}
+.act{margin-left:auto}
+@media (max-width:560px){.row{flex-wrap:wrap}.act{margin-left:0;width:100%}.act>*{flex:1}.dlb,.row .act>span{width:100%;justify-content:center}.act>span{display:flex;align-items:center;justify-content:center;gap:8px}}
+.lead{max-width:none}
+</style>
+<style>.row{align-items:flex-start}.row .ic{margin-top:1px}.row .act{align-self:center}</style><style>.foot .foot-l span{color:#94A3B8;font-weight:400}.foot a{color:#64748B;font-weight:400}.foot{font-size:12.5px}</style><style>
+.fixfoot{position:fixed!important;left:0;right:0;bottom:0;margin:0!important;z-index:30;background:#FFFFFF;border-top:1px solid #EEF0F5;padding:12px 16px calc(env(safe-area-inset-bottom,0px) + 12px)!important;box-sizing:border-box}
+body{padding-bottom:120px}
+/* 103-C — 어두운 모드에서 아래 고정 꼬리만 흰 띠로 남던 것 → 바탕과 같은 색 */
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .fixfoot{background:var(--bg);border-top-color:var(--line)}}
+</style><style>body{padding-bottom:0!important}.page{min-height:100vh;box-sizing:border-box;justify-content:safe center;padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))!important}</style><style>
+/* 줄 넷 같은 안쪽 여백 · 지금 기기 줄은 배경만 다르게(아이콘 자리 같음) */
+.row{padding:18px 16px!important;margin:0!important}
+.row.me{margin:6px 0!important;padding:18px 16px!important}
+.page{max-width:620px!important;padding-left:clamp(28px,8vw,64px)!important;padding-right:clamp(28px,8vw,64px)!important;box-sizing:content-box!important;min-height:calc(100vh - 168px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px))!important}
+</style></head>
+<body>
+<header class="tbar"><div class="tb-in">
+  <a href="/p-3pnb931u/" class="tb-home" aria-label="인벨 처음으로"><svg viewBox="0 80 1024 1024" aria-hidden="true"><defs><clipPath id="lg"><path d="M352 330 C340 480 306 620 196 742 L828 742 C718 620 684 480 672 330 A172 172 0 0 0 352 330 Z"/><path d="M150 742 H874 a24 24 0 0 1 24 24 v42 a24 24 0 0 1 -24 24 H150 a24 24 0 0 1 -24 -24 v-42 a24 24 0 0 1 24 -24 Z"/><circle cx="512" cy="876" r="88"/></clipPath></defs><rect x="0" y="80" width="1024" height="1024" rx="230" fill="#1d1d76"/><g clip-path="url(#lg)"><rect x="0" y="80" width="1024" height="1200" fill="#ffffff"/><polygon points="0,287 1024,1021 1024,1200 0,1200" fill="#d6d6e6"/></g></svg>인벨</a>
+  <nav class="tabs" aria-label="페이지"><a href="/p-3pnb931u/">원장님께</a><a href="/p-3pnb931u/parent">학부모님께</a><a href="/p-3pnb931u/get" class="cur" aria-current="page">다운로드</a></nav>
+</div></header>
+<main class="page">
+  <div><h1>인벨 다운로드</h1><p class="lead">휴대폰도, 컴퓨터도 같은 화면이에요.</p></div>
+  <div class="rows" id="rows">
+    <div class="row" id="android" data-os="android">
+      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.8"/><path d="M10.2 5.2h3.6"/></svg></span>
+      <div class="l"><b>Android 휴대폰 <span class="me-tag">· 지금 이 기기</span></b><span>삼성 갤럭시 등</span></div>
+      <div class="act"><a class="dlb" href="https://play.google.com/store/apps/details?id=com.jinuri.inbell" target="_blank" rel="noopener"><span>Google Play에서 받기</span></a></div>
+    </div>
+    <div class="row" id="ios" data-os="ios">
+      <span class="ic " aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.8"/><path d="M10.2 5.2h3.6"/></svg></span>
+      <div class="l"><b>iPhone · iPad <span class="me-tag">· 지금 이 기기</span></b><span>아이폰 · 아이패드</span></div>
+      <div class="act"><a class="dlb" href="https://apps.apple.com/kr/app/id6818784496" target="_blank" rel="noopener"><span>App Store에서 받기</span></a></div>
+    </div>
+    <div class="row" id="pc" data-os="windows">
+      <span class="ic " aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="12.5" rx="1.8"/><path d="M8.5 20h7M12 16.5V20"/></svg></span>
+      <div class="l"><b>Windows PC <span class="me-tag">· 지금 이 기기</span></b><span>학원 컴퓨터 한쪽에 띄워 두고 써요</span></div>
+      <div class="act"><span id="pcact"><span class="dlb off"><span>곧 열려요</span></span></span></div>
+    </div>
+    <div class="row" id="mac" data-os="mac"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="12" rx="1.8"/><path d="M2 19.5h20"/></svg></span><div class="l"><b>Mac <span class="me-tag">· 지금 이 기기</span></b><span>맥 프로그램 · 지금은 휴대폰 앱으로 쓰세요</span></div><div class="act"><span><span class="dlb off"><span>곧 열려요</span></span></span></div></div>
+  </div>
+  
+  <footer class="foot fixfoot"><div class="foot-l"><span>인벨</span><a href="mailto:help@inbell.co.kr">help@inbell.co.kr</a><a href="/terms/">이용약관</a><a href="/privacy.html">개인정보처리방침</a><a href="/delete-account.html">계정 삭제</a></div></footer>
+</main>
+<script>
+(function () {
+  var D = window.INBELL_DL || {}; var rows = document.getElementById('rows');
+  if (D.PC_SETUP_URL) document.getElementById('pcact').innerHTML = '<a class="dlb" href="' + D.PC_SETUP_URL + '"><span>Windows용 받기</span></a>';
+  var me = rows.querySelector('[data-os="' + D.os + '"]');
+  if (me) { me.classList.add('me'); rows.insertBefore(me, rows.firstChild); }
+})();
+</script>
+</body>
+</html>
