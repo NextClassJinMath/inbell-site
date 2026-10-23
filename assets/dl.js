@@ -18,12 +18,12 @@
     : /windows/i.test(ua) ? 'windows'
     : /macintosh|mac os x/i.test(ua) ? 'mac' : 'other');
   var T = {
-    android: { href: PLAY, text: 'Google Play에서 인벨 받기', ext: true, sub: '다른 기기로 받기 ›' },
-    ios: { href: APPSTORE, text: 'App Store에서 인벨 받기', ext: true, sub: '다른 기기로 받기 ›' },
-    windows: PC_SETUP_URL ? { href: PC_SETUP_URL, text: 'Windows용 인벨 받기', ext: false, sub: '다른 기기로 받기 ›' }
-                          : { off: true, text: 'Windows용은 곧 열려요', sub: '다른 기기로 받기 ›' },
-    mac: { off: true, text: 'Mac용은 곧 열려요', sub: '다른 기기로 받기 ›' },
-    other: { href: GET, text: '인벨 받기', ext: false, sub: '' }
+    android: { href: PLAY, text: '인벨 앱 다운로드', ext: true, sub: '' },
+    ios: { href: APPSTORE, text: '인벨 앱 다운로드', ext: true, sub: '' },
+    windows: PC_SETUP_URL ? { href: PC_SETUP_URL, text: 'Windows용 다운로드', ext: false, sub: '' }
+                          : { off: true, text: 'Windows용은 곧 열려요', sub: '' },
+    mac: { off: true, text: 'Mac용은 곧 열려요', sub: '' },
+    other: { href: GET, text: '인벨 앱 다운로드', ext: false, sub: '' }
   };
   var t = T[os] || T.other;
   window.INBELL_DL = { os: os, PLAY: PLAY, APPSTORE: APPSTORE, PC_SETUP_URL: PC_SETUP_URL };

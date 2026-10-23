@@ -12,10 +12,19 @@
     '<span class="tb-name">인벨</span></a><nav class="tabs" aria-label="페이지">';
   tabs.forEach(function (t) {
     var on = cur !== null && t[0] === cur;
-    h += '<a href="' + base + t[0] + '" data-r="' + t[0] + '"' + (on ? ' class="cur" aria-current="page"' : '') + '>' + t[1] + '</a>';
+    var dl = t[0] === 'get';
+    var label = dl ? '<svg class="dl-ic" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v13M6 11l6 6 6-6"/></svg><span class="dl-tx" data-t="' + t[1] + '">' + t[1] + '</span>' : t[1];
+    var cls = (on ? 'cur' : '') + (dl ? (on ? ' ' : '') + 'dl-tab' : '');
+    h += '<a href="' + base + t[0] + '" data-r="' + t[0] + '"' + (cls ? ' class="' + cls + '"' : '') + (on ? ' aria-current="page"' : '') + '>' + label + '</a>';
   });
   h += '</nav></div></div>';
   s.insertAdjacentHTML('beforebegin', h);
+  // 103-C-5 — 위 탭 「다운로드」 빛(45° 사선 · 글자 폭 40% · 1.2초) · 뜬 뒤 1.5초에 한 번, 그 뒤 7초마다 · /get(지금 여기)과 「동작 줄이기」에서는 없음
+  var dlt = document.querySelector('#tbar .dl-tab');
+  if (dlt && page !== 'get' && !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+    var run = function () { dlt.classList.remove('shine'); void dlt.offsetWidth; dlt.classList.add('shine'); setTimeout(function () { dlt.classList.remove('shine'); }, 1300); };
+    setTimeout(function () { run(); setInterval(run, 7000); }, 1500);
+  }
   if (page !== 'owner') {
     var bar = document.getElementById('tbar');
     var f = function () { bar.classList.toggle('lt', !document.body.classList.contains('dark')); };
