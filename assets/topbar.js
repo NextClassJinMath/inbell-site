@@ -1,14 +1,6 @@
 /* 세션 103-C-1 — 상단 바 공용 부품: <script src="…/assets/topbar.js" data-page="owner|parent|get"></script> 자리에 바를 넣는다(모양 = assets/topbar.css).
  * 링크 주소는 이 파일 주소에서 거꾸로 셈 → 공개 사이트(/ · /parent · /get)든 숨김 폴더(/p-…/)든 그 안에서 돈다.
  * owner = 원장 페이지가 장면마다 .lt(밝음) · 탭 .cur 를 직접 바꿈 · 그 밖 = body.dark(어두운 장) 따라 .lt · 지금 페이지 탭 .cur. */
-// 103-C-2 — 카톡 안(인앱 브라우저)에서 열리면 폰 기본 브라우저(크롬 · 사파리)로 한 번 다시 열기(학부모 손 0 · 세 페이지 공통)
-//   sessionStorage 표시로 되풀이 막음 · 실패해도 이 페이지는 그대로 보임.
-try {
-  if (/KAKAOTALK/i.test(navigator.userAgent || '') && !sessionStorage.getItem('inbell_open_ext')) {
-    sessionStorage.setItem('inbell_open_ext', '1');
-    location.href = 'kakaotalk://web/openExternal?url=' + encodeURIComponent(location.href);
-  }
-} catch (e) { /* 그대로 둠 */ }
 (function () {
   var s = document.currentScript; if (!s) return;
   var page = s.getAttribute('data-page') || '';
