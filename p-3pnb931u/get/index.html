@@ -14,11 +14,12 @@
 <meta property="og:image" content="https://inbell.co.kr/assets/og/owner.png">
 <meta property="og:url" content="https://inbell.co.kr/get">
 <meta name="theme-color" content="#1D1D76">
-<link rel="icon" href="/p-3pnb931u/inbell_logo.png">
+<link rel="icon" href="../inbell_logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap">
-<link rel="stylesheet" href="/p-3pnb931u/assets/deck.css">
-<script src="/p-3pnb931u/assets/dl.js"></script>
+<link rel="stylesheet" href="../assets/deck.css">
+<link rel="stylesheet" href="../assets/topbar.css">
+<script src="../assets/dl.js"></script>
 <style>
   /* 103-C — 다크 모드 규칙 없음 · <html data-theme="light"> 로 어느 기기에서나 흰 바탕(원장·학부모 페이지처럼 색 고정) */
   /* 세션 102-M — 흰 바탕 한 장 · 줄 넷 · 지금 기기 줄만 연남색 · 왼쪽 동그라미 그림 하나(같은 남색 선 아이콘 · 사과·윈도우 로고 없음) · 오른쪽 남색 「다운로드」(배지 없음) */
@@ -65,12 +66,12 @@ body{padding-bottom:120px}
 .row{padding:18px 16px!important;margin:0!important}
 .row.me{margin:6px 0!important;padding:18px 16px!important}
 .page{max-width:620px!important;padding-left:clamp(28px,8vw,64px)!important;padding-right:clamp(28px,8vw,64px)!important;box-sizing:content-box!important;min-height:calc(100vh - 168px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px))!important}
+
+/* 103-C-1 — 360폭 휴대폰: 「○○ · 지금 이 기기」 한 줄(글자 크기 그대로 · 옆 여백 · 줄 안쪽 여백 · 간격만 줄임) */
+@media (max-width:400px){.page{padding-left:16px!important;padding-right:16px!important}.row,.row.me{padding:16px 12px!important}.row{gap:12px}.row .l b{white-space:nowrap}}
 </style></head>
 <body>
-<header class="tbar"><div class="tb-in">
-  <a href="/p-3pnb931u/" class="tb-home" aria-label="인벨 처음으로"><svg viewBox="0 80 1024 1024" aria-hidden="true"><defs><clipPath id="lg"><path d="M352 330 C340 480 306 620 196 742 L828 742 C718 620 684 480 672 330 A172 172 0 0 0 352 330 Z"/><path d="M150 742 H874 a24 24 0 0 1 24 24 v42 a24 24 0 0 1 -24 24 H150 a24 24 0 0 1 -24 -24 v-42 a24 24 0 0 1 24 -24 Z"/><circle cx="512" cy="876" r="88"/></clipPath></defs><rect x="0" y="80" width="1024" height="1024" rx="230" fill="#1d1d76"/><g clip-path="url(#lg)"><rect x="0" y="80" width="1024" height="1200" fill="#ffffff"/><polygon points="0,287 1024,1021 1024,1200 0,1200" fill="#d6d6e6"/></g></svg>인벨</a>
-  <nav class="tabs" aria-label="페이지"><a href="/p-3pnb931u/">원장님께</a><a href="/p-3pnb931u/parent">학부모님께</a><a href="/p-3pnb931u/get" class="cur" aria-current="page">다운로드</a></nav>
-</div></header>
+<script src="../assets/topbar.js" data-page="get"></script>
 <main class="page">
   <div><h1>인벨 다운로드</h1><p class="lead">휴대폰도, 컴퓨터도 같은 화면이에요.</p></div>
   <div class="rows" id="rows">

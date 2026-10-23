@@ -28,21 +28,7 @@ button { font-family: inherit; }
 .br-m { display: none; }
 
 /* 상단 바 */
-.tbar { position: fixed; top: 0; left: 0; right: 0; z-index: 40; padding-top: env(safe-area-inset-top, 0px); transition: background .3s, box-shadow .3s; }
-.tb-in { max-width: 1160px; margin: 0 auto; padding: 12px 28px; display: flex; align-items: center; gap: 10px; }
-.tb-home { display: flex; align-items: center; gap: 9px; text-decoration: none; color: var(--accent); font-size: 18px; font-weight: 900; }
-.tb-home svg { width: 30px; height: 30px; flex: none; }
-.tabs { margin-left: auto; display: flex; gap: 2px; }
-.tabs a { position: relative; color: var(--sub); font-size: 14.5px; font-weight: 700; text-decoration: none; padding: 8px 11px; border-radius: 999px; white-space: nowrap; }
-.tabs a:hover { background: var(--chip); }
-.tabs a.cur { color: var(--accent); }
-.tabs a.cur::after { content: ""; position: absolute; left: 11px; right: 11px; bottom: 2px; height: 2px; border-radius: 2px; background: currentColor; }
-.tbar { background: color-mix(in srgb, var(--bg) 88%, transparent); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); box-shadow: 0 1px 0 var(--line); }
-body.dark .tbar { background: transparent; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
-body.dark .tb-home, body.dark .tabs a, body.dark .tabs a.cur { color: #FFFFFF; }
-body.dark .tabs a:hover { background: rgba(255, 255, 255, .12); }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .tb-home, :root:not([data-theme="light"]) .tabs a.cur { color: #FFFFFF; } }
-@media (max-width: 420px) { .tb-in { padding: 10px 14px; } .tb-home { font-size: 16px; } .tabs a { font-size: 13px; padding: 8px 7px; } .tabs a.cur::after { left: 7px; right: 7px; } }
+/* 상단 바 = assets/topbar.css(세션 103-C-1 · 세 페이지 공용 · 원장 바 기준) */
 
 /* 장 */
 .deck { position: fixed; inset: 0; overflow: hidden; }
@@ -211,4 +197,3 @@ body.mobile .pdots { display: none; }
 @media (max-width: 899px) { .fig .cap-m { font-size: 17px; bottom: -36px; } }
 .ch.last.white { background: var(--bg); }
 
-body.dark .tb-home svg { filter: drop-shadow(0 4px 10px rgba(5, 5, 40, .45)); }
