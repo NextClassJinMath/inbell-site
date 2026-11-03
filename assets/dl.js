@@ -7,10 +7,12 @@
 (function () {
   // 103-C-1 — 다운로드 페이지 주소를 이 파일 주소에서 셈(공개 사이트 = /get/ · 숨김 폴더 = /p-…/get/)
   // 103-C-8 — Mac 설치 파일을 사이트에서 뺌(설치 파일 안에 공개 전 비밀 주소가 들어 있음 · 대장님 결정 기다림) · 빈 칸 = 곧 열려요
-  var MAC = '';
+  // 앱 세션 132 — 공개(대장님 11-03): 공개 주소판(app.inbell.co.kr) 두 설치 파일 = 이 저장소 릴리스 pc-1.0.8(서명·공증 Mac · Windows 서명 없음)
+  var REL = 'https://github.com/NextClassJinMath/inbell-site/releases/download/pc-1.0.8/';
+  var MAC = REL + 'Inbell-1.0.8.dmg';
   var GET = new URL('../get/', (document.currentScript && document.currentScript.src) || location.href).pathname;
   // PC 설치 파일 주소 — 공개 때 이 한 줄만 바꾼다(빈 칸 = /get#pc). 비밀 주소는 이 공개 저장소에 절대 적지 않는다.
-  var PC_SETUP_URL = '';
+  var PC_SETUP_URL = REL + 'Inbell-Setup.exe';
   var PLAY = 'https://play.google.com/store/apps/details?id=com.jinuri.inbell';
   var APPSTORE = 'https://apps.apple.com/kr/app/id6818784496';
   var ua = navigator.userAgent || '';
@@ -28,7 +30,7 @@
     other: { href: GET, text: '인벨 앱 다운로드', ext: false, sub: '' }
   };
   var t = T[os] || T.other;
-  window.INBELL_DL = { os: os, PLAY: PLAY, APPSTORE: APPSTORE, PC_SETUP_URL: PC_SETUP_URL };
+  window.INBELL_DL = { os: os, PLAY: PLAY, APPSTORE: APPSTORE, PC_SETUP_URL: PC_SETUP_URL, MAC: MAC };
   function fill() {
     document.querySelectorAll('.dlbtn').forEach(function (w) {
       if (w.dataset.done) return; w.dataset.done = '1';
