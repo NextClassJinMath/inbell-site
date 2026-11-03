@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- 앱 세션 112 — 폰 다크 모드(브라우저 강제 어둡게)를 따르지 않고 늘 밝은 화면 -->
 <meta name="color-scheme" content="light only">
+<!-- 세션 102-M — 옛 주소 /app?a=… 는 새 학부모 안내(/parent?a=…)로 넘긴다 · &print(A4 안내장 · 앱 「인쇄 · PDF 저장」)는 이 페이지 그대로 -->
+<script>(function(){var q=new URLSearchParams(location.search);if(!q.has('print')&&!window.__INBELL_QS){var a=q.get('a');location.replace('/parent'+(a?'?a='+encodeURIComponent(a):''));}})();</script>
 <meta name="robots" content="noindex, nofollow">
 <title>인벨 앱 안내</title>
 <meta name="description" content="등원·하원 알림과 공지를 앱으로 받아 보세요">
