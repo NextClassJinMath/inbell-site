@@ -2,7 +2,9 @@
 <html lang="ko" data-theme="light">
 <head>
 <meta charset="utf-8">
-<meta name="color-scheme" content="light only">
+<!-- 앱 세션 140 — 늘 밝게: 크롬 · 삼성 인터넷 강제 어둡게 끄기 표시는 「only light」 순서 + supported-color-schemes(옛 웹킷) -->
+<meta name="color-scheme" content="only light">
+<meta name="supported-color-schemes" content="light">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>인벨 학부모 안내 — 출결·공지는 알려 드리고, 지각·결석·조퇴는 대신 전해 드려요</title>
 <meta name="description" content="학원 등원·하원 알림, 지각·결석은 버튼 하나로, 학원 일정과 아이 수업을 한 달력에. 인벨 학부모 안내.">
@@ -238,6 +240,7 @@ body:not(.mobile) .endwrap .pa-steps li{align-content:start}
 .acn-line{margin:0;align-self:flex-start;max-width:100%;font-size:20px;font-weight:800;line-height:1.4;color:rgba(255,255,255,.88);word-break:keep-all;overflow-wrap:anywhere}
 @media (max-width:760px){.acn-line{font-size:15px}}
 </style>
+<style>/* 앱 세션 140 — 폰 다크 모드에서도 밝은 화면 그대로(인쇄 · PDF 포함) · 다크 미디어 안에서도 밝게 고정(「어두운 화면을 스스로 다룸」 표시 = 삼성 인터넷 강제 어둡게 건너뜀) */:root{color-scheme:only light}@media (prefers-color-scheme: dark){:root{color-scheme:only light}}</style>
 </head>
 <body>
 <script src="/assets/topbar.js" data-page="parent"></script>
