@@ -6,7 +6,7 @@
   var page = s.getAttribute('data-page') || '';
   var base = new URL('..', s.src).pathname;  // …/assets/topbar.js → …/
   var svg = '<svg width="30" height="30" viewBox="0 80 1024 1024" aria-hidden="true"><defs><clipPath id="chtb"><path d="M352 330 C340 480 306 620 196 742 L828 742 C718 620 684 480 672 330 A172 172 0 0 0 352 330 Z"/><path d="M150 742 H874 a24 24 0 0 1 24 24 v42 a24 24 0 0 1 -24 24 H150 a24 24 0 0 1 -24 -24 v-42 a24 24 0 0 1 24 -24 Z"/><circle cx="512" cy="876" r="88"/></clipPath></defs><rect x="0" y="80" width="1024" height="1024" rx="230" fill="#1d1d76"/><g clip-path="url(#chtb)"><rect x="0" y="80" width="1024" height="1200" fill="#ffffff"/><polygon points="0,287 1024,1021 1024,1200 0,1200" fill="#d6d6e6"/></g></svg>';
-  var tabs = [['', '원장님께'], ['parent', '학부모님께'], ['help/', '사용법', 'help'], ['get', '다운로드']];  // [주소, 글자, data-page(없으면 주소)] · 사용법 = /help/(앱 세션 165)
+  var tabs = [['', '원장님께'], ['parent', '학부모님께'], ['help/', '기능 안내', 'help'], ['get', '다운로드']];  // [주소, 글자, data-page(없으면 주소)] · 기능 안내 = /help/(앱 세션 165 · 167 이름)
   var cur = page === 'owner' ? null : page;
   var h = '<div class="tbar' + (page === 'owner' ? '' : ' lt') + '" id="tbar"><div class="tb-in"><a href="' + base + '" class="tb-home" aria-label="인벨 처음으로">' + svg +
     '<span class="tb-name">인벨</span></a><nav class="tabs" aria-label="페이지">';

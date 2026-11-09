@@ -37,3 +37,7 @@
 
 /* 103-C-7 맨 아래 정보 줄 = 휴대폰 한 줄(「인벨」 뺌 · 12 · 사이 12) */
 @media (max-width:760px){.foot .foot-l{flex-wrap:nowrap!important;column-gap:12px!important;white-space:nowrap}.foot .foot-l a,.foot .foot-l{font-size:12px!important}}
+
+/* 167 — 메뉴 「기능 안내」(글자 늘어남) · 좁은 폰(380 이하)에서 「인벨」이 두 줄로 꺾이지 않게: 이름 한 줄 · 탭 안쪽 여백 · 글자 조금 줄임 */
+.tb-name { white-space: nowrap; }
+@media (max-width: 380px) { .tb-in { gap: 6px; } .tb-home { gap: 6px; } .tabs a { font-size: 12.5px; padding: 8px 5px; } .tabs a.cur::after { left: 5px; right: 5px; } }
