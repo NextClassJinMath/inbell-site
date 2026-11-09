@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="only light">
+<meta name="supported-color-schemes" content="light">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>아이가 늦을 것 같아요 — 인벨 도움말</title>
+<meta name="description" content="도착할 시각을 정해 「지각 알리기」를 보내면 선생님이 기다려 주세요.">
+<link rel="canonical" href="https://inbell.co.kr/help/parent/late-today/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="인벨">
+<meta property="og:title" content="아이가 늦을 것 같아요 — 인벨 도움말">
+<meta property="og:description" content="도착할 시각을 정해 「지각 알리기」를 보내면 선생님이 기다려 주세요.">
+<meta property="og:image" content="https://inbell.co.kr/help/parent/late-today/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:url" content="https://inbell.co.kr/help/parent/late-today/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1D1D76">
+<link rel="icon" href="../../../inbell_logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap">
+<link rel="stylesheet" href="../../../assets/topbar.css">
+<link rel="stylesheet" href="../../../help/help.css">
+</head>
+<body>
+<script src="../../../assets/topbar.js" data-page="help"></script>
+<main class="wrap">
+<nav class="crumb"><a href="../../">도움말</a><span class="sep">›</span><a href="../">학부모님</a></nav><h1>아이가 늦을 것 같아요</h1><p class="lead">도착할 시각을 정해 「지각 알리기」를 보내면 선생님이 기다려 주세요.</p><ol class="steps n4"><li class="step"><p>학원 홈 「우리 아이」 카드에서 늦는 아이를 체크해요.</p><div class="shot"><img src="1.webp" alt="학원 홈 「우리 아이」 카드에서 늦는 아이를 체크해요." loading="lazy" decoding="async" width="1080" height="2220"></div></li><li class="step"><p>아래 띠에서 「지각 알리기」를 눌러요.</p><div class="shot"><img src="2.webp" alt="아래 띠에서 「지각 알리기」를 눌러요." loading="lazy" decoding="async" width="1080" height="2220"></div></li><li class="step"><p>「도착 시각」을 눌러 학원에 도착할 시각을 골라요.</p><div class="shot"><img src="3.webp" alt="「도착 시각」을 눌러 학원에 도착할 시각을 골라요." loading="lazy" decoding="async" width="1080" height="2220"></div></li><li class="step"><p>이유는 골라도 되고 안 골라도 돼요. 「학원에 알리기」를 눌러요.</p><div class="shot"><img src="4.webp" alt="이유는 골라도 되고 안 골라도 돼요. 「학원에 알리기」를 눌러요." loading="lazy" decoding="async" width="1080" height="2220"></div></li></ol><div class="endbox"><p>「우리 아이」 카드에 「○○:○○ 도착 예정」으로 보이고, 아이가 등원하면 알림이 와요.</p></div><div class="share"><button type="button" id="copy">이 페이지 주소 복사</button></div><section class="rel"><h2>비슷한 상황</h2><ul class="topics"><li><a href="../absent-today/"><span class="tx"><b>아이가 오늘 학원에 못 가요</b><span>학원 홈에서 아이를 체크하고 「결석 알리기」를 누르면 담당 선생님께 바로 전해져요.</span></span><i>›</i></a></li><li><a href="../early-pickup/"><span class="tx"><b>오늘 일찍 데려가야 해요</b><span>수업이 끝나기 전에 데려가야 하면 「조퇴 알리기」로 마칠 시각을 알려요.</span></span><i>›</i></a></li><li><a href="../not-arrived-alert/"><span class="tx"><b>「아직 등원하지 않았어요」 알림이 왔어요</b><span>수업이 시작됐는데 아이가 오지 않으면 알림과 함께 상담방에 빨간 「지각 발생」 카드가 와요. 한 번만 눌러 답해 주세요.</span></span><i>›</i></a></li></ul></section><p class="ver">앱 1.0.71 화면 기준</p><div class="toast" id="toast" role="status" aria-live="polite"></div>
+<footer class="foot"><a href="mailto:help@inbell.co.kr">help@inbell.co.kr</a><a href="/terms/">이용약관</a><a href="/privacy.html">개인정보처리방침</a><a href="/delete-account.html">계정 삭제</a></footer>
+</main>
+<script>
+(function(){
+  var t=document.getElementById('toast');
+  function show(m){t.textContent=m;t.classList.add('on');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('on')},2200)}
+  var url=location.href.split('#')[0];
+  var cp=document.getElementById('copy');
+  if(cp)cp.addEventListener('click',function(){
+    function ok(){show('주소를 복사했어요. 카톡 창에 붙여 넣어 보내 주세요.')}
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(url).then(ok,fb)}else fb();
+    function fb(){var a=document.createElement('textarea');a.value=url;a.setAttribute('readonly','');a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');ok()}catch(e){show(url)}document.body.removeChild(a)}
+  });
+  var kk=document.getElementById('kakao'),key=document.body.getAttribute('data-kakao');
+  if(kk&&key){
+    var s=document.createElement('script');s.src='https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js';s.crossOrigin='anonymous';
+    s.onload=function(){try{Kakao.init(key);kk.hidden=false}catch(e){}};document.head.appendChild(s);
+    kk.addEventListener('click',function(){Kakao.Share.sendScrap({requestUrl:url})});
+  }
+})();
+</script>
+</body>
+</html>

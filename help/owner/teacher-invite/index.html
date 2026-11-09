@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="only light">
+<meta name="supported-color-schemes" content="light">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>선생님을 학원에 초대하고 싶어요 — 인벨 도움말</title>
+<meta name="description" content="선생님 이름과 전화번호를 등록하면, 선생님이 그 번호로 인벨에 들어올 때 초대장을 받아요.">
+<link rel="canonical" href="https://inbell.co.kr/help/owner/teacher-invite/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="인벨">
+<meta property="og:title" content="선생님을 학원에 초대하고 싶어요 — 인벨 도움말">
+<meta property="og:description" content="선생님 이름과 전화번호를 등록하면, 선생님이 그 번호로 인벨에 들어올 때 초대장을 받아요.">
+<meta property="og:image" content="https://inbell.co.kr/help/owner/teacher-invite/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:url" content="https://inbell.co.kr/help/owner/teacher-invite/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1D1D76">
+<link rel="icon" href="../../../inbell_logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap">
+<link rel="stylesheet" href="../../../assets/topbar.css">
+<link rel="stylesheet" href="../../../help/help.css">
+</head>
+<body>
+<script src="../../../assets/topbar.js" data-page="help"></script>
+<main class="wrap">
+<nav class="crumb"><a href="../../">도움말</a><span class="sep">›</span><a href="../">원장님</a></nav><h1>선생님을 학원에 초대하고 싶어요</h1><p class="lead">선생님 이름과 전화번호를 등록하면, 선생님이 그 번호로 인벨에 들어올 때 초대장을 받아요.</p><ol class="steps n4"><li class="step"><p>아래 「설정」 탭에서 「학원 관리」를 펼치고 「선생님 관리」를 눌러요.</p><div class="shot"><img src="1.webp" alt="아래 「설정」 탭에서 「학원 관리」를 펼치고 「선생님 관리」를 눌러요." loading="lazy" decoding="async" width="1080" height="2220"></div></li><li class="step"><p>오른쪽 위 「선생님 등록」을 눌러요.</p><div class="shot"><img src="2.webp" alt="오른쪽 위 「선생님 등록」을 눌러요." loading="lazy" decoding="async" width="1080" height="2220"></div></li><li class="step"><p>선생님 이름과 전화번호를 적고 「등록」을 눌러요.</p><div class="shot"><img src="3.webp" alt="선생님 이름과 전화번호를 적고 「등록」을 눌러요." loading="lazy" decoding="async" width="1080" height="2220"></div></li><li class="step"><p>등록한 선생님을 누르면 근무 상태(근무중 · 휴직 · 퇴사)와 담당 수업을 볼 수 있어요.</p><div class="shot"><img src="4.webp" alt="등록한 선생님을 누르면 근무 상태(근무중 · 휴직 · 퇴사)와 담당 수업을 볼 수 있어요." loading="lazy" decoding="async" width="1080" height="2220"></div></li></ol><div class="endbox"><p>수업마다 담당 선생님은 「수업 관리」에서 수업을 눌러 골라요.</p></div><div class="share"><button type="button" id="copy">이 페이지 주소 복사</button></div><section class="rel"><h2>비슷한 상황</h2><ul class="topics"><li><a href="../create-academy/"><span class="tx"><b>학원을 처음 만들어요</b><span>유저 홈에서 학원 이름만 적으면 학원이 바로 만들어지고, 나머지는 나중에 채워도 돼요.</span></span><i>›</i></a></li><li><a href="../class-schedule/"><span class="tx"><b>수업(반)을 만들고 요일·시간을 정하고 싶어요</b><span>수업 이름과 요일별 시작·끝 시각을 정해 두면 출결과 지각 알림이 그 시간에 맞춰 움직여요.</span></span><i>›</i></a></li><li><a href="../notice-send/"><span class="tx"><b>학부모님께 공지나 안내를 보내고 싶어요</b><span>학원 전체에는 공지를, 몇몇 학생 가족에게만은 단체 안내를 보낼 수 있어요.</span></span><i>›</i></a></li></ul></section><p class="ver">앱 1.0.71 화면 기준</p><div class="toast" id="toast" role="status" aria-live="polite"></div>
+<footer class="foot"><a href="mailto:help@inbell.co.kr">help@inbell.co.kr</a><a href="/terms/">이용약관</a><a href="/privacy.html">개인정보처리방침</a><a href="/delete-account.html">계정 삭제</a></footer>
+</main>
+<script>
+(function(){
+  var t=document.getElementById('toast');
+  function show(m){t.textContent=m;t.classList.add('on');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('on')},2200)}
+  var url=location.href.split('#')[0];
+  var cp=document.getElementById('copy');
+  if(cp)cp.addEventListener('click',function(){
+    function ok(){show('주소를 복사했어요. 카톡 창에 붙여 넣어 보내 주세요.')}
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(url).then(ok,fb)}else fb();
+    function fb(){var a=document.createElement('textarea');a.value=url;a.setAttribute('readonly','');a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');ok()}catch(e){show(url)}document.body.removeChild(a)}
+  });
+  var kk=document.getElementById('kakao'),key=document.body.getAttribute('data-kakao');
+  if(kk&&key){
+    var s=document.createElement('script');s.src='https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js';s.crossOrigin='anonymous';
+    s.onload=function(){try{Kakao.init(key);kk.hidden=false}catch(e){}};document.head.appendChild(s);
+    kk.addEventListener('click',function(){Kakao.Share.sendScrap({requestUrl:url})});
+  }
+})();
+</script>
+</body>
+</html>

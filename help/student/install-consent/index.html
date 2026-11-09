@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="only light">
+<meta name="supported-color-schemes" content="light">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>앱 설치하고 보호자 허락 받기 — 인벨 도움말</title>
+<meta name="description" content="학원에 등록한 내 휴대폰 번호로 시작하고, 보호자가 허락하면 학원과 바로 이어져요.">
+<link rel="canonical" href="https://inbell.co.kr/help/student/install-consent/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="인벨">
+<meta property="og:title" content="앱 설치하고 보호자 허락 받기 — 인벨 도움말">
+<meta property="og:description" content="학원에 등록한 내 휴대폰 번호로 시작하고, 보호자가 허락하면 학원과 바로 이어져요.">
+<meta property="og:image" content="https://inbell.co.kr/help/student/install-consent/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:url" content="https://inbell.co.kr/help/student/install-consent/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1D1D76">
+<link rel="icon" href="../../../inbell_logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap">
+<link rel="stylesheet" href="../../../assets/topbar.css">
+<link rel="stylesheet" href="../../../help/help.css">
+</head>
+<body>
+<script src="../../../assets/topbar.js" data-page="help"></script>
+<main class="wrap">
+<nav class="crumb"><a href="../../">도움말</a><span class="sep">›</span><a href="../">학생</a></nav><h1>앱 설치하고 보호자 허락 받기</h1><p class="lead">학원에 등록한 내 휴대폰 번호로 시작하고, 보호자가 허락하면 학원과 바로 이어져요.</p><ol class="steps"><li class="step noimg"><p>스토어에서 「인벨」을 찾아 설치해요.</p></li><li class="step"><p>앱을 열고 「휴대폰 번호로 시작하기」를 눌러요.</p><div class="shot"><img src="2.webp" alt="앱을 열고 「휴대폰 번호로 시작하기」를 눌러요." loading="lazy" decoding="async" width="1080" height="2220"></div></li><li class="step noimg"><p>학원에 알려 준 내 휴대폰 번호를 넣고, 문자로 온 인증번호를 넣어요.</p></li><li class="step noimg"><p>「보호자 동의를 기다리고 있어요」가 보이면 보호자께 앱에서 허락해 달라고 말해요.</p></li><li class="step noimg"><p>보호자가 허락하면 학원 초대장이 와요. 「수락」을 눌러요.</p></li></ol><div class="endbox"><p>내 학원이 홈에 생겨요. 눌러서 들어가면 돼요. (만 14세 이상으로 등록됐다면 초대장의 「동의하고 시작」을 직접 누르면 돼요.)</p><div class="shot"><img src="6.webp" alt="내 학원이 홈에 생겨요. 눌러서 들어가면 돼요. (만 14세 이상으로 등록됐다면 초대장의 「동의하고 시작」을 직접 누르면 돼요.)" loading="lazy" decoding="async" width="1080" height="2220"></div></div><div class="share"><button type="button" id="copy">이 페이지 주소 복사</button></div><section class="rel"><h2>비슷한 상황</h2><ul class="topics"><li><a href="../kiosk-check/"><span class="tx"><b>학원 와서 등원·하원 찍기</b><span>학원 입구 태블릿에 내 출결번호 4자리를 누르면 등원·하원이 보호자께 바로 알려져요.</span></span><i>›</i></a></li><li><a href="../message-teacher/"><span class="tx"><b>선생님께 메시지 보내기</b><span>상담 탭에서 선생님과 이야기하는 방을 열고 메시지를 보내요.</span></span><i>›</i></a></li></ul></section><p class="ver">앱 1.0.71 화면 기준</p><div class="toast" id="toast" role="status" aria-live="polite"></div>
+<footer class="foot"><a href="mailto:help@inbell.co.kr">help@inbell.co.kr</a><a href="/terms/">이용약관</a><a href="/privacy.html">개인정보처리방침</a><a href="/delete-account.html">계정 삭제</a></footer>
+</main>
+<script>
+(function(){
+  var t=document.getElementById('toast');
+  function show(m){t.textContent=m;t.classList.add('on');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('on')},2200)}
+  var url=location.href.split('#')[0];
+  var cp=document.getElementById('copy');
+  if(cp)cp.addEventListener('click',function(){
+    function ok(){show('주소를 복사했어요. 카톡 창에 붙여 넣어 보내 주세요.')}
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(url).then(ok,fb)}else fb();
+    function fb(){var a=document.createElement('textarea');a.value=url;a.setAttribute('readonly','');a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');ok()}catch(e){show(url)}document.body.removeChild(a)}
+  });
+  var kk=document.getElementById('kakao'),key=document.body.getAttribute('data-kakao');
+  if(kk&&key){
+    var s=document.createElement('script');s.src='https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js';s.crossOrigin='anonymous';
+    s.onload=function(){try{Kakao.init(key);kk.hidden=false}catch(e){}};document.head.appendChild(s);
+    kk.addEventListener('click',function(){Kakao.Share.sendScrap({requestUrl:url})});
+  }
+})();
+</script>
+</body>
+</html>
