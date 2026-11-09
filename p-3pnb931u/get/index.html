@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="ko" data-theme="light">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="color-scheme" content="light only">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>인벨 다운로드 — 휴대폰 · 학원 컴퓨터</title>
+<meta name="description" content="인벨 앱 다운로드 — Android 휴대폰 · 태블릿(Google Play) · iPhone(App Store) · Windows PC 프로그램. 원장님·선생님·학부모님 같은 앱이에요.">
+<link rel="canonical" href="https://inbell.co.kr/get">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="인벨">
+<meta property="og:title" content="인벨 다운로드">
+<meta property="og:description" content="휴대폰도, 컴퓨터도 같은 화면이에요.">
+<meta property="og:image" content="https://inbell.co.kr/assets/og/owner.png">
+<meta property="og:url" content="https://inbell.co.kr/get">
+<meta name="theme-color" content="#1D1D76">
+<link rel="icon" href="../inbell_logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap">
+<link rel="stylesheet" href="../assets/deck.css">
+<link rel="stylesheet" href="../assets/topbar.css">
+<script src="../assets/dl.js"></script>
+<style>
+  /* 103-C — 다크 모드 규칙 없음 · <html data-theme="light"> 로 어느 기기에서나 흰 바탕(원장·학부모 페이지처럼 색 고정) */
+  /* 세션 102-M — 흰 바탕 한 장 · 줄 넷 · 지금 기기 줄만 연남색 · 왼쪽 동그라미 그림 하나(같은 남색 선 아이콘 · 사과·윈도우 로고 없음) · 오른쪽 남색 「다운로드」(배지 없음) */
+  html, body { overflow: auto; height: auto; min-height: 100%; }
+  body { background: var(--bg); }
+  .page { max-width: 640px; margin: 0 auto; padding: calc(84px + env(safe-area-inset-top, 0px)) 20px 64px; display: flex; flex-direction: column; gap: 28px; }
+  h1 { margin: 0; font-size: 30px; font-weight: 900; letter-spacing: -.8px; }
+  .lead { margin: 6px 0 0; font-size: 15.5px; color: var(--mute); }
+  .rows { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+  .row { display: flex; align-items: center; gap: 16px; padding: 20px 4px; border-bottom: 1px solid var(--line); scroll-margin-top: 90px; flex-wrap: wrap; }
+  .ic { flex: none; width: 48px; height: 48px; border-radius: 50%; background: var(--chip); color: var(--accent); display: flex; align-items: center; justify-content: center; }
+  .ic svg { width: 26px; height: 26px; }
+  .dlb { display: inline-flex; align-items: center; gap: 7px; height: 42px; padding: 0 18px; border-radius: 11px; background: #1D1D76; color: #FFFFFF; font-size: 15px; font-weight: 800; text-decoration: none; }
+  .dlb .tri { width: 11px; height: 11px; opacity: .85; } .dlb small { font-size: 11.5px; font-weight: 700; opacity: .8; }
+  .dlb.off { background: var(--chip); color: var(--mute); } .soon { font-size: 12.5px; font-weight: 700; color: var(--mute); margin-right: 8px; }
+  #pcact { display: inline-flex; align-items: center; }
+  #macact { display: inline-flex; align-items: center; }
+  /* 앱 세션 132 — Windows 지금 이 기기 카드 안 경고 안내 한 줄(카드 맨 아래 · 줄 전체 폭) */
+  .row.me:has(.pc-warn) { flex-wrap: wrap !important; }
+  .pc-warn { grid-column: 1 / -1; flex-basis: 100%; order: 9; margin-top: 10px; font-size: 13px; line-height: 1.5; color: #64748B; }
+  .row.me .dlb.off { background: var(--bg); border: 1px solid var(--line); }
+  .l { flex: 1 1 180px; display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+  .l b { font-size: 17px; font-weight: 800; } .l span { font-size: 13.5px; color: var(--mute); }
+  .act { flex: none; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .row.me { background: #EEF0FB; border-radius: 16px; border-bottom-color: transparent; padding: 20px 16px; margin: 8px 0; }
+  .row.me .l b { font-size: 19px; font-weight: 900; }
+  .row.me .ic { background: var(--bg); }
+  .me-tag { display: none; font-size: 12px; font-weight: 800; color: var(--accent); }
+  .row.me .me-tag { display: inline; }
+  .st { margin: 0; font-size: 13px; font-weight: 800; color: var(--mute); }
+  ol.s { margin: 12px 0 0; padding: 0; list-style: none; counter-reset: n; display: flex; flex-direction: column; gap: 14px; }
+  ol.s li { counter-increment: n; display: grid; grid-template-columns: 26px 1fr; column-gap: 12px; row-gap: 2px; }
+  ol.s li::before { content: counter(n); grid-row: span 2; width: 24px; height: 24px; border-radius: 50%; background: var(--chip); color: var(--accent); font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+  ol.s b { font-size: 15px; } ol.s span { font-size: 13.5px; color: var(--mute); }
+  .alt { align-self: center; font-size: 13.5px; font-weight: 700; color: var(--accent); text-decoration: none; }
+
+
+.row{flex-wrap:nowrap}
+.act{margin-left:auto}
+@media (max-width:560px){.row{flex-wrap:wrap}.act{margin-left:0;width:100%}.act>*{flex:1}.dlb,.row .act>span{width:100%;justify-content:center}.act>span{display:flex;align-items:center;justify-content:center;gap:8px}}
+.lead{max-width:none}
+</style>
+<style>.row{align-items:flex-start}.row .ic{margin-top:1px}.row .act{align-self:center}</style><style>.foot .foot-l span{color:#94A3B8;font-weight:400}.foot a{color:#64748B;font-weight:400}.foot{font-size:12.5px}</style><style>
+.fixfoot{position:fixed!important;left:0;right:0;bottom:0;margin:0!important;z-index:30;background:#FFFFFF;border-top:1px solid #EEF0F5;padding:12px 16px calc(env(safe-area-inset-bottom,0px) + 12px)!important;box-sizing:border-box}
+body{padding-bottom:120px}
+</style><style>body{padding-bottom:0!important}.page{min-height:100vh;box-sizing:border-box;justify-content:safe center;padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))!important}</style><style>
+/* 줄 넷 같은 안쪽 여백 · 지금 기기 줄은 배경만 다르게(아이콘 자리 같음) */
+.row{padding:18px 16px!important;margin:0!important}
+.row.me{margin:6px 0!important;padding:18px 16px!important}
+.page{max-width:620px!important;padding-left:clamp(28px,8vw,64px)!important;padding-right:clamp(28px,8vw,64px)!important;box-sizing:content-box!important;min-height:calc(100vh - 168px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px))!important}
+
+/* 103-C-1 — 360폭 휴대폰: 「○○ · 지금 이 기기」 한 줄(글자 크기 그대로 · 옆 여백 · 줄 안쪽 여백 · 간격만 줄임) */
+@media (max-width:400px){.page{padding-left:16px!important;padding-right:16px!important}.row,.row.me{padding:16px 12px!important}.row{gap:12px}.row .l b{white-space:nowrap}}
+
+/* 103-C-2 새 안(목업 WAnbmKXgSXe3RqPeZ6g1UH) — 휴대폰 폭(560 이하)만: 지금 이 기기 카드 하나만 큰 버튼 · 다른 기기는 작은 줄 셋 · PC 폭 변경 0 */
+.others-h{display:none}
+/* 103-C-3 — PC 폭에도 「다른 기기」 작은 제목(13 · 800 · 회색) · 지금 이 기기 카드 아래 · 첫 줄 위 · 왼쪽 = 줄 아이콘 시작선(줄 안쪽 여백 16) · 휴대폰 폭은 아래 560 규칙 그대로 */
+@media (min-width:561px){.others-h{display:block;margin:14px 16px 6px;font-size:13px;font-weight:800;color:var(--mute)}.others-h + .row{border-top:1px solid var(--line)}}
+/* 103-C-2 — Android · iPhone 줄 설명 글 지움(PC · 휴대폰 모두) · 설명 없는 줄은 이름을 아이콘과 세로 가운데(PC 폭 포함) */
+.row .l:not(:has(> span)){align-self:center}
+.dlb .short{display:none}
+@media (max-width:560px){
+ .page{gap:22px!important}
+ .rows{border-top:0!important}
+ .others-h{display:block;margin:14px 4px 6px;font-size:13px;font-weight:800;color:var(--mute)}
+ .row:not(.me){flex-wrap:nowrap!important;align-items:center!important;gap:12px!important;padding:10px 4px!important;border-bottom:1px solid var(--line)}
+ .others-h + .row{border-top:1px solid var(--line)}
+ .row:not(.me) .ic{width:38px;height:38px;margin-top:0!important}
+ .row:not(.me) .ic svg{width:21px;height:21px}
+ .row:not(.me) .l{flex:1 1 auto}
+ .row:not(.me) .l b{font-size:15.5px;font-weight:800}
+ .row:not(.me) .l > span{display:none}
+ .row:not(.me) .act{width:auto!important;margin-left:auto!important;flex:none}
+ .row:not(.me) .act>*{flex:none!important}
+ .row:not(.me) .act>span{display:inline-flex!important;width:auto!important}
+ .row:not(.me) .dlb{width:auto!important;height:34px;padding:0 16px;font-size:13.5px;border-radius:999px}
+ .row:not(.me) .dlb.off{background:var(--chip);color:var(--mute);border:0}
+ .row:not(.me) .dlb .full{display:none} .row:not(.me) .dlb .short{display:inline}
+ .row.me .dlb{height:48px}
+ .row.me .l{align-self:center}
+}
+
+/* 103-C-2 최종(목업 v3) — 지금 이 기기 카드: 맨 위 작은 글 「지금 이 기기」 → 아이콘 38 · 이름 15.5/800(다른 기기 줄과 같은 크기) → 휴대폰 = 아래 넓은 버튼 48 · PC = 오른쪽 버튼 */
+.row.me{display:grid!important;grid-template-columns:38px 1fr;column-gap:12px;row-gap:10px;align-items:center!important;padding:14px 16px 16px!important}
+.row.me .me-top{grid-column:1 / -1;font-size:12.5px;font-weight:800;color:var(--accent)}
+.row.me .ic{width:38px!important;height:38px!important;margin-top:0!important;background:#FFFFFF}
+.row.me .ic svg{width:21px!important;height:21px!important}
+.row.me .l b{font-size:15.5px!important;font-weight:800!important}
+.row.me .me-tag{display:none!important}
+.row.me .act{grid-column:1 / -1;width:100%!important;margin:2px 0 0!important}
+.row.me .act>*{width:100%}
+.row.me .dlb{width:100%;justify-content:center;height:48px}
+@media (max-width:560px){ .row:not(.me){padding:10px 16px!important} .others-h{margin:14px 16px 6px!important} }
+@media (min-width:561px){ .row.me{grid-template-columns:38px 1fr auto} .row.me .act{grid-column:auto;width:auto!important;margin:0!important} .row.me .act>*{width:auto} .row.me .dlb{width:auto;height:42px} }
+
+/* 103-C-2 — 짧은 휴대폰 화면(S9 크롬 360×612 등 · 높이 640 이하)만: 위 · 아래 여백을 줄여 스크롤 없이 한 화면(390×690 · 844 는 그대로) */
+@media (max-width:560px) and (max-height:640px){.page{padding-top:calc(64px + env(safe-area-inset-top,0px))!important;padding-bottom:calc(70px + env(safe-area-inset-bottom,0px))!important;min-height:0!important}}
+</style><style>/* 103-C-3 — 브라우저 강제 다크 모드 막기(색 고정) */:root{color-scheme:only light}</style>
+<style>
+/* 103-C-5 — 휴대폰(760 이하) 글자 한 벌: 제목 22 · 부제 14 · 기기 이름 15 · 작은 글 12.5 · 지금 기기 단추 15 / 48(목업) · 모서리 12 */
+@media (max-width:760px){h1{font-size:22px!important}.lead{font-size:14px!important}.row .l b,.row.me .l b{font-size:15px!important}.row .l>span{font-size:12.5px!important}.others-h,.row.me .me-top{font-size:12.5px!important}.row.me .dlb{font-size:15px!important;border-radius:12px!important}}
+/* 103-C-5 — 태블릿(761~1023): 내용 최대 폭 640 · 좌우 40 · 제목 32 · 부제 17 · 기기 이름 18 · 설명 14.5 · 아이콘 48 · 줄 안쪽 20/18 · 단추 16/48 · 작은 글 15 */
+@media (min-width:761px) and (max-width:1023px){.page{max-width:640px!important;padding-left:40px!important;padding-right:40px!important;box-sizing:content-box!important}.page{justify-content:flex-start!important;padding-top:calc(150px + env(safe-area-inset-top,0px))!important}h1{font-size:32px!important}.lead{font-size:17px!important}.row .l b,.row.me .l b{font-size:18px!important}.row .l>span{font-size:14.5px!important}.ic,.row.me .ic{width:48px!important;height:48px!important}.ic svg,.row.me .ic svg{width:26px!important;height:26px!important}.row,.row.me{padding:20px 18px!important}.row.me{grid-template-columns:48px 1fr auto!important}.dlb,.row.me .dlb{font-size:16px!important;height:48px!important;border-radius:12px!important}.others-h,.row.me .me-top{font-size:15px!important}.others-h{margin-left:18px!important}}
+</style>
+<style>
+/* 103-C-6 — 기기 줄 = 이름 한 줄(설명 없음 · 모든 폭) · 아이콘 · 단추와 세로 가운데 · 지금 이 기기 단추 = 남색 채움 · 다른 기기 단추 = 바탕 없음 · 남색 테두리 1.5 · 남색 글자 · 「곧 열려요」 회색 그대로 */
+.row .l>span{display:none!important}
+.row,.row:not(.me){align-items:center!important}
+.row .ic{margin-top:0!important}
+.row .l{align-self:center!important}
+.row:not(.me) .dlb:not(.off){background:transparent!important;color:#1D1D76!important;box-shadow:inset 0 0 0 1.5px #1D1D76!important}
+.row.me .dlb:not(.off){background:#1D1D76!important;color:#FFFFFF!important;box-shadow:none!important}
+</style>
+<style>/* 103-C-7 휴대폰 좌우 여백 28(원장 · 학부모 마지막 장과 같게) · 지금 이 기기 카드 안쪽 16 */@media (max-width:760px){.page{padding-left:28px!important;padding-right:28px!important}.row.me{padding-left:16px!important;padding-right:16px!important}}</style>
+</head>
+<body>
+<script src="../assets/topbar.js" data-page="get"></script>
+<main class="page">
+  <div><h1>인벨 다운로드</h1><p class="lead">휴대폰도, 컴퓨터도 같은 화면이에요.</p></div>
+  <div class="rows" id="rows">
+    <div class="row" id="android" data-os="android">
+      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.8"/><path d="M10.2 5.2h3.6"/></svg></span>
+      <div class="l"><b>Android 휴대폰 · 태블릿 <span class="me-tag">지금 이 기기</span></b></div>
+      <div class="act"><a class="dlb" href="https://play.google.com/store/apps/details?id=com.jinuri.inbell" target="_blank" rel="noopener"><span>Google Play에서 다운로드</span></a></div>
+    </div>
+    <div class="row" id="ios" data-os="ios">
+      <span class="ic " aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.8"/><path d="M10.2 5.2h3.6"/></svg></span>
+      <div class="l"><b>iPhone · iPad <span class="me-tag">지금 이 기기</span></b></div>
+      <div class="act"><a class="dlb" href="https://apps.apple.com/kr/app/id6818784496" target="_blank" rel="noopener"><span>App Store에서 다운로드</span></a></div>
+    </div>
+    <div class="row" id="pc" data-os="windows">
+      <span class="ic " aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="12.5" rx="1.8"/><path d="M8.5 20h7M12 16.5V20"/></svg></span>
+      <div class="l"><b>Windows PC <span class="me-tag">지금 이 기기</span></b></div>
+      <div class="act"><span id="pcact"><span class="dlb off"><span>곧 열려요</span></span></span></div>
+    </div>
+    <div class="row" id="mac" data-os="mac"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="12" rx="1.8"/><path d="M2 19.5h20"/></svg></span><div class="l"><b>Mac <span class="me-tag">지금 이 기기</span></b></div><div class="act"><span id="macact"><span class="dlb off"><span>곧 열려요</span></span></span></div></div>
+  </div>
+  
+  <footer class="foot fixfoot"><div class="foot-l"><a href="mailto:help@inbell.co.kr">help@inbell.co.kr</a><a href="/terms/">이용약관</a><a href="/privacy.html">개인정보처리방침</a><a href="/delete-account.html">계정 삭제</a></div></footer>
+</main>
+<script>
+(function () {
+  var D = window.INBELL_DL || {}; var rows = document.getElementById('rows');
+  if (D.PC_SETUP_URL) document.getElementById('pcact').innerHTML = '<a class="dlb" href="' + D.PC_SETUP_URL + '"><span>Windows용 다운로드</span></a>';
+  // 앱 세션 132 — 공개: Mac 줄 열림(공증판)
+  if (D.MAC) document.getElementById('macact').innerHTML = '<a class="dlb" href="' + D.MAC + '"><span>Mac용 다운로드</span></a>';
+  var me = rows.querySelector('[data-os="' + D.os + '"]');
+  // 103-C-8 결정 — Windows 「지금 이 기기」 카드 안에만 경고 창 안내(서명 없는 설치 파일 · 「Windows의 PC 보호」)
+  if (me && D.os === 'windows' && D.PC_SETUP_URL) { var w = document.createElement('div'); w.className = 'pc-warn'; w.textContent = '경고 창이 뜨면 〈추가 정보〉 → 〈실행〉을 누르세요'; me.appendChild(w); }
+  if (me) { me.classList.add('me'); rows.insertBefore(me, rows.firstChild); }
+  // 103-C-6 — PC(1024 이상) 상단 바 로고 · 「다운로드」 = 내용 폭(.page 안쪽)
+  function col() { var p = document.querySelector('.page'); if (!p || !window.__barCol) return; if (innerWidth < 1024) { window.__barCol(null); return; }
+    var r = p.getBoundingClientRect(), cs = getComputedStyle(p); window.__barCol(Math.round(r.left + parseFloat(cs.paddingLeft)), Math.round(r.right - parseFloat(cs.paddingRight))); }
+  col(); addEventListener('resize', col); addEventListener('load', col);
+  // 103-C-2 — 카드 맨 위 작은 글 「지금 이 기기」
+  if (me) { var mt = document.createElement('div'); mt.className = 'me-top'; mt.textContent = '지금 이 기기'; me.insertBefore(mt, me.firstChild); }
+  // 103-C-2 — 휴대폰 폭에서만 보이는 「다른 기기」 제목 · 남은 줄 단추 짧은 글 「다운로드」(PC 는 원래 글 그대로 · CSS 가 고름)
+  var oh = document.createElement('div'); oh.className = 'others-h'; oh.textContent = '다른 기기';
+  if (me && me.nextSibling) rows.insertBefore(oh, me.nextSibling);
+  rows.querySelectorAll('.row .dlb:not(.off) > span').forEach(function (x) {
+    var f = document.createElement('span'); f.className = 'full'; f.textContent = x.textContent;
+    var t = document.createElement('span'); t.className = 'short'; t.textContent = '다운로드';
+    x.replaceWith(f, t);
+  });
+})();
+</script>
+</body>
+</html>
