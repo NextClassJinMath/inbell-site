@@ -5,4 +5,48 @@
   <url><loc>https://inbell.co.kr/get</loc></url>
   <url><loc>https://inbell.co.kr/terms/</loc></url>
   <url><loc>https://inbell.co.kr/privacy.html</loc></url>
+  <url><loc>https://inbell.co.kr/help/</loc></url>
+  <url><loc>https://inbell.co.kr/help/parent/</loc></url>
+  <url><loc>https://inbell.co.kr/help/student/</loc></url>
+  <url><loc>https://inbell.co.kr/help/teacher/</loc></url>
+  <url><loc>https://inbell.co.kr/help/owner/</loc></url>
+  <url><loc>https://inbell.co.kr/help/parent/absent-other-day/</loc></url>
+  <url><loc>https://inbell.co.kr/help/parent/absent-today/</loc></url>
+  <url><loc>https://inbell.co.kr/help/parent/add-guardian/</loc></url>
+  <url><loc>https://inbell.co.kr/help/parent/child-app-consent/</loc></url>
+  <url><loc>https://inbell.co.kr/help/parent/depart-homework-alert/</loc></url>
+  <url><loc>https://inbell.co.kr/help/parent/early-pickup/</loc></url>
+  <url><loc>https://inbell.co.kr/help/parent/guardian-address/</loc></url>
+  <url><loc>https://inbell.co.kr/help/parent/install-connect/</loc></url>
+  <url><loc>https://inbell.co.kr/help/parent/late-today/</loc></url>
+  <url><loc>https://inbell.co.kr/help/parent/message-teacher/</loc></url>
+  <url><loc>https://inbell.co.kr/help/parent/no-notifications/</loc></url>
+  <url><loc>https://inbell.co.kr/help/parent/not-arrived-alert/</loc></url>
+  <url><loc>https://inbell.co.kr/help/parent/notices-schedule/</loc></url>
+  <url><loc>https://inbell.co.kr/help/parent/phone-number-changed/</loc></url>
+  <url><loc>https://inbell.co.kr/help/student/alert-settings/</loc></url>
+  <url><loc>https://inbell.co.kr/help/student/install-consent/</loc></url>
+  <url><loc>https://inbell.co.kr/help/student/kiosk-check/</loc></url>
+  <url><loc>https://inbell.co.kr/help/student/message-teacher/</loc></url>
+  <url><loc>https://inbell.co.kr/help/student/running-late/</loc></url>
+  <url><loc>https://inbell.co.kr/help/teacher/attendance-today/</loc></url>
+  <url><loc>https://inbell.co.kr/help/teacher/consult-chat/</loc></url>
+  <url><loc>https://inbell.co.kr/help/teacher/group-notice/</loc></url>
+  <url><loc>https://inbell.co.kr/help/teacher/homework-check/</loc></url>
+  <url><loc>https://inbell.co.kr/help/teacher/invite-start/</loc></url>
+  <url><loc>https://inbell.co.kr/help/teacher/late-student/</loc></url>
+  <url><loc>https://inbell.co.kr/help/teacher/personal-time/</loc></url>
+  <url><loc>https://inbell.co.kr/help/teacher/write-notice/</loc></url>
+  <url><loc>https://inbell.co.kr/help/owner/address-request/</loc></url>
+  <url><loc>https://inbell.co.kr/help/owner/app-install/</loc></url>
+  <url><loc>https://inbell.co.kr/help/owner/class-schedule/</loc></url>
+  <url><loc>https://inbell.co.kr/help/owner/consult-book/</loc></url>
+  <url><loc>https://inbell.co.kr/help/owner/create-academy/</loc></url>
+  <url><loc>https://inbell.co.kr/help/owner/edu-report/</loc></url>
+  <url><loc>https://inbell.co.kr/help/owner/kiosk/</loc></url>
+  <url><loc>https://inbell.co.kr/help/owner/late-auto/</loc></url>
+  <url><loc>https://inbell.co.kr/help/owner/notice-send/</loc></url>
+  <url><loc>https://inbell.co.kr/help/owner/student-edit/</loc></url>
+  <url><loc>https://inbell.co.kr/help/owner/student-register/</loc></url>
+  <url><loc>https://inbell.co.kr/help/owner/teacher-invite/</loc></url>
 </urlset>
