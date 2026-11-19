@@ -9,9 +9,9 @@
   // 103-C-8 — Mac 설치 파일을 사이트에서 뺌(설치 파일 안에 공개 전 비밀 주소가 들어 있음 · 대장님 결정 기다림) · 빈 칸 = 곧 열려요
   // 앱 세션 132 — 공개(대장님 11-03): 공개 주소판(app.inbell.co.kr) 두 설치 파일 = 이 저장소 릴리스(서명·공증 Mac · Windows 서명 없음)
   // 앱 세션 137-3 — PC 1.0.9(세로 축소 아이콘) = 릴리스 pc-1.0.9
-  // 앱 세션 176 ⑰ — PC 1.0.11(최대화 □/❐ · 새 PC 판 띠) = 릴리스 pc-1.0.11
-  var REL = 'https://github.com/NextClassJinMath/inbell-site/releases/download/pc-1.0.11/';
-  var MAC = REL + 'Inbell-1.0.11.dmg';
+  // 앱 세션 176 ⑱ — PC 1.0.12(진짜 최대화 · 창 붙이기) = 릴리스 pc-1.0.12
+  var REL = 'https://github.com/NextClassJinMath/inbell-site/releases/download/pc-1.0.12/';
+  var MAC = REL + 'Inbell-1.0.12.dmg';
   var GET = new URL('../get/', (document.currentScript && document.currentScript.src) || location.href).pathname;
   // PC 설치 파일 주소 — 공개 때 이 한 줄만 바꾼다(빈 칸 = /get#pc). 비밀 주소는 이 공개 저장소에 절대 적지 않는다.
   var PC_SETUP_URL = REL + 'Inbell-Setup.exe';
